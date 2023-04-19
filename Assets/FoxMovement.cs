@@ -15,6 +15,8 @@ public class FoxMovement : MonoBehaviour
     [SerializeField] private Animator foxAnimator;
     [SerializeField] private string squashStartStrin, squashEndString;
 
+    [SerializeField] private Transform body;
+
 
     private bool isUnderBed, waitToSquashBackUp; //isUnderbed on kun ollaan sängyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan sängyn alla
 
@@ -49,7 +51,10 @@ public class FoxMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(movementAxis != Vector3.zero)
+        {
+            
+        }
     }
 
     Vector3 movementAxis;

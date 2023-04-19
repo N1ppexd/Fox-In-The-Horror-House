@@ -57,6 +57,7 @@ MonoBehaviour:
   foxAnimator: {fileID: 4259577743496660680}
   squashStartStrin: foxSquash
   squashEndString: foxSquashEnd
+  body: {fileID: 4259577744564719282}
 --- !u!114 &4259577743496660681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4259577744366935224}
   m_LocalRotation: {x: 0.10935596, y: -0, z: -0, w: 0.9940027}
-  m_LocalPosition: {x: 0, y: 4.9, z: -22}
+  m_LocalPosition: {x: 0.47392845, y: 5.0551085, z: -22.60538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
