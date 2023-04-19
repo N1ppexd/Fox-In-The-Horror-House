@@ -16,7 +16,7 @@ public class FoxMovement : MonoBehaviour
     [SerializeField] private string squashStartStrin, squashEndString;
 
 
-    private bool isUnderBed;
+    private bool isUnderBed, waitToSquashBackUp; //isUnderbed on kun ollaan sängyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan sängyn alla
 
     private bool isGrounded;//kun kettu on maassa
 
@@ -73,8 +73,18 @@ public class FoxMovement : MonoBehaviour
 
     private void FoxSquash(bool enabled)
     {
-        if (!isGrounded || isUnderBed) //jos on ilmassa tai on sängyn alla....
+        if (!isGrounded) //jos on ilmassa tai on sängyn alla....
             return;
+
+        if (isUnderBed)
+        {
+            if (enabled)
+                waitToSquashBackUp = false;
+            if (!enabled)
+                waitToSquashBackUp = true;
+
+            return;
+        }
 
         if (enabled)
         {
@@ -114,6 +124,12 @@ public class FoxMovement : MonoBehaviour
         if (other.gameObject.CompareTag("UnderBed"))
         {
             isUnderBed = false;
+
+            if (waitToSquashBackUp)
+            {
+                FoxSquash(false);
+                waitToSquashBackUp = false;
+            }
         }
     }
 }
