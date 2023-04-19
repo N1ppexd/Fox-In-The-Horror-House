@@ -62,6 +62,11 @@ public class FoxMovement : MonoBehaviour
         rb.AddForce(jumpDirVector);
     }
 
+    private void FoxSquash()
+    {
+        if (!isGrounded)
+            return;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
