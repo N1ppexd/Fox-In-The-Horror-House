@@ -6,6 +6,7 @@ TagManager:
   tags:
   - floor
   - bed
+  - UnderBed
   layers:
   - Default
   - TransparentFX

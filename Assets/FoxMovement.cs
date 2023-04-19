@@ -15,6 +15,9 @@ public class FoxMovement : MonoBehaviour
     [SerializeField] private Animator foxAnimator;
     [SerializeField] private string squashStartStrin, squashEndString;
 
+
+    private bool isUnderBed;
+
     private bool isGrounded;//kun kettu on maassa
 
     private void Awake()
@@ -70,7 +73,7 @@ public class FoxMovement : MonoBehaviour
 
     private void FoxSquash(bool enabled)
     {
-        if (!isGrounded)
+        if (!isGrounded || isUnderBed) //jos on ilmassa tai on sängyn alla....
             return;
 
         if (enabled)
@@ -93,6 +96,24 @@ public class FoxMovement : MonoBehaviour
         {
             isGrounded = false;
             FoxSquash(false);
+        }
+    }
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("UnderBed"))
+        {
+            isUnderBed = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("UnderBed"))
+        {
+            isUnderBed = false;
         }
     }
 }
