@@ -12,6 +12,9 @@ public class FoxMovement : MonoBehaviour
     [SerializeField] Rigidbody rb; //rigidbody ketulle...
     [SerializeField] private float speed, jumpForce; //speed on liikkuminen, jump force on hyppy...
 
+    [SerializeField] private Animator foxAnimator;
+    [SerializeField] private string squashStartStrin, squashEndString;
+
     private bool isGrounded;//kun kettu on maassa
 
     private void Awake()
@@ -22,6 +25,9 @@ public class FoxMovement : MonoBehaviour
         inputMaster.Player.Move.canceled += _ => FoxMove(_.ReadValue<Vector2>());
 
         inputMaster.Player.Jump.performed += _ => FoxJump();
+
+        inputMaster.Player.squashHide.performed += _ => FoxSquash(true); //aloitetaan kyykk‰‰minen
+        inputMaster.Player.squashHide.canceled += _ => FoxSquash(false); //lopetetaan kyykk‰‰minen
 
 
         isGrounded = true;
@@ -62,10 +68,17 @@ public class FoxMovement : MonoBehaviour
         rb.AddForce(jumpDirVector);
     }
 
-    private void FoxSquash()
+    private void FoxSquash(bool enabled)
     {
         if (!isGrounded)
             return;
+
+        if (enabled)
+        {
+            foxAnimator.Play(squashStartStrin);
+        }
+        else if(!enabled)
+            foxAnimator.Play(squashEndString);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -77,6 +90,9 @@ public class FoxMovement : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("floor"))
+        {
             isGrounded = false;
+            FoxSquash(false);
+        }
     }
 }
