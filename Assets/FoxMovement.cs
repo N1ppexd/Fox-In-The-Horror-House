@@ -96,13 +96,13 @@ public class FoxMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("floor"))
+        if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
             isGrounded = true;
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("floor"))
+        if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
         {
             isGrounded = false;
             FoxSquash(false);
