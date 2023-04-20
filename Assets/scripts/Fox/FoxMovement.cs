@@ -10,7 +10,7 @@ public class FoxMovement : MonoBehaviour
 
 
     [SerializeField] Rigidbody rb; //rigidbody ketulle...
-    [SerializeField] private float speed, jumpForce; //speed on liikkuminen, jump force on hyppy...
+    [SerializeField] private float speed, jumpForce, runSpeed; //speed on liikkuminen, jump force on hyppy...
 
     [SerializeField] private Animator foxAnimator;
     [SerializeField] private string squashStartStrin, squashEndString;
@@ -24,12 +24,20 @@ public class FoxMovement : MonoBehaviour
 
     [SerializeField] private float turnSpeed; //nopeus, jolla kettu kääntyy
 
+
+    private bool isRunning;
+
     private void Awake()
     {
         inputMaster = new InputMaster();
 
         inputMaster.Player.Move.performed += _ => FoxMove(_.ReadValue<Vector2>());
         inputMaster.Player.Move.canceled += _ => FoxMove(_.ReadValue<Vector2>());
+
+        inputMaster.Player.Run.performed += _ => isRunning = true;
+        inputMaster.Player.Run.canceled += _ => isRunning = false;
+
+
 
         inputMaster.Player.Jump.performed += _ => FoxJump();
 
@@ -51,7 +59,7 @@ public class FoxMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(movementAxis != Vector3.zero)
         {
@@ -64,6 +72,8 @@ public class FoxMovement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
                 //Quaternion.Euler(0, angle, 0);
         }
+
+        rb.velocity = RunSpeed(isRunning);
     }
 
     Vector3 movementAxis;
@@ -73,8 +83,17 @@ public class FoxMovement : MonoBehaviour
         movementAxis = Vector3.Lerp(movementAxis, toBeMovemedAxis, turnSpeed).normalized;
 
         Debug.Log("axis = " + movementAxis);
+        
+    }
 
-        rb.velocity = movementAxis * speed  + Vector3.up * rb.velocity.y; //kettu liikkuu...
+    private Vector3 RunSpeed(bool running)
+    {
+        if (!running)
+            return movementAxis * speed + Vector3.up * rb.velocity.y; //kettu liikkuu...
+        if (isRunning)
+            return movementAxis * runSpeed + Vector3.up * rb.velocity.y; //kettu liikkuu...
+
+        return Vector3.zero;
     }
 
     private void FoxJump()

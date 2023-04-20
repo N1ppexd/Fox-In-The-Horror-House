@@ -54,11 +54,12 @@ MonoBehaviour:
   rb: {fileID: 4259577743496660694}
   speed: 10
   jumpForce: 500
+  runSpeed: 20
   foxAnimator: {fileID: 4259577743496660680}
   squashStartStrin: foxSquash
   squashEndString: foxSquashEnd
   body: {fileID: 4259577744564719282}
-  turnSpeed: 20
+  turnSpeed: 10
 --- !u!114 &4259577743496660681
 MonoBehaviour:
   m_ObjectHideFlags: 0
