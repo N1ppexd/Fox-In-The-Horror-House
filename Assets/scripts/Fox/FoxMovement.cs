@@ -13,7 +13,7 @@ public class FoxMovement : MonoBehaviour
     [SerializeField] private float speed, jumpForce, runSpeed; //speed on liikkuminen, jump force on hyppy...
 
     [SerializeField] private Animator foxAnimator;
-    [SerializeField] private string squashStartStrin, squashEndString;
+    [SerializeField] private string squashStartStrin, squashEndString, walk, run, jump;
 
     [SerializeField] private Transform body;
 
@@ -70,7 +70,14 @@ public class FoxMovement : MonoBehaviour
 
 
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
-                //Quaternion.Euler(0, angle, 0);
+            //Quaternion.Euler(0, angle, 0);
+
+            if (isRunning && !isUnderBed && isGrounded)
+                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(run) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
+                    foxAnimator.Play(run);
+            if(!isRunning && !isUnderBed && isGrounded)
+                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
+                    foxAnimator.Play(walk);
         }
 
         rb.velocity = RunSpeed(isRunning);
@@ -100,6 +107,8 @@ public class FoxMovement : MonoBehaviour
     {
         if (!isGrounded)
             return;
+
+        
 
         Vector3 jumpDirVector = Vector3.up * jumpForce;
         rb.AddForce(jumpDirVector);
@@ -139,6 +148,7 @@ public class FoxMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
         {
             isGrounded = false;
+            foxAnimator.Play(jump);
             FoxSquash(false);
         }
     }
