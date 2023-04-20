@@ -62,6 +62,7 @@ MonoBehaviour:
   walk: walk
   run: run
   jump: fly
+  idle: lookAround
   body: {fileID: 4259577744564719282}
   turnSpeed: 10
 --- !u!114 &4259577743496660681
