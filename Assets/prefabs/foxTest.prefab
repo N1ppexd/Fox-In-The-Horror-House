@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4259577743496660694}
   speed: 10
-  jumpForce: 800
+  jumpForce: 600
   runSpeed: 20
   foxAnimator: {fileID: 5121035464891518988}
   squashStartStrin: crounch
