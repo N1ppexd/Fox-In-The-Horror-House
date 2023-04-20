@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,13 +28,11 @@ public class FoxMovement : MonoBehaviour
     [SerializeField] private float turnSpeed; //nopeus, jolla kettu kääntyy
 
     [SerializeField] private float maxRunDuration; //maksimi määrä sekunneissa, kuinka kauan kettu voi juosta
-    [SerializeField] private float runCoolDown; //aika sekunneissa, kuinka kauan menee että voi juosta taas....
+    [SerializeField] private float maxRunCoolDown; //aika sekunneissa, kuinka kauan menee että voi juosta taas....
 
 
     private bool isRunning;
-
-
-
+    [SerializeField] private float currentRunDuration, currentRunCoolDown;
     private int jumpCount;//käytetään hyppyyn...
 
     private void Awake()
@@ -43,8 +42,8 @@ public class FoxMovement : MonoBehaviour
         inputMaster.Player.Move.performed += _ => FoxMove(_.ReadValue<Vector2>());
         inputMaster.Player.Move.canceled += _ => FoxMove(_.ReadValue<Vector2>());
 
-        inputMaster.Player.Run.performed += _ => isRunning = true;
-        inputMaster.Player.Run.canceled += _ => isRunning = false;
+        inputMaster.Player.Run.performed += _ => isRunning = setRunningMode(true);
+        inputMaster.Player.Run.canceled += _ => isRunning = setRunningMode(false);
 
 
 
@@ -70,7 +69,7 @@ public class FoxMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(movementAxis != Vector3.zero)
+        if(movementAxis != Vector3.zero)        //kun liikutaan, tehdään liikkumisanimaatiot....
         {
             float angle = Vector3.Dot(Vector3.right, movementAxis);
             angle = Mathf.Acos(angle);
@@ -80,15 +79,10 @@ public class FoxMovement : MonoBehaviour
 
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
             //Quaternion.Euler(0, angle, 0);
-
-            if (isRunning && !isUnderBed && isGrounded)
-                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(run) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
-                    foxAnimator.Play(run);
-            if(!isRunning && !isUnderBed && isGrounded)
-                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
-                    foxAnimator.Play(walk);
+            MovementAnim();
+            
         }
-        else
+        else//muuten on vain idelAnimaatio
         {
             if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
                 foxAnimator.Play(idle);
@@ -96,6 +90,42 @@ public class FoxMovement : MonoBehaviour
 
         rb.velocity = RunSpeed(isRunning);
     }
+
+    void Update() //joka frame juttuja tehdään...
+    {
+        if (currentRunCoolDown > 0f)//tämän avulla laitetaan niin, ettei voi juosta liikaa
+        {
+            currentRunCoolDown -= Time.deltaTime;
+        }
+        else if (currentRunCoolDown < 0)
+            currentRunCoolDown = 0;
+
+        if(currentRunDuration > 0f)
+            currentRunDuration -= Time.deltaTime;
+
+        else if (currentRunDuration <= 0)
+        {
+            currentRunDuration = 0;
+            //currentRunCoolDown = maxRunCoolDown;
+            isRunning = false;
+            //setRunningMode(false);
+        }
+    }
+
+
+    void MovementAnim() // täällä valitaan, onko run vai walk animaatio vai kumpikaan...
+    {
+        if (isUnderBed || !isGrounded || foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
+            return;
+
+        if (isRunning)
+            if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(run))
+                foxAnimator.Play(run);
+        if (!isRunning)
+            if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk))
+                foxAnimator.Play(walk);
+    }
+
 
     Vector3 movementAxis;
     private void FoxMove(Vector2 axis)
@@ -105,6 +135,24 @@ public class FoxMovement : MonoBehaviour
 
         Debug.Log("axis = " + movementAxis);
         
+    }
+
+    private bool setRunningMode(bool startRunning)
+    {
+        if (startRunning && currentRunCoolDown <= 0) //jos aloitetaan juokseminen, ja cooldown on mennyt loppuun
+        {
+            currentRunDuration = maxRunDuration;
+
+            Debug.Log("run pitäs toimia");
+
+            return true;
+        }
+        if (!startRunning && currentRunDuration > 0)
+        {
+            currentRunCoolDown = maxRunCoolDown - currentRunDuration;
+            return false;
+        }
+        return startRunning;
     }
 
     private Vector3 RunSpeed(bool running)
