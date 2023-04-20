@@ -22,6 +22,8 @@ public class FoxMovement : MonoBehaviour
 
     private bool isGrounded;//kun kettu on maassa
 
+    [SerializeField] private float turnSpeed; //nopeus, jolla kettu k‰‰ntyy
+
     private void Awake()
     {
         inputMaster = new InputMaster();
@@ -53,7 +55,14 @@ public class FoxMovement : MonoBehaviour
     {
         if(movementAxis != Vector3.zero)
         {
-            
+            float angle = Vector3.Dot(Vector3.right, movementAxis);
+            angle = Mathf.Acos(angle);
+            angle = Mathf.Rad2Deg * angle;
+
+
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
+                //Quaternion.Euler(0, angle, 0);
         }
     }
 
