@@ -65,6 +65,8 @@ MonoBehaviour:
   idle: lookAround
   body: {fileID: 4259577744564719282}
   turnSpeed: 10
+  maxRunDuration: 3
+  maxRunCoolDown: 3
 --- !u!114 &4259577743496660681
 MonoBehaviour:
   m_ObjectHideFlags: 0
