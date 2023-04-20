@@ -13,7 +13,7 @@ public class FoxMovement : MonoBehaviour
     [SerializeField] private float speed, jumpForce, runSpeed; //speed on liikkuminen, jump force on hyppy...
 
     [SerializeField] private Animator foxAnimator;
-    [SerializeField] private string squashStartStrin, squashEndString, walk, run, jump;
+    [SerializeField] private string squashStartStrin, squashEndString, walk, run, jump, idle;
 
     [SerializeField] private Transform body;
 
@@ -26,6 +26,10 @@ public class FoxMovement : MonoBehaviour
 
 
     private bool isRunning;
+
+
+
+    private int jumpCount;//k‰ytet‰‰n hyppyyn...
 
     private void Awake()
     {
@@ -79,6 +83,11 @@ public class FoxMovement : MonoBehaviour
                 if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
                     foxAnimator.Play(walk);
         }
+        else
+        {
+            if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
+                foxAnimator.Play(idle);
+        }
 
         rb.velocity = RunSpeed(isRunning);
     }
@@ -108,7 +117,7 @@ public class FoxMovement : MonoBehaviour
         if (!isGrounded)
             return;
 
-        
+        jumpCount = 0;
 
         Vector3 jumpDirVector = Vector3.up * jumpForce;
         rb.AddForce(jumpDirVector);
@@ -137,7 +146,38 @@ public class FoxMovement : MonoBehaviour
             foxAnimator.Play(squashEndString);
     }
 
+
+
+    private bool isItReallyGrounded()
+    {
+        RaycastHit hit;
+
+        bool rayCastTest = Physics.Raycast(transform.position, -transform.up, out hit);
+
+        if (rayCastTest)
+            if (hit.collider.transform.CompareTag("floor") || hit.collider.transform.CompareTag("bed"))
+                if (hit.distance < 0.1f)
+                    return true;
+
+        return false;
+    }
+
+
+
     private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
+        {
+
+            if (isItReallyGrounded() && jumpCount < 1)
+            {
+                isGrounded = true;
+                jumpCount = 1;
+            }
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
             isGrounded = true;
@@ -147,6 +187,9 @@ public class FoxMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
         {
+            if (isItReallyGrounded() && jumpCount > 0) //kun jumpcount on yli 0. Jos se on 0 tai alle, on hyp‰tty eik‰ tiputtu
+                return;
+
             isGrounded = false;
             foxAnimator.Play(jump);
             FoxSquash(false);
