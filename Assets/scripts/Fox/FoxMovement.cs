@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class FoxMovement : MonoBehaviour
 {
@@ -22,7 +23,11 @@ public class FoxMovement : MonoBehaviour
 
     private bool isGrounded;//kun kettu on maassa
 
+    [Space]
     [SerializeField] private float turnSpeed; //nopeus, jolla kettu k‰‰ntyy
+
+    [SerializeField] private float maxRunDuration; //maksimi m‰‰r‰ sekunneissa, kuinka kauan kettu voi juosta
+    [SerializeField] private float runCoolDown; //aika sekunneissa, kuinka kauan menee ett‰ voi juosta taas....
 
 
     private bool isRunning;
