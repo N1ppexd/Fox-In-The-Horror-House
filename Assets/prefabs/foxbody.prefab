@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 4108275660526788392}
   - component: {fileID: 1149666220409486544}
   m_Layer: 0
-  m_Name: foxTest 1
+  m_Name: foxbody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
