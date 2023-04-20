@@ -69,7 +69,8 @@ public class FoxMovement : MonoBehaviour
     Vector3 movementAxis;
     private void FoxMove(Vector2 axis)
     {
-        movementAxis = new Vector3(axis.x, 0, axis.y);
+        Vector3 toBeMovemedAxis = new Vector3(axis.x, 0, axis.y);
+        movementAxis = Vector3.Lerp(movementAxis, toBeMovemedAxis, turnSpeed).normalized;
 
         Debug.Log("axis = " + movementAxis);
 
