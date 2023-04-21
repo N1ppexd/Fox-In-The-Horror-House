@@ -5,7 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/makuuhuoneTestiScene.unity
+    guid: 4d940bbc489d4ad49bb442df1d709b76
+  - enabled: 1
+    path: Assets/Scenes/taxidermyTestiScene.unity
+    guid: 50b4bcaa078e5ba4dbaa6376eca75076
+  - enabled: 1
+    path: Assets/Scenes/olohuoneTestiScene.unity
+    guid: 36f101009cf861c4d95a36b52b31aa7a
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 0e4963f084ae661439610e2685eaa0e5,
+      type: 2}
