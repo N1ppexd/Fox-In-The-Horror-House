@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyCollectable : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+namespace HorrorFox
+{
+    public class KeyCollectable : MonoBehaviour
     {
-        
+
+        [SerializeField] private ParticleSystem takeKeyParticle;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("fox"))
+            {
+                //takeKeyParticle.Play();
+                Debug.Log("avain otetaan tässä kohtaa....");
+            }
+        }
     }
 }
+

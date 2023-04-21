@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4259577743496660680}
   m_Layer: 0
   m_Name: foxTest
-  m_TagString: Untagged
+  m_TagString: fox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,8 +166,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4259577744366935224}
-  m_LocalRotation: {x: 0.19262338, y: 0.00000008940697, z: -0.000000022351742, w: 0.9812728}
-  m_LocalPosition: {x: -0.0000004768374, y: 4.9, z: -12}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 12.000002, y: 5.9, z: 0.0000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 4259577744564719285}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: fox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5490,6 +5490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: foxTest 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623240865228866962, guid: e9feafd667917c34fa0a154c9bf42671,
+        type: 3}
+      propertyPath: m_TagString
+      value: fox
       objectReference: {fileID: 0}
     - target: {fileID: 3623704478864588971, guid: e9feafd667917c34fa0a154c9bf42671,
         type: 3}
