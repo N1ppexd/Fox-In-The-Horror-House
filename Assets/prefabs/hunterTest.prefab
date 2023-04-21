@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7955387853816880229}
   - component: {fileID: 7955387853816880228}
   - component: {fileID: 7955387853816880227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 7955387854144162213}
   - component: {fileID: 2094213519421385783}
   - component: {fileID: 5312101838587961785}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hunterTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,3 +167,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2094213519421385783}
+  defaultTargetPoints: []
