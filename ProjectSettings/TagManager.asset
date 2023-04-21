@@ -8,6 +8,7 @@ TagManager:
   - bed
   - UnderBed
   - wall
+  - key
   layers:
   - Default
   - TransparentFX
