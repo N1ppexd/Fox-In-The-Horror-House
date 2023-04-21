@@ -35,7 +35,10 @@ namespace HorrorFox.Enemies
                 {
                     if(nextTargetPoint == defaultTargetPoints[i])
                     {
-                        nextTargetPoint = defaultTargetPoints[++i];
+                        if (i + 1 > defaultTargetPoints.Length - 1)
+                            nextTargetPoint = defaultTargetPoints[0];
+                        else
+                            nextTargetPoint = defaultTargetPoints[++i];
                         agent.SetDestination(nextTargetPoint.position);
                     }
                 }
