@@ -14,19 +14,29 @@ namespace HorrorFox.Enemies
 
         private Transform nextTargetPoint;//vihu menee tähän seuraavaksi....
 
+        [SerializeField]private bool isChasingPlayer; //xddd
+
+        [SerializeField] private Transform player;
+
         private void Awake()
         {
             agent.avoidancePriority = Random.Range(1, 100);
 
             nextTargetPoint = defaultTargetPoints[0];
-
+            if (isChasingPlayer)
+                nextTargetPoint = player;
             agent.SetDestination(nextTargetPoint.position);
+            
+
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (nextTargetPoint == null)
+            if(isChasingPlayer)
+                agent.SetDestination(nextTargetPoint.position);
+
+            if (nextTargetPoint == null || !isChasingPlayer)
                 return;
 
             if(transform.position == agent.pathEndPosition)
@@ -44,6 +54,14 @@ namespace HorrorFox.Enemies
                 }
             }
         }
+
+
+        private void ChasePlayer()
+        {
+            isChasingPlayer = true;
+        }
+
     }
+
 }
 

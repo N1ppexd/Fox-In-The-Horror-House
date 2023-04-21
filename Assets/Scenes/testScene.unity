@@ -657,6 +657,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damping: 0
+--- !u!4 &1056035225 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4259577743496660695, guid: cb5e83b220469134686e7908ccae77b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4259577744197401817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1122796732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,6 +1368,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5312101838587961785, guid: 63e97585bf2a9e04f881358a94420207,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1056035225}
+    - target: {fileID: 5312101838587961785, guid: 63e97585bf2a9e04f881358a94420207,
+        type: 3}
+      propertyPath: isChasingPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5312101838587961785, guid: 63e97585bf2a9e04f881358a94420207,
         type: 3}
       propertyPath: defaultTargetPoints.Array.size
