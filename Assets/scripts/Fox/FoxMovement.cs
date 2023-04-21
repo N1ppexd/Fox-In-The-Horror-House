@@ -31,40 +31,56 @@ public class FoxMovement : MonoBehaviour
     [SerializeField] private float maxRunCoolDown; //aika sekunneissa, kuinka kauan menee että voi juosta taas....
 
 
-    private bool isRunning;
-    [SerializeField] private float currentRunDuration, currentRunCoolDown;
+    private bool isRunning, isJumping;//isRunning on true, kun painetaan shiftiä pohjassa. IsRunning on true, kun painetaan hyppy nappia pohjassa.
+    [SerializeField] private float currentRunDuration, currentRunCoolDown, currentJumpDuration;
     private int jumpCount;//käytetään hyppyyn...
 
     private void Awake()
     {
         inputMaster = new InputMaster();
 
-        inputMaster.Player.Move.performed += _ => FoxMove(_.ReadValue<Vector2>());
-        inputMaster.Player.Move.canceled += _ => FoxMove(_.ReadValue<Vector2>());
+        isGrounded = true;
+    }
+
+    #region enabledisable
+
+    private void OnEnable()
+    {
+        inputMaster.Enable();
+
+        inputMaster.Player.Move.performed += FoxMove;
+        inputMaster.Player.Move.canceled += FoxMove;
 
         inputMaster.Player.Run.performed += _ => isRunning = setRunningMode(true);
         inputMaster.Player.Run.canceled += _ => isRunning = setRunningMode(false);
 
 
 
-        inputMaster.Player.Jump.performed += _ => FoxJump();
+        inputMaster.Player.Jump.performed += _ => FoxJump(true);
+        inputMaster.Player.Jump.canceled += _ => FoxJump(false);
 
         inputMaster.Player.squashHide.performed += _ => FoxSquash(true); //aloitetaan kyykkääminen
         inputMaster.Player.squashHide.canceled += _ => FoxSquash(false); //lopetetaan kyykkääminen
-
-
-        isGrounded = true;
-    }
-
-    private void OnEnable()
-    {
-        inputMaster.Enable();
     }
 
     private void OnDisable()
     {
         inputMaster.Disable();
+
+        inputMaster.Player.Move.performed -= FoxMove;
+        inputMaster.Player.Move.canceled -= FoxMove;
+
+        inputMaster.Player.Run.performed -= _ => isRunning = setRunningMode(true);
+        inputMaster.Player.Run.canceled -= _ => isRunning = setRunningMode(false);
+
+
+
+        inputMaster.Player.Jump.performed -= _ => FoxJump(true);
+        inputMaster.Player.Jump.canceled -= _ => FoxJump(false);
+        inputMaster.Player.squashHide.performed -= _ => FoxSquash(true); //aloitetaan kyykkääminen
+        inputMaster.Player.squashHide.canceled -= _ => FoxSquash(false); //lopetetaan kyykkääminen
     }
+    #endregion
 
     // Update is called once per frame
     void FixedUpdate()
@@ -110,8 +126,64 @@ public class FoxMovement : MonoBehaviour
             isRunning = false;
             //setRunningMode(false);
         }
+
+        if (isJumping)
+        {
+            Debug.Log("hypyn pitäs toimia wtf" + currentJumpDuration);
+            if (currentJumpDuration > 1)           //jos nappia on painettu pohjaan yli sekunnin...
+            {
+                isJumping = false;
+                return;
+            }
+
+
+            if (currentJumpDuration < 0.5f)
+                currentJumpDuration = 0.5f;    //laitetaan minimiksi 0.3, sillä ei haluta, että aluksi ei hypätä yhtään ja sitten yhtäkkiä kettu alkaa lentämään...
+
+            ApplyJumpingForce();    //hypätään
+            currentJumpDuration += Time.deltaTime * 1;
+        }
     }
 
+    #region foxJump
+    private void ApplyJumpingForce()
+    {
+
+        Vector3 jumpVector = Vector3.up * jumpForce + Vector3.up * currentJumpDuration * 2;//hyppy vektori, joka on rigidbodyyn lisättävän voiman vektori skaalattuna voimakkuudella.
+                                                                                           //ja sen lisäksi skaalataan alaspäin 0-1 sen perusteella, kuinka kauan on pidetty hyppy nappia pohjassa.
+
+        Vector3 velocityVector = new Vector3(rb.velocity.x, jumpVector.y, rb.velocity.z);
+        rb.velocity = velocityVector;
+    }
+
+
+    private void FoxJump(bool enable)
+    {
+        if (!enable)
+        {
+            Debug.Log("laitetaan jumoing pois...");
+            isJumping = false;
+            return;
+        }
+        if (!isGrounded)
+            return;
+
+        Debug.Log("isHoldingJumpButton");
+
+        
+        isJumping = true;           //laitetaan isJUmping trueksi, koska hypätään..
+
+        currentJumpDuration = 0;
+        jumpCount = 0;
+        return;
+
+
+
+        //Vector3 jumpDirVector = Vector3.up * jumpForce;
+        //rb.AddForce(jumpDirVector);
+    }
+
+    #endregion
 
     void MovementAnim() // täällä valitaan, onko run vai walk animaatio vai kumpikaan...
     {
@@ -128,8 +200,10 @@ public class FoxMovement : MonoBehaviour
 
 
     Vector3 movementAxis;
-    private void FoxMove(Vector2 axis)
+    private void FoxMove(InputAction.CallbackContext obj )
     {
+        Vector2 axis = obj.ReadValue<Vector2>();
+
         Vector3 toBeMovemedAxis = new Vector3(axis.x, 0, axis.y);
         movementAxis = Vector3.Lerp(movementAxis, toBeMovemedAxis, turnSpeed).normalized;
 
@@ -137,6 +211,11 @@ public class FoxMovement : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Used to run, but also to stop running and to apply the 
+    /// </summary>
+    /// <param name="startRunning"></param>
+    /// <returns></returns>
     private bool setRunningMode(bool startRunning)
     {
         if (startRunning && currentRunCoolDown <= 0) //jos aloitetaan juokseminen, ja cooldown on mennyt loppuun
@@ -165,17 +244,13 @@ public class FoxMovement : MonoBehaviour
         return Vector3.zero;
     }
 
-    private void FoxJump()
-    {
-        if (!isGrounded)
-            return;
 
-        jumpCount = 0;
 
-        Vector3 jumpDirVector = Vector3.up * jumpForce;
-        rb.AddForce(jumpDirVector);
-    }
 
+    /// <summary>
+    /// Squash the fox so he can squash between small objects. If <paramref name="enabled"/> = true, squash, otherwise, rise up..s
+    /// </summary>
+    /// <param name="enabled"></param>
     private void FoxSquash(bool enabled)
     {
         if (!isGrounded) //jos on ilmassa tai on sängyn alla....
@@ -201,6 +276,12 @@ public class FoxMovement : MonoBehaviour
 
 
 
+    #region CheckGroundedStage
+
+    /// <summary>
+    /// this checks if the player actually fell from an object, or if the player jumped.... Returns either true when he fell, or false when he jumped....
+    /// </summary>
+    /// <returns></returns>
     private bool isItReallyGrounded()
     {
         RaycastHit hit;
@@ -272,4 +353,6 @@ public class FoxMovement : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }
