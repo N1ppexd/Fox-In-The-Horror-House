@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b854e8d634fc2b949b1d136fa3d33997, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b61c0d11c755ac54c88081b09a373932, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2487,7 +2487,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3b95001286ece3443a2707bfb6de91dd, type: 2}
+      objectReference: {fileID: 2100000, guid: 2f548030f9dfd184fa2397d91ad77de6, type: 2}
     - target: {fileID: 9216226549301949318, guid: 0dd25d75f41dac943b2a06b6f91b5c5b,
         type: 3}
       propertyPath: m_RootOrder
@@ -2760,7 +2760,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e613b78d739430343a741ca80caeeed2, type: 2}
+      objectReference: {fileID: 2100000, guid: 4f35e4e1fa3b2e149a9b4fb679c8bd2a, type: 2}
     - target: {fileID: 6520800456431696503, guid: bf7cb407157e8874b9883da395dcfc31,
         type: 3}
       propertyPath: m_Name
