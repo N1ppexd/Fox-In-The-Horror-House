@@ -36,6 +36,9 @@ namespace HorrorFox.Fox
         [SerializeField] private float currentRunDuration, currentRunCoolDown, currentJumpDuration;
         private int jumpCount;//k‰ytet‰‰n hyppyyn...
 
+
+        [SerializeField] private Transform IkRotationTransform;
+
         private void Awake()
         {
             inputMaster = new InputMaster();
@@ -92,7 +95,7 @@ namespace HorrorFox.Fox
                 angle = Mathf.Acos(angle);
                 angle = Mathf.Rad2Deg * angle;
 
-
+                IkRotationTransform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * 15 * Time.deltaTime);
 
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
                 //Quaternion.Euler(0, angle, 0);
@@ -101,6 +104,7 @@ namespace HorrorFox.Fox
             }
             else//muuten on vain idelAnimaatio
             {
+                //IkRotationTransform.rotation = Quaternion.Euler(0, 0, 0);
                 if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
                     foxAnimator.Play(idle);
             }
