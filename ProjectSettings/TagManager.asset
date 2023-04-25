@@ -10,6 +10,7 @@ TagManager:
   - wall
   - key
   - fox
+  - useKeyZone
   layers:
   - Default
   - TransparentFX
