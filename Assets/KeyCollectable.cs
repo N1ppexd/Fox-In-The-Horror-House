@@ -14,8 +14,7 @@ namespace HorrorFox
         {
             if (other.gameObject.CompareTag("fox"))
             {
-                //takeKeyParticle.Play();
-                Debug.Log("avain otetaan tässä kohtaa....");
+                takeKeyParticle.Play();
             }
         }
     }
