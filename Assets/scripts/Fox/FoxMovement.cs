@@ -95,7 +95,7 @@ namespace HorrorFox.Fox
                 angle = Mathf.Acos(angle);
                 angle = Mathf.Rad2Deg * angle;
 
-                IkRotationTransform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * 15 * Time.deltaTime);
+                IkRotationTransform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), 30 * Time.deltaTime);
 
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
                 //Quaternion.Euler(0, angle, 0);

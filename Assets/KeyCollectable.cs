@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace HorrorFox
+namespace HorrorFox.Fox.Keys
 {
     public class KeyCollectable : MonoBehaviour
     {
@@ -20,6 +20,11 @@ namespace HorrorFox
         [SerializeField] private Vector3 keyMovementOffset;
         [SerializeField] private float movementSpeed, smoothSpeed;//smoothspeed on se, kuinka nopeaa avain seuraa pelaajaa....
 
+        [SerializeField] private GameObject keyTrigger;
+
+
+        [SerializeField] private FoxInteract foxInteract;
+
 
         private void OnTriggerEnter(Collider other)
         {
@@ -27,6 +32,9 @@ namespace HorrorFox
             {
                 hasBeenTaken = true;
                 takeKeyParticle.Play();
+                keyTrigger.SetActive(false);
+
+                foxInteract.currentKeys.Add(this);
             }
         }
 
@@ -37,6 +45,12 @@ namespace HorrorFox
                 return;
 
             transform.position = Vector3.Lerp(transform.position, target.position + keyMovementOffset, movementSpeed * Time.deltaTime);
+        }
+
+
+        public void UseKey()//kun avainta k‰ytet‰‰n...
+        {
+
         }
     }
 }
