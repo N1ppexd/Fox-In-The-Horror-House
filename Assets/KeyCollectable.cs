@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UIElements;
 
 namespace HorrorFox.Fox.Keys
 {
@@ -24,6 +24,8 @@ namespace HorrorFox.Fox.Keys
 
 
         [SerializeField] private FoxInteract foxInteract;
+
+        [SerializeField] private MeshRenderer keyMesh;
 
 
         private void OnTriggerEnter(Collider other)
@@ -50,6 +52,7 @@ namespace HorrorFox.Fox.Keys
 
         public void UseKey(Door door)//kun avainta k‰ytet‰‰n...
         {
+            keyMesh.enabled = false;
             door.OpenDoor();
             useKeyParticle.Play();
             Destroy(gameObject, 1f);

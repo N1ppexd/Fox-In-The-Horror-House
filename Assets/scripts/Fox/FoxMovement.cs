@@ -114,6 +114,7 @@ namespace HorrorFox.Fox
 
         void Update() //joka frame juttuja tehdään...
         {
+
             if (currentRunCoolDown > 0f)//tämän avulla laitetaan niin, ettei voi juosta liikaa
             {
                 currentRunCoolDown -= Time.deltaTime;

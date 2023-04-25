@@ -109,6 +109,7 @@ MonoBehaviour:
   smoothSpeed: 4
   keyTrigger: {fileID: 323939137202052894}
   foxInteract: {fileID: 0}
+  keyMesh: {fileID: 323939136644349731}
 --- !u!54 &323939136644349734
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10618,7 +10619,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.33
       mode: 0
       spread: 0
       speed:
