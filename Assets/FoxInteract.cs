@@ -1,6 +1,7 @@
 using HorrorFox;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace HorrorFox.Fox.Keys
@@ -24,9 +25,21 @@ namespace HorrorFox.Fox.Keys
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("useKeyZone"))
+            if (other.CompareTag("useKeyZone"))         //pit‰‰ laitata niin, ett‰ tulee prompt, ja vasta kun on painettu sit‰ nappia, tehd‰‰n seuravaa asia...
             {
-                currentKeys[0].UseKey();
+                Debug.Log("used key");
+                Door door;
+                try
+                {
+                    door = other.transform.root.GetComponent<Door>();
+                }
+                catch
+                {
+                    Debug.Log("parenpt object has no door scriot");
+                    return;
+                }
+
+                currentKeys[0].UseKey(door);
                 currentKeys.Remove(currentKeys[0]);
             }
         }

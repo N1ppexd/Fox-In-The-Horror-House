@@ -8,7 +8,7 @@ namespace HorrorFox.Fox.Keys
     public class KeyCollectable : MonoBehaviour
     {
 
-        [SerializeField] private ParticleSystem takeKeyParticle;
+        [SerializeField] private ParticleSystem takeKeyParticle, useKeyParticle;
 
         [SerializeField] private Transform target; //target on se, jota seurataan, eli pelaaja....
 
@@ -48,9 +48,11 @@ namespace HorrorFox.Fox.Keys
         }
 
 
-        public void UseKey()//kun avainta k‰ytet‰‰n...
+        public void UseKey(Door door)//kun avainta k‰ytet‰‰n...
         {
-
+            door.OpenDoor();
+            useKeyParticle.Play();
+            Destroy(gameObject, 1f);
         }
     }
 }
