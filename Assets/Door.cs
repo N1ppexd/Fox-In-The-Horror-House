@@ -16,7 +16,6 @@ namespace HorrorFox
         [SerializeField] private GameObject doorTrigger;//tämä laitetaan pois sitten kun siihen on osuttu..
 
 
-
         public void OpenDoor()
         {
             doorTrigger.SetActive(false);
