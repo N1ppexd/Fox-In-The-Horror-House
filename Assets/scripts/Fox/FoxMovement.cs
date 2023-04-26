@@ -44,6 +44,9 @@ namespace HorrorFox.Fox
             inputMaster = new InputMaster();
 
             isGrounded = true;
+
+            jumpCount = 1;
+            isGrounded = isItReallyGrounded();
         }
 
         #region enabledisable
@@ -115,15 +118,21 @@ namespace HorrorFox.Fox
         void Update() //joka frame juttuja tehd‰‰n...
         {
 
+            Debug.Log("jumpcount = " + jumpCount);
+
+            if (jumpCount < 1)
+                isRunning = false;
             if (currentRunCoolDown > 0f)//t‰m‰n avulla laitetaan niin, ettei voi juosta liikaa
             {
                 currentRunCoolDown -= Time.deltaTime;
             }
+
             else if (currentRunCoolDown < 0)
                 currentRunCoolDown = 0;
 
             if (currentRunDuration > 0f)
                 currentRunDuration -= Time.deltaTime;
+
 
             else if (currentRunDuration <= 0)
             {
@@ -135,7 +144,7 @@ namespace HorrorFox.Fox
 
             if (isJumping)
             {
-                Debug.Log("hypyn pit‰s toimia wtf" + currentJumpDuration);
+                ///Debug.Log("hypyn pit‰s toimia wtf" + currentJumpDuration);
                 if (currentJumpDuration > 1)           //jos nappia on painettu pohjaan yli sekunnin...
                 {
                     isJumping = false;
@@ -244,7 +253,7 @@ namespace HorrorFox.Fox
         {
             if (!running)
                 return movementAxis * speed + Vector3.up * rb.velocity.y; //kettu liikkuu...
-            if (isRunning)
+            if (running)
                 return movementAxis * runSpeed + Vector3.up * rb.velocity.y; //kettu liikkuu...
 
             return Vector3.zero;
@@ -296,8 +305,7 @@ namespace HorrorFox.Fox
 
             if (rayCastTest)
                 if (hit.collider.transform.CompareTag("floor") || hit.collider.transform.CompareTag("bed"))
-                    if (hit.distance < 0.1f)
-                        return true;
+                    return true;
 
             return false;
         }
