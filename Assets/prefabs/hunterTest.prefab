@@ -183,3 +183,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4100cb43a74285140b4511f57e4ab0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fovAngle: 90
+  seeDistance: 5
+  detectionWait: 2
+  whatIsFox:
+    serializedVersion: 2
+    m_Bits: 128
+  whatIsObstacle:
+    serializedVersion: 2
+    m_Bits: 0
+  targets: []

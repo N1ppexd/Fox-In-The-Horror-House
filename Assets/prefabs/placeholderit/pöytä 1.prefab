@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3382798587695394295}
   - component: {fileID: 3382798587695394056}
   - component: {fileID: 3382798587695394057}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bedTest (7)
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 3382798587864763840}
   - component: {fileID: 3382798587864763841}
   - component: {fileID: 3382798587864763842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bedTest (6)
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3382798588828550464}
   - component: {fileID: 3382798588828550479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3382798589159408502}
   - component: {fileID: 3382798589159408501}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3382798589508991587}
   - component: {fileID: 3382798589508991586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 3382798589655441494}
   - component: {fileID: 3382798589655441495}
   - component: {fileID: 3382798589655441512}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "p\xF6yt\xE4 1"
   m_TagString: bed
   m_Icon: {fileID: 0}

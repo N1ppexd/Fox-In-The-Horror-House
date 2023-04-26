@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3992140455521378407}
   - component: {fileID: 3992140455521378406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 3992140455800403309}
   - component: {fileID: 3992140455800403310}
   - component: {fileID: 3992140455800403311}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hylly
   m_TagString: bed
   m_Icon: {fileID: 0}

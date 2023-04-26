@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3491564357452550618}
   - component: {fileID: 3491564357452550619}
   - component: {fileID: 3491564357452550616}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "ilmastointi kanava t\xE4st\xE4 seuraavaan huoneeseen (1)"
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3491564358265458231}
   - component: {fileID: 3491564358265458230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}

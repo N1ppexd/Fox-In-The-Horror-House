@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1747952912926311057}
   - component: {fileID: 1747952912926311056}
   - component: {fileID: 1747952912926311063}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "extra sein\xE4"
   m_TagString: floor
   m_Icon: {fileID: 0}

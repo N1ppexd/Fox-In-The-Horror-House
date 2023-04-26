@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7377759132472250100}
   - component: {fileID: 7377759132472250101}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 7377759133397636772}
   - component: {fileID: 7377759133397636775}
   - component: {fileID: 7377759133397636774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 7377759134083801181}
   - component: {fileID: 7377759134083801180}
   - component: {fileID: 7377759134083801183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dear head
   m_TagString: bed
   m_Icon: {fileID: 0}

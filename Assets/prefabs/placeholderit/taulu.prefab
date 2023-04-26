@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7719190944266561982}
   - component: {fileID: 7719190944266561969}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 7719190944598489350}
   - component: {fileID: 7719190944598489351}
   - component: {fileID: 7719190944598489348}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: taulu
   m_TagString: bed
   m_Icon: {fileID: 0}

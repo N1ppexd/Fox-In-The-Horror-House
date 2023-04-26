@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 823106698739422489}
   - component: {fileID: 823106698739422486}
   - component: {fileID: 823106698739422487}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: matto
   m_TagString: Untagged
   m_Icon: {fileID: 0}

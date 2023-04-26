@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7725397045385438721}
   - component: {fileID: 7725397045385438722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 7725397046589861670}
   - component: {fileID: 7725397046589861669}
   - component: {fileID: 7725397046589861668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ovi
   m_TagString: bed
   m_Icon: {fileID: 0}

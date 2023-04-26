@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5206231664728973329}
   - component: {fileID: 5206231664728973328}
   - component: {fileID: 5206231664728973335}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "BIG extra sein\xE4"
   m_TagString: floor
   m_Icon: {fileID: 0}

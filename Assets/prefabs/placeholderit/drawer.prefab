@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8272719641115090841}
   - component: {fileID: 8272719641115090840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 8272719641330250043}
   - component: {fileID: 8272719641330250040}
   - component: {fileID: 8272719641330250041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: drawer
   m_TagString: bed
   m_Icon: {fileID: 0}

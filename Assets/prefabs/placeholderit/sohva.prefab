@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5679959175472134690}
   - component: {fileID: 3342196341334005722}
   - component: {fileID: 753048582579002228}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4082864062160886805}
   - component: {fileID: 6696455338357497732}
   - component: {fileID: 5778325554849872925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sohva
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -25,6 +25,8 @@ namespace HorrorFox.Fox
 
         private bool isGrounded;//kun kettu on maassa
 
+        private bool isSquashing;
+
         [Space]
         [SerializeField] private float turnSpeed; //nopeus, jolla kettu k‰‰ntyy
 
@@ -118,8 +120,6 @@ namespace HorrorFox.Fox
         void Update() //joka frame juttuja tehd‰‰n...
         {
 
-            Debug.Log("jumpcount = " + jumpCount);
-
             if (jumpCount < 1)
                 isRunning = false;
             if (currentRunCoolDown > 0f)//t‰m‰n avulla laitetaan niin, ettei voi juosta liikaa
@@ -202,7 +202,7 @@ namespace HorrorFox.Fox
 
         void MovementAnim() // t‰‰ll‰ valitaan, onko run vai walk animaatio vai kumpikaan...
         {
-            if (isUnderBed || !isGrounded || foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
+            if (isUnderBed || !isGrounded || foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin) && jumpCount < 0)
                 return;
 
             if (isRunning)
@@ -273,6 +273,8 @@ namespace HorrorFox.Fox
 
             if (isUnderBed)
             {
+                isSquashing = true;
+
                 if (enabled)
                     waitToSquashBackUp = false;
                 if (!enabled)
@@ -284,9 +286,19 @@ namespace HorrorFox.Fox
             if (enabled)
             {
                 foxAnimator.Play(squashStartStrin);
+
+                isSquashing = true;
             }
             else if (!enabled)
                 foxAnimator.Play(squashEndString);
+        }
+
+        /// <summary>
+        /// stop squashing is played when the player stops squashing from the animation...
+        /// </summary>
+        public void StopSquashing()
+        {
+            isSquashing = false;
         }
 
 
