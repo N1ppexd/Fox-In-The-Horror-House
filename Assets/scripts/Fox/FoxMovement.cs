@@ -49,7 +49,8 @@ namespace HorrorFox.Fox
             runMode,
             walkMode,
             flyMode,
-            squatMode
+            squatMode,
+            idle
         }
 
         private void Awake()
@@ -123,7 +124,11 @@ namespace HorrorFox.Fox
             {
                 //IkRotationTransform.rotation = Quaternion.Euler(0, 0, 0);
                 if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !isSquashing)
+                {
                     foxAnimator.Play(idle);
+                    movementMode = MovementMode.idle;
+                }
+                    
             }
 
             rb.velocity = RunSpeed(isRunning);
@@ -151,6 +156,7 @@ namespace HorrorFox.Fox
             {
                 currentRunDuration = 0;
                 //currentRunCoolDown = maxRunCoolDown;
+                //movementMode = MovementMode.walkMode;
                 isRunning = false;
                 //setRunningMode(false);
             }
