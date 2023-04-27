@@ -321,8 +321,7 @@ namespace HorrorFox.Fox
 
             if (rayCastTest)
                 if (hit.collider.transform.CompareTag("floor") || hit.collider.transform.CompareTag("bed"))
-                    if(hit.distance < 0.2f)
-                        return true;
+                    return true;
 
             return false;
         }
@@ -356,7 +355,7 @@ namespace HorrorFox.Fox
                     return;
 
                 isGrounded = false;
-                //foxAnimator.Play(jump);
+                foxAnimator.Play(jump);
                 FoxSquash(false);
             }
         }

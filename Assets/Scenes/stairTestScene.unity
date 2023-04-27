@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 462391251}
   - component: {fileID: 462391250}
   - component: {fileID: 462391249}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: floor (1)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 800043530}
   - component: {fileID: 800043529}
   - component: {fileID: 800043528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stairs
   m_TagString: stairs
   m_Icon: {fileID: 0}
@@ -3155,7 +3155,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-28584
+  m_Name: pb_Mesh43988
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3325,7 +3325,7 @@ GameObject:
   - component: {fileID: 2052560716}
   - component: {fileID: 2052560715}
   - component: {fileID: 2052560714}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}
