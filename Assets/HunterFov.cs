@@ -13,7 +13,7 @@ namespace HorrorFox.Enemies
         [SerializeField] private float seeDistance;
         [SerializeField] private float detectionWait;//kuinka kauan odotetaan, että ammutaan...
 
-        private bool isSeen;
+        [HideInInspector] public bool isSeen;//true, kun hunter näkee ketun.
 
         [SerializeField] private LayerMask whatIsFox, whatIsObstacle;
 
