@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43304235}
   - component: {fileID: 43304236}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 177284534}
   - component: {fileID: 177284533}
   - component: {fileID: 177284532}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: drawer
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 498693785}
   - component: {fileID: 498693784}
   - component: {fileID: 498693783}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: bedTest
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 507290305}
   - component: {fileID: 507290304}
   - component: {fileID: 507290303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roof
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -1121,7 +1121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 511445780}
   - component: {fileID: 511445781}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -1166,7 +1166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 586302375}
   - component: {fileID: 586302376}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -1211,7 +1211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 634299377}
   - component: {fileID: 634299378}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 648291063}
   - component: {fileID: 648291062}
   - component: {fileID: 648291061}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: doorMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1399,7 @@ GameObject:
   - component: {fileID: 917345055}
   - component: {fileID: 917345054}
   - component: {fileID: 917345053}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: bedTest (1)
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -1970,7 +1970,7 @@ GameObject:
   - component: {fileID: 1262049391}
   - component: {fileID: 1262049390}
   - component: {fileID: 1262049389}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: hylly
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -2163,7 +2163,7 @@ GameObject:
   - component: {fileID: 1299443555}
   - component: {fileID: 1299443554}
   - component: {fileID: 1299443553}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: bedside table
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -2394,7 +2394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1554563925}
   - component: {fileID: 1554563924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2638,7 +2638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1949575338}
   - component: {fileID: 1949575339}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -2895,7 +2895,7 @@ GameObject:
   - component: {fileID: 2052560716}
   - component: {fileID: 2052560715}
   - component: {fileID: 2052560714}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -3219,7 +3219,7 @@ PrefabInstance:
     - target: {fileID: 3382798589159408503, guid: 81bb618eb72db2848bb1a042cd224642,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3382798589508991588, guid: 81bb618eb72db2848bb1a042cd224642,
         type: 3}
@@ -3294,7 +3294,7 @@ PrefabInstance:
     - target: {fileID: 3382798589655441513, guid: 81bb618eb72db2848bb1a042cd224642,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81bb618eb72db2848bb1a042cd224642, type: 3}
@@ -3308,7 +3308,7 @@ PrefabInstance:
     - target: {fileID: 3992140455521378408, guid: dc9a666ead12d8a428d6c5936edfa255,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3992140455800403308, guid: dc9a666ead12d8a428d6c5936edfa255,
         type: 3}
@@ -3373,7 +3373,7 @@ PrefabInstance:
     - target: {fileID: 3992140455800403312, guid: dc9a666ead12d8a428d6c5936edfa255,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc9a666ead12d8a428d6c5936edfa255, type: 3}
@@ -3387,7 +3387,7 @@ PrefabInstance:
     - target: {fileID: 7725397045385438720, guid: 32b08e229c5ea0c4ea01f5a6662bfde1,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7725397045385438720, guid: 32b08e229c5ea0c4ea01f5a6662bfde1,
         type: 3}
@@ -3407,7 +3407,7 @@ PrefabInstance:
     - target: {fileID: 7725397046589861674, guid: 32b08e229c5ea0c4ea01f5a6662bfde1,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7725397046589861675, guid: 32b08e229c5ea0c4ea01f5a6662bfde1,
         type: 3}

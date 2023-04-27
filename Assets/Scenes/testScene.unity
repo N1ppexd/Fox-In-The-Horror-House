@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 176761324}
   - component: {fileID: 176761325}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 462391251}
   - component: {fileID: 462391250}
   - component: {fileID: 462391249}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: floor (1)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 634299377}
   - component: {fileID: 634299378}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 1122796735}
   - component: {fileID: 1122796734}
   - component: {fileID: 1122796733}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: floor (3)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -1540,7 +1540,7 @@ PrefabInstance:
     - target: {fileID: 2037628544195588792, guid: db47df041cb8cb24eb97c5af41f08f8a,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6334822104723803472, guid: db47df041cb8cb24eb97c5af41f08f8a,
         type: 3}
@@ -1550,7 +1550,7 @@ PrefabInstance:
     - target: {fileID: 6334822104723803472, guid: db47df041cb8cb24eb97c5af41f08f8a,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7680863425391348288, guid: db47df041cb8cb24eb97c5af41f08f8a,
         type: 3}
@@ -1807,7 +1807,7 @@ GameObject:
   - component: {fileID: 2052560716}
   - component: {fileID: 2052560715}
   - component: {fileID: 2052560714}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}

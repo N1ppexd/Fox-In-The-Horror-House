@@ -209,22 +209,22 @@ PrefabInstance:
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9726946
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.23115663
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.020219564
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0048050913
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129033, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
@@ -254,22 +254,22 @@ PrefabInstance:
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9726946
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.23115663
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.020219564
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0048050913
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5e83b220469134686e7908ccae77b9, type: 3}
@@ -289,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 79465650}
   - component: {fileID: 79465651}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 174343109}
   - component: {fileID: 174343108}
   - component: {fileID: 174343107}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: koriste
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 507290305}
   - component: {fileID: 507290304}
   - component: {fileID: 507290303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor (5)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -894,7 +894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 602610558}
   - component: {fileID: 602610559}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 816441150}
   - component: {fileID: 816441149}
   - component: {fileID: 816441148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: taulu
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 1122796735}
   - component: {fileID: 1122796734}
   - component: {fileID: 1122796733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor (3)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 1147152775}
   - component: {fileID: 1147152774}
   - component: {fileID: 1147152773}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor (7)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -1374,7 +1374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1169639616}
   - component: {fileID: 1169639617}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -1602,7 +1602,7 @@ GameObject:
   - component: {fileID: 1362615275}
   - component: {fileID: 1362615274}
   - component: {fileID: 1362615273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: koriste1
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -1822,7 +1822,7 @@ GameObject:
   - component: {fileID: 1559754601}
   - component: {fileID: 1559754600}
   - component: {fileID: 1559754599}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: koriste
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -1920,7 +1920,7 @@ GameObject:
   - component: {fileID: 1586678356}
   - component: {fileID: 1586678355}
   - component: {fileID: 1586678354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor (6)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -2015,7 +2015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1592942642}
   - component: {fileID: 1592942643}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -2216,7 +2216,7 @@ GameObject:
   - component: {fileID: 1788982143}
   - component: {fileID: 1788982142}
   - component: {fileID: 1788982141}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: koriste
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -2312,7 +2312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807245937}
   - component: {fileID: 1807245938}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -2474,7 +2474,7 @@ GameObject:
   - component: {fileID: 2052560716}
   - component: {fileID: 2052560715}
   - component: {fileID: 2052560714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}
