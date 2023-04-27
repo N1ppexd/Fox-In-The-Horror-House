@@ -41,6 +41,17 @@ namespace HorrorFox.Fox
 
         [SerializeField] private Transform IkRotationTransform;
 
+
+        public MovementMode movementMode;
+
+        public enum MovementMode
+        {
+            runMode,
+            walkMode,
+            flyMode,
+            squatMode
+        }
+
         private void Awake()
         {
             inputMaster = new InputMaster();
@@ -314,6 +325,7 @@ namespace HorrorFox.Fox
             
             isSquashing = false;
         }
+
 
 
         #region CheckGroundedStage
