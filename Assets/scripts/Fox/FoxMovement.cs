@@ -272,6 +272,12 @@ namespace HorrorFox.Fox
         /// <param name="enabled"></param>
         private void FoxSquash(bool enabled)
         {
+            if (!isItReallyGrounded())
+            {
+                isGrounded = false;
+                foxAnimator.Play(jump);
+            }
+                
             if (!isGrounded) //jos on ilmassa tai on sängyn alla....
                 return;
 
@@ -324,8 +330,15 @@ namespace HorrorFox.Fox
 
             if (rayCastTest)
                 if (hit.collider.transform.CompareTag("floor") || hit.collider.transform.CompareTag("bed"))
-                    if (Vector3.Distance(hit.point, transform.position) <= 0.1f)
+                {
+                    float dist = Vector3.Distance(hit.point, transform.position);
+
+                    Debug.Log("distance to floor = " + dist);
+
+                    if (dist <= 0.3f)
                         return true;
+                }
+                    
 
             return false;
         }
@@ -337,8 +350,9 @@ namespace HorrorFox.Fox
             if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
             {
 
-                if (isItReallyGrounded() && jumpCount < 1)
+                if (isItReallyGrounded())
                 {
+
                     isGrounded = true;
                     jumpCount = 1;
                 }
@@ -355,12 +369,18 @@ namespace HorrorFox.Fox
         {
             if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
             {
+                /*
                 if (isItReallyGrounded() && jumpCount > 0) //kun jumpcount on yli 0. Jos se on 0 tai alle, on hypätty eikä tiputtu
                     return;
+                */
+                if (!isItReallyGrounded())
+                {
+                    isGrounded = false;
+                    foxAnimator.Play(jump);
+                    FoxSquash(false);
+                }
 
-                isGrounded = false;
-                foxAnimator.Play(jump);
-                FoxSquash(false);
+                
             }
         }
 
