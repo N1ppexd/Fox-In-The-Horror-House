@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentKeys: []
+  playerInput: {fileID: 0}
+  promptCanvas: {fileID: 0}
 --- !u!1 &4259577744366935224
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4259577744366935224}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 12.000002, y: 5.9, z: 0.0000019073486}
+  m_LocalPosition: {x: 12.000006, y: 5.9, z: 0.0000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

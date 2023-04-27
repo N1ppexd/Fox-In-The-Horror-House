@@ -110,7 +110,7 @@ namespace HorrorFox.Fox
             else//muuten on vain idelAnimaatio
             {
                 //IkRotationTransform.rotation = Quaternion.Euler(0, 0, 0);
-                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin))
+                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !isSquashing)
                     foxAnimator.Play(idle);
             }
 
@@ -119,8 +119,9 @@ namespace HorrorFox.Fox
 
         void Update() //joka frame juttuja tehd‰‰n...
         {
+            Debug.Log("isSquashing = " + isSquashing);
 
-            if (jumpCount < 1)
+            if (jumpCount < 1 || isSquashing)
                 isRunning = false;
             if (currentRunCoolDown > 0f)//t‰m‰n avulla laitetaan niin, ettei voi juosta liikaa
             {
@@ -202,7 +203,7 @@ namespace HorrorFox.Fox
 
         void MovementAnim() // t‰‰ll‰ valitaan, onko run vai walk animaatio vai kumpikaan...
         {
-            if (isUnderBed || !isGrounded || foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(squashStartStrin) && jumpCount < 0)
+            if (isUnderBed || !isGrounded || isSquashing || jumpCount < 0)
                 return;
 
             if (isRunning)
@@ -291,6 +292,8 @@ namespace HorrorFox.Fox
             }
             else if (!enabled)
                 foxAnimator.Play(squashEndString);
+
+            Debug.Log("fox squash enabled = " + enabled);
         }
 
         /// <summary>
@@ -298,6 +301,7 @@ namespace HorrorFox.Fox
         /// </summary>
         public void StopSquashing()
         {
+            Debug.Log("stopSquashing");
             isSquashing = false;
         }
 

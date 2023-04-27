@@ -20,7 +20,13 @@ namespace HorrorFox.Fox.Keys
 
         private InputMaster inputMaster;
 
+        private bool isInInteractRadius;//kun ollaan alueella, jossa voidaan painaa interact nappia...
 
+
+        private void Awake()
+        {
+            inputMaster = new InputMaster();
+        }
 
         private void OnEnable()
         {
@@ -28,10 +34,14 @@ namespace HorrorFox.Fox.Keys
 
             //pit‰‰ laitata se juttu t‰h‰n ewtt‰ prompti toimiI!!!!
 
+            inputMaster.Player.Interact.performed += _ => PressPromptButton();
+
         }
         private void OnDisable()
         {
             inputMaster.Disable();
+
+            inputMaster.Player.Interact.performed -= _ => PressPromptButton();
         }
 
 
@@ -40,11 +50,7 @@ namespace HorrorFox.Fox.Keys
             currentKeys = new List<KeyCollectable>();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
 
-        }
         Door door;
 
         private void OnTriggerEnter(Collider other)
@@ -56,6 +62,7 @@ namespace HorrorFox.Fox.Keys
                 try
                 {
                     door = other.transform.root.GetComponent<Door>();
+                    promptCanvas = door.transform.Find("PropmtPanel").gameObject;
                 }
                 catch
                 {
@@ -63,8 +70,24 @@ namespace HorrorFox.Fox.Keys
                     return;
                 }
 
+                isInInteractRadius = true;
+
                 DisplayPrompt();
                 
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("useKeyZone"))         //pit‰‰ laitata niin, ett‰ tulee prompt, ja vasta kun on painettu sit‰ nappia, tehd‰‰n seuravaa asia...
+            {
+                if (isInInteractRadius)
+                {
+                    isInInteractRadius = false;
+
+                    promptCanvas.SetActive(false);
+                }
+
             }
         }
 
@@ -75,8 +98,18 @@ namespace HorrorFox.Fox.Keys
             promptCanvas.SetActive(true);
         }
 
+        
+        /// <summary>
+        /// kun painetaan prompt buttonia...
+        /// </summary>
         void PressPromptButton()
         {
+            if (!isInInteractRadius)
+                return;
+
+            Debug.Log("painetaan juttua");
+
+            promptCanvas.SetActive(false);
             currentKeys[0].UseKey(door);
             currentKeys.Remove(currentKeys[0]);
         }
