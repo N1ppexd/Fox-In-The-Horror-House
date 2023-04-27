@@ -94,6 +94,7 @@ namespace HorrorFox.Fox
         // Update is called once per frame
         void FixedUpdate()
         {
+            Debug.Log("jumpcount = " + jumpCount);
             if (movementAxis != Vector3.zero)        //kun liikutaan, tehd‰‰n liikkumisanimaatiot....
             {
                 float angle = Vector3.Dot(Vector3.right, movementAxis);
@@ -203,8 +204,10 @@ namespace HorrorFox.Fox
 
         void MovementAnim() // t‰‰ll‰ valitaan, onko run vai walk animaatio vai kumpikaan...
         {
-            if (isUnderBed || !isGrounded || isSquashing || jumpCount < 0)
+            if (isUnderBed || !isGrounded || isSquashing)
                 return;
+
+            jumpCount = 1;
 
             if (isRunning)
                 if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(run))
@@ -321,7 +324,8 @@ namespace HorrorFox.Fox
 
             if (rayCastTest)
                 if (hit.collider.transform.CompareTag("floor") || hit.collider.transform.CompareTag("bed"))
-                    return true;
+                    if (Vector3.Distance(hit.point, transform.position) <= 0.1f)
+                        return true;
 
             return false;
         }
