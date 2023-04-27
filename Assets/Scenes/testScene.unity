@@ -155,6 +155,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &176761323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 176761324}
+  - component: {fileID: 176761325}
+  m_Layer: 10
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &176761324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176761323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 498693786}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &176761325
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176761323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.11834667, z: 1}
+  m_Center: {x: 0, y: 0.4408269, z: 0}
 --- !u!1 &288881785
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +424,7 @@ GameObject:
   - component: {fileID: 462391251}
   - component: {fileID: 462391250}
   - component: {fileID: 462391249}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: floor (1)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -560,6 +605,7 @@ Transform:
   m_Children:
   - {fileID: 1852295524}
   - {fileID: 634299377}
+  - {fileID: 176761324}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -701,7 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 634299377}
   - component: {fileID: 634299378}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -843,7 +889,7 @@ GameObject:
   - component: {fileID: 1122796735}
   - component: {fileID: 1122796734}
   - component: {fileID: 1122796733}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: floor (3)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -1491,10 +1537,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 498693786}
     m_Modifications:
+    - target: {fileID: 2037628544195588792, guid: db47df041cb8cb24eb97c5af41f08f8a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6334822104723803472, guid: db47df041cb8cb24eb97c5af41f08f8a,
         type: 3}
       propertyPath: m_Name
       value: PropmtPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6334822104723803472, guid: db47df041cb8cb24eb97c5af41f08f8a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7680863425391348288, guid: db47df041cb8cb24eb97c5af41f08f8a,
         type: 3}
@@ -1751,7 +1807,7 @@ GameObject:
   - component: {fileID: 2052560716}
   - component: {fileID: 2052560715}
   - component: {fileID: 2052560714}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}

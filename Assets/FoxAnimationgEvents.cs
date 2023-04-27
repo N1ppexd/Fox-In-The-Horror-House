@@ -11,6 +11,7 @@ namespace HorrorFox.Fox.Animation
         [SerializeField] private FoxMovement foxMovement;
         public void StopCrouching()
         {
+            Debug.Log("stop crounching pit‰s tapahtua");
             foxMovement.StopSquashing();    //tehd‰‰n n‰in...
         }
     }

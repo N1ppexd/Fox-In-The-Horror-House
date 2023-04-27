@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 24744522}
   - component: {fileID: 24744521}
   - component: {fileID: 24744520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "ilmastointi kanava t\xE4st\xE4 seuraavaan huoneeseen"
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -307,22 +307,22 @@ PrefabInstance:
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9726946
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.23115663
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.020219564
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0048050913
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935230, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
@@ -362,22 +362,22 @@ PrefabInstance:
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9726946
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.23115663
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.020219564
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0048050913
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5e83b220469134686e7908ccae77b9, type: 3}
@@ -403,7 +403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 79465650}
   - component: {fileID: 79465651}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 174343109}
   - component: {fileID: 174343108}
   - component: {fileID: 174343107}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: koriste
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 507290305}
   - component: {fileID: 507290304}
   - component: {fileID: 507290303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor (5)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 602610558}
   - component: {fileID: 602610559}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 753412200}
   - component: {fileID: 753412199}
   - component: {fileID: 753412198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor (7)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -1075,7 +1075,7 @@ GameObject:
   - component: {fileID: 816441150}
   - component: {fileID: 816441149}
   - component: {fileID: 816441148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: taulu
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 1122796735}
   - component: {fileID: 1122796734}
   - component: {fileID: 1122796733}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor (3)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -1375,10 +1375,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 454613204}
     m_Modifications:
+    - target: {fileID: 400966265471256248, guid: e3d2c353049b9364192a93355afc798f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4370839109633108107, guid: e3d2c353049b9364192a93355afc798f,
         type: 3}
       propertyPath: m_Name
       value: sohva
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370839109633108107, guid: e3d2c353049b9364192a93355afc798f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8580514484366829743, guid: e3d2c353049b9364192a93355afc798f,
         type: 3}
@@ -1453,7 +1463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353783428}
   - component: {fileID: 1353783429}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -1500,7 +1510,7 @@ GameObject:
   - component: {fileID: 1362615275}
   - component: {fileID: 1362615274}
   - component: {fileID: 1362615273}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: koriste1
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -1720,7 +1730,7 @@ GameObject:
   - component: {fileID: 1586678356}
   - component: {fileID: 1586678355}
   - component: {fileID: 1586678354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor (6)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -1821,7 +1831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807245937}
   - component: {fileID: 1807245938}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -1931,6 +1941,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 454613204}
     m_Modifications:
+    - target: {fileID: 8272719641115090846, guid: 70c2f773adad64f479bffe595fd5b37d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8272719641330250042, guid: 70c2f773adad64f479bffe595fd5b37d,
         type: 3}
       propertyPath: m_RootOrder
@@ -2000,6 +2015,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: drawer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272719641330250046, guid: 70c2f773adad64f479bffe595fd5b37d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c2f773adad64f479bffe595fd5b37d, type: 3}
@@ -2136,7 +2156,7 @@ GameObject:
   - component: {fileID: 2052560716}
   - component: {fileID: 2052560715}
   - component: {fileID: 2052560714}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -2526,6 +2546,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kirjahylly
       objectReference: {fileID: 0}
+    - target: {fileID: 4070503227240844874, guid: 6173c61526c01f44384c832fdc3d3f83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4070503227240844878, guid: 6173c61526c01f44384c832fdc3d3f83,
         type: 3}
       propertyPath: m_RootOrder
@@ -2585,6 +2610,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070503227431887082, guid: 6173c61526c01f44384c832fdc3d3f83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6173c61526c01f44384c832fdc3d3f83, type: 3}
@@ -2729,6 +2759,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ikkuna
       objectReference: {fileID: 0}
+    - target: {fileID: 6520800456431696503, guid: bf7cb407157e8874b9883da395dcfc31,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520800456466916076, guid: bf7cb407157e8874b9883da395dcfc31,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7cb407157e8874b9883da395dcfc31, type: 3}
 --- !u!1001 &7377487858490678647
@@ -2813,6 +2853,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: "operation p\xF6yt\xE4"
       objectReference: {fileID: 0}
+    - target: {fileID: 7377487859013380141, guid: cadcf6aef3738264c8c0433b4fd51127,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509097605180676548, guid: cadcf6aef3738264c8c0433b4fd51127,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cadcf6aef3738264c8c0433b4fd51127, type: 3}
 --- !u!4 &7377487858490678648 stripped
@@ -2828,6 +2878,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 454613204}
     m_Modifications:
+    - target: {fileID: 7377759132472250103, guid: 11b45aa00973b994aa84671eb60cb581,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377759133397636769, guid: 11b45aa00973b994aa84671eb60cb581,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7377759134083801154, guid: 11b45aa00973b994aa84671eb60cb581,
         type: 3}
       propertyPath: m_RootOrder
@@ -2893,6 +2953,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: dear head
       objectReference: {fileID: 0}
+    - target: {fileID: 7377759134083801182, guid: 11b45aa00973b994aa84671eb60cb581,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11b45aa00973b994aa84671eb60cb581, type: 3}
 --- !u!4 &7377759133051017235 stripped
@@ -2908,10 +2973,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 454613204}
     m_Modifications:
+    - target: {fileID: 7719190944266561983, guid: 3cfccd1a7fc1521419e876abd36e9de1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7719190944598489349, guid: 3cfccd1a7fc1521419e876abd36e9de1,
         type: 3}
       propertyPath: m_Name
       value: taulu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7719190944598489349, guid: 3cfccd1a7fc1521419e876abd36e9de1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7719190944598489401, guid: 3cfccd1a7fc1521419e876abd36e9de1,
         type: 3}

@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43304235}
   - component: {fileID: 43304236}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 138461915}
   - component: {fileID: 138461914}
   - component: {fileID: 138461913}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall (9)
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 177284534}
   - component: {fileID: 177284533}
   - component: {fileID: 177284532}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: drawer
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 498693785}
   - component: {fileID: 498693784}
   - component: {fileID: 498693783}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bedTest
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -1121,7 +1121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 511445780}
   - component: {fileID: 511445781}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -1166,7 +1166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 586302375}
   - component: {fileID: 586302376}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -1211,7 +1211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 634299377}
   - component: {fileID: 634299378}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 648291063}
   - component: {fileID: 648291062}
   - component: {fileID: 648291061}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: doorMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1399,7 @@ GameObject:
   - component: {fileID: 917345055}
   - component: {fileID: 917345054}
   - component: {fileID: 917345053}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bedTest (1)
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: 1010132799}
   - component: {fileID: 1010132798}
   - component: {fileID: 1010132797}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall(10)
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -1794,7 +1794,7 @@ GameObject:
   - component: {fileID: 1203681516}
   - component: {fileID: 1203681515}
   - component: {fileID: 1203681514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -1970,7 +1970,7 @@ GameObject:
   - component: {fileID: 1262049391}
   - component: {fileID: 1262049390}
   - component: {fileID: 1262049389}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: hylly
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -2163,7 +2163,7 @@ GameObject:
   - component: {fileID: 1299443555}
   - component: {fileID: 1299443554}
   - component: {fileID: 1299443553}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bedside table
   m_TagString: bed
   m_Icon: {fileID: 0}
@@ -2261,7 +2261,7 @@ GameObject:
   - component: {fileID: 1299762496}
   - component: {fileID: 1299762495}
   - component: {fileID: 1299762494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall (8)
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -2525,7 +2525,7 @@ GameObject:
   - component: {fileID: 1586678356}
   - component: {fileID: 1586678355}
   - component: {fileID: 1586678354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -2638,7 +2638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1949575338}
   - component: {fileID: 1949575339}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: areaTrigger
   m_TagString: UnderBed
   m_Icon: {fileID: 0}
@@ -2895,7 +2895,7 @@ GameObject:
   - component: {fileID: 2052560716}
   - component: {fileID: 2052560715}
   - component: {fileID: 2052560714}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -3151,6 +3151,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 916565967}
     m_Modifications:
+    - target: {fileID: 3382798587695394058, guid: 81bb618eb72db2848bb1a042cd224642,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3382798587695394294, guid: 81bb618eb72db2848bb1a042cd224642,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3200,6 +3205,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382798587864763843, guid: 81bb618eb72db2848bb1a042cd224642,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382798588828550465, guid: 81bb618eb72db2848bb1a042cd224642,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382798589159408503, guid: 81bb618eb72db2848bb1a042cd224642,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382798589508991588, guid: 81bb618eb72db2848bb1a042cd224642,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3382798589655441493, guid: 81bb618eb72db2848bb1a042cd224642,
         type: 3}
@@ -3266,6 +3291,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "p\xF6yt\xE4"
       objectReference: {fileID: 0}
+    - target: {fileID: 3382798589655441513, guid: 81bb618eb72db2848bb1a042cd224642,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81bb618eb72db2848bb1a042cd224642, type: 3}
 --- !u!1001 &3992140454223580895
@@ -3275,6 +3305,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 916565967}
     m_Modifications:
+    - target: {fileID: 3992140455521378408, guid: dc9a666ead12d8a428d6c5936edfa255,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3992140455800403308, guid: dc9a666ead12d8a428d6c5936edfa255,
         type: 3}
       propertyPath: m_RootOrder
@@ -3335,6 +3370,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: hylly
       objectReference: {fileID: 0}
+    - target: {fileID: 3992140455800403312, guid: dc9a666ead12d8a428d6c5936edfa255,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc9a666ead12d8a428d6c5936edfa255, type: 3}
 --- !u!1001 &7725397046034555564
@@ -3344,6 +3384,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 916565967}
     m_Modifications:
+    - target: {fileID: 7725397045385438720, guid: 32b08e229c5ea0c4ea01f5a6662bfde1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7725397045385438720, guid: 32b08e229c5ea0c4ea01f5a6662bfde1,
         type: 3}
       propertyPath: m_IsActive
@@ -3358,6 +3403,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ovi
+      objectReference: {fileID: 0}
+    - target: {fileID: 7725397046589861674, guid: 32b08e229c5ea0c4ea01f5a6662bfde1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7725397046589861675, guid: 32b08e229c5ea0c4ea01f5a6662bfde1,
         type: 3}

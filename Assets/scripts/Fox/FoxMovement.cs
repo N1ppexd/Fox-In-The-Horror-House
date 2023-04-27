@@ -307,7 +307,6 @@ namespace HorrorFox.Fox
         }
 
 
-
         #region CheckGroundedStage
 
         /// <summary>
@@ -356,7 +355,7 @@ namespace HorrorFox.Fox
                     return;
 
                 isGrounded = false;
-                foxAnimator.Play(jump);
+                //foxAnimator.Play(jump);
                 FoxSquash(false);
             }
         }
