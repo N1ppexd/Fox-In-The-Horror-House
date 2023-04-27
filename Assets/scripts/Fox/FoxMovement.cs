@@ -302,6 +302,7 @@ namespace HorrorFox.Fox
         public void StopSquashing()
         {
             Debug.Log("stopSquashing");
+            
             isSquashing = false;
         }
 
