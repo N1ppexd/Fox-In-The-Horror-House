@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7495149249434636972
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
+  m_Name: WhiteBalance
+  m_EditorClassIdentifier: 
+  active: 1
+  temperature:
+    m_OverrideState: 1
+    m_Value: -8.2
+  tint:
+    m_OverrideState: 1
+    m_Value: 13.3
+--- !u!114 &-3524583244132905619
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: 
+  active: 1
+  postExposure:
+    m_OverrideState: 0
+    m_Value: 0
+  contrast:
+    m_OverrideState: 1
+    m_Value: 11.8
+  colorFilter:
+    m_OverrideState: 1
+    m_Value: {r: 0.8537736, g: 0.8950002, b: 1, a: 1}
+  hueShift:
+    m_OverrideState: 0
+    m_Value: 15
+  saturation:
+    m_OverrideState: 1
+    m_Value: 18.3
 --- !u!114 &-3181061347675694000
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -56,6 +103,8 @@ MonoBehaviour:
   components:
   - {fileID: 7341882771441006961}
   - {fileID: -3181061347675694000}
+  - {fileID: -3524583244132905619}
+  - {fileID: -7495149249434636972}
 --- !u!114 &7341882771441006961
 MonoBehaviour:
   m_ObjectHideFlags: 3
