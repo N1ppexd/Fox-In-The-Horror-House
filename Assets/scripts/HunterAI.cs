@@ -26,6 +26,8 @@ namespace HorrorFox.Enemies
 
         [SerializeField] bool seekPlayer; // jos tämä on false, ei edes yritetä etsiä pelaajaa.,........
 
+        [SerializeField] private AudioSource footStepAudio;
+
         private void Awake()
         {
             agent.avoidancePriority = Random.Range(1, 100);
@@ -75,6 +77,12 @@ namespace HorrorFox.Enemies
                     }
                 }
             }
+
+
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator) && !footStepAudio.isPlaying)
+                footStepAudio.Play();
+            else if (!animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator))
+                footStepAudio.Stop();
         }
 
 

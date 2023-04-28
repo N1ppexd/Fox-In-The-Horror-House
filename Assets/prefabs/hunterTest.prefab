@@ -172,6 +172,9 @@ MonoBehaviour:
   isChasingPlayer: 0
   player: {fileID: 0}
   hunterFov: {fileID: 1262846638010609861}
+  animator: {fileID: 0}
+  walkStringAnimator: 
+  seekPlayer: 0
 --- !u!114 &1262846638010609861
 MonoBehaviour:
   m_ObjectHideFlags: 0
