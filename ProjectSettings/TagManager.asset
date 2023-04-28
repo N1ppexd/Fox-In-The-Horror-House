@@ -12,6 +12,7 @@ TagManager:
   - fox
   - useKeyZone
   - stairs
+  - sceneChange
   layers:
   - Default
   - TransparentFX

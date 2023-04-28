@@ -136,20 +136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "ilmastointi kanava t\xE4st\xE4 seuraavaan huoneeseen (1)"
       objectReference: {fileID: 0}
-    - target: {fileID: 3491564357452550619, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 784f595fbea3e484981481948b4235fd, type: 2}
     - target: {fileID: 3491564357452550629, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
         type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3491564357452550629, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.8091661
       objectReference: {fileID: 0}
     - target: {fileID: 3491564357452550629, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
         type: 3}

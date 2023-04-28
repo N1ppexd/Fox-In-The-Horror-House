@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+
+namespace HorrorFox.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MainMenu : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void PlayGame() //kun painetaan nappia, tehd‰‰n t‰m‰. T‰st‰ aloitetaan peli...
+        {
+            //Debug.Log(SceneName + " on seuravaa scene johon loadataan nyt heti paikalla!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // ladataan seuraava scenee buioldIndexissˆ‰‰
+        }
+        public void QuitGame()  //kun painetaan "Quit game" nappia, poistutaan pelist‰
+        {
+            Application.Quit();
+        }
     }
 }
+

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3491564357452550618}
   - component: {fileID: 3491564357452550619}
   - component: {fileID: 3491564357452550616}
+  - component: {fileID: 412471809782470970}
   m_Layer: 8
   m_Name: "ilmastointi kanava t\xE4st\xE4 seuraavaan huoneeseen (1)"
-  m_TagString: bed
+  m_TagString: sceneChange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3491564357452550617}
-  m_LocalRotation: {x: -0, y: 0.68019843, z: -0, w: 0.73302805}
+  m_LocalRotation: {x: 0, y: 0.68019646, z: 0, w: 0.73302984}
   m_LocalPosition: {x: -21.091309, y: -3.9428182, z: -21.681448}
-  m_LocalScale: {x: 1.8091662, y: 1.2523261, z: 0.7023921}
+  m_LocalScale: {x: 1.8091661, y: 1.2523261, z: 0.7023921}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3491564358265458231}
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 784f595fbea3e484981481948b4235fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,6 +99,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &412471809782470970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491564357452550617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9efbc558449104dbb70b23d49c1aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3491564358265458228
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +123,7 @@ GameObject:
   - component: {fileID: 3491564358265458230}
   m_Layer: 8
   m_Name: areaTrigger
-  m_TagString: UnderBed
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,5 +154,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5677663, z: 1}
-  m_Center: {x: 0, y: -0.94043154, z: 0}
+  m_Size: {x: 1, y: 0.922492, z: 1.9818172}
+  m_Center: {x: 0.0000000015822287, y: -0.0047833836, z: -0.49090904}
