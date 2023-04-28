@@ -1,0 +1,114 @@
+﻿{
+    "HunterModel_AutoRig": {
+        "Version": "1.10.1822.1",
+        "Scene": {
+            "Name": true,
+            "SupportShaderSelect": true
+        },
+        "Export Directory": "C:/Users/Pelifarmi/Fox-In-The-Horror-House/Assets/models/hunter",
+        "Object": {
+            "HunterModel_AutoRig": {
+                "Generation": "AccuRig",
+                "Physics": {},
+                "Meshes": {
+                    "Plane_001": {
+                        "Materials": {
+                            "Pupil_Pbr": {
+                                "Material Type": "Pbr",
+                                "MultiUV Index": 0,
+                                "Two Side": true,
+                                "Diffuse Color": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Ambient Color": [
+                                    12.973380088806153,
+                                    12.973380088806153,
+                                    12.973380088806153
+                                ],
+                                "Specular Color": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Opacity": 1.0,
+                                "Self Illumination": 0.0,
+                                "Textures": {}
+                            },
+                            "Sclera_Pbr": {
+                                "Material Type": "Pbr",
+                                "MultiUV Index": 0,
+                                "Two Side": true,
+                                "Diffuse Color": [
+                                    204.0,
+                                    204.0,
+                                    204.0
+                                ],
+                                "Ambient Color": [
+                                    12.973380088806153,
+                                    12.973380088806153,
+                                    12.973380088806153
+                                ],
+                                "Specular Color": [
+                                    204.0,
+                                    204.0,
+                                    204.0
+                                ],
+                                "Opacity": 1.0,
+                                "Self Illumination": 0.0,
+                                "Textures": {}
+                            },
+                            "HatPlaceholder_Pbr": {
+                                "Material Type": "Pbr",
+                                "MultiUV Index": 0,
+                                "Two Side": true,
+                                "Diffuse Color": [
+                                    17.77426528930664,
+                                    4.233254909515381,
+                                    0.8912250399589539
+                                ],
+                                "Ambient Color": [
+                                    12.973380088806153,
+                                    12.973380088806153,
+                                    12.973380088806153
+                                ],
+                                "Specular Color": [
+                                    17.77426528930664,
+                                    4.233254909515381,
+                                    0.8912250399589539
+                                ],
+                                "Opacity": 1.0,
+                                "Self Illumination": 0.0,
+                                "Textures": {}
+                            },
+                            "EyeBrows_Pbr": {
+                                "Material Type": "Pbr",
+                                "MultiUV Index": 0,
+                                "Two Side": true,
+                                "Diffuse Color": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Ambient Color": [
+                                    12.973380088806153,
+                                    12.973380088806153,
+                                    12.973380088806153
+                                ],
+                                "Specular Color": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Opacity": 1.0,
+                                "Self Illumination": 0.0,
+                                "Textures": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

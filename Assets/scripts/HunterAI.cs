@@ -21,6 +21,11 @@ namespace HorrorFox.Enemies
 
         [SerializeField] private HunterFov hunterFov; //huntterin näkökenttä...
 
+        [SerializeField] private Animator animator;
+        [SerializeField] private string walkStringAnimator;
+
+        [SerializeField] bool seekPlayer; // jos tämä on false, ei edes yritetä etsiä pelaajaa.,........
+
         private void Awake()
         {
             agent.avoidancePriority = Random.Range(1, 100);
@@ -29,7 +34,9 @@ namespace HorrorFox.Enemies
             if (isChasingPlayer)
                 nextTargetPoint = player;
             agent.SetDestination(nextTargetPoint.position);
-            
+
+
+            animator.Play(walkStringAnimator); // tehdään kävelyAnimaatio...
 
         }
 
@@ -38,11 +45,11 @@ namespace HorrorFox.Enemies
         {
 
             //TÄSSÄ SIMPPELI KOODI JONK APITÄISI TOIMIA. PARANNA HUOMENNA.
-            if (hunterFov.isSeen)
+            if (hunterFov.isSeen && seekPlayer)
             {
                 isChasingPlayer = true;
             }
-            else
+            else if(!hunterFov.isSeen && seekPlayer)
             {
                 isChasingPlayer = false;
             }
@@ -54,7 +61,7 @@ namespace HorrorFox.Enemies
             if (nextTargetPoint == null || !isChasingPlayer)
                 return;
 
-            if(transform.position == agent.pathEndPosition)
+            if(transform.position - transform.up == agent.pathEndPosition || Vector3.Distance(transform.position -transform.up, agent.pathEndPosition) < 1f)
             {
                 for(int i = 0; i < defaultTargetPoints.Length; i++)
                 {

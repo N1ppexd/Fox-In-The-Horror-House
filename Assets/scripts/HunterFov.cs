@@ -17,6 +17,8 @@ namespace HorrorFox.Enemies
 
         [SerializeField] private LayerMask whatIsFox, whatIsObstacle;
 
+        
+
         // Start is called before the first frame update
         void Start()
         {
@@ -33,7 +35,6 @@ namespace HorrorFox.Enemies
         public List<Transform> targets = new List<Transform>(); //targetit, jotka on vihollisen fovin sis‰ll‰.
         private void FOVCheck()
         {
-
             targets.Clear();//tyhjennet‰‰n...
             Vector3 lookPositionVector = transform.position;
             Collider[] rangeChecks = Physics.OverlapSphere(lookPositionVector, seeDistance, whatIsFox);
