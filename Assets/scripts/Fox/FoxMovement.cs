@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 namespace HorrorFox.Fox
 {
@@ -19,6 +20,8 @@ namespace HorrorFox.Fox
         [SerializeField] private string squashStartStrin, squashEndString, walk, run, jump, idle;
 
         [SerializeField] private Transform body;
+
+        [SerializeField] private Slider staminaBar; //n‰ytet‰‰n juoksun coolDown....
 
 
         private bool isUnderBed, waitToSquashBackUp; //isUnderbed on kun ollaan s‰ngyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan s‰ngyn alla
@@ -140,6 +143,8 @@ namespace HorrorFox.Fox
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
+            staminaBar.value = currentRunCoolDown / maxRunCoolDown;
+
             Debug.Log("isSquashing = " + isSquashing);
 
             if (jumpCount < 1 || isSquashing)
@@ -181,6 +186,9 @@ namespace HorrorFox.Fox
                 ApplyJumpingForce();    //hyp‰t‰‰n
                 currentJumpDuration += Time.deltaTime * 1;
             }
+
+            
+
         }
 
         #region foxJump
