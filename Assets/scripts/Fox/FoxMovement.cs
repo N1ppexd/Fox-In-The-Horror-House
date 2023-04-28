@@ -46,11 +46,12 @@ namespace HorrorFox.Fox
 
         public enum MovementMode
         {
-            runMode,
-            walkMode,
-            flyMode,
-            squatMode,
-            idle
+            runMode,            //kun kettu juoksee.
+            walkMode,           //kun kettu k‰velee
+            flyMode,            //Kun kettu on ilmassa,
+            squatMode,          //kun kettu on kyykyss‰
+            idle,               //idle mode
+            transitioning       //kun ollaan menossa uuteen sceneen....
         }
 
         private void Awake()
@@ -136,6 +137,9 @@ namespace HorrorFox.Fox
 
         void Update() //joka frame juttuja tehd‰‰n...
         {
+            if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
+                return;
+
             Debug.Log("isSquashing = " + isSquashing);
 
             if (jumpCount < 1 || isSquashing)
@@ -193,6 +197,9 @@ namespace HorrorFox.Fox
 
         private void FoxJump(bool enable)
         {
+            if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
+                return;
+
             if (!enable)
             {
                 Debug.Log("laitetaan jumoing pois...");
@@ -221,6 +228,9 @@ namespace HorrorFox.Fox
 
         void MovementAnim() // t‰‰ll‰ valitaan, onko run vai walk animaatio vai kumpikaan...
         {
+            if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
+                return;
+
             if (isUnderBed || !isGrounded || isSquashing)
                 return;
 
@@ -289,6 +299,9 @@ namespace HorrorFox.Fox
         /// <param name="enabled"></param>
         private void FoxSquash(bool enabled)
         {
+            if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
+                return;
+
             if (!isItReallyGrounded())
             {
                 isGrounded = false;

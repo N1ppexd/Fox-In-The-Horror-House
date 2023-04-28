@@ -35,7 +35,9 @@ namespace HorrorFox.Enemies
             nextTargetPoint = defaultTargetPoints[0];
             if (isChasingPlayer)
                 nextTargetPoint = player;
-            agent.SetDestination(nextTargetPoint.position);
+
+            if(agent.isOnNavMesh)
+                agent.SetDestination(nextTargetPoint.position);
 
 
             animator.Play(walkStringAnimator); // tehdään kävelyAnimaatio...
@@ -45,6 +47,10 @@ namespace HorrorFox.Enemies
         // Update is called once per frame
         void Update()
         {
+            if (!agent.isOnNavMesh)
+                return;
+
+
 
             //TÄSSÄ SIMPPELI KOODI JONK APITÄISI TOIMIA. PARANNA HUOMENNA.
             if (hunterFov.isSeen && seekPlayer)

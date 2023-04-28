@@ -1,3 +1,4 @@
+using HorrorFox.Fox;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,6 +10,8 @@ namespace HorrorFox
 {
     public class SceneChanger : MonoBehaviour
     {
+
+        [SerializeField] private FoxMovement foxMovement;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -40,6 +43,7 @@ namespace HorrorFox
         /// <returns></returns>
         IEnumerator WaitForSceneChange()//jotaki paskaa tässä näiun
         {
+            foxMovement.movementMode = FoxMovement.MovementMode.transitioning;
             yield return new WaitForSeconds(1);
 
 
