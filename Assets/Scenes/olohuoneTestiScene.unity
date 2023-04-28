@@ -353,6 +353,18 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 53696287}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &53696290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4259577743496660692, guid: cb5e83b220469134686e7908ccae77b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 53696287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb151ecdb7070342ba59c72f4cdf4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &79465649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,6 +2154,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 454613204}
     m_Modifications:
+    - target: {fileID: 412471809782470970, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
+        type: 3}
+      propertyPath: foxMovement
+      value: 
+      objectReference: {fileID: 53696290}
     - target: {fileID: 3491564357452550617, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
         type: 3}
       propertyPath: m_Name
