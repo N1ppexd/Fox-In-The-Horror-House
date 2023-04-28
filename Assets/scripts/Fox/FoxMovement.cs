@@ -347,7 +347,7 @@ namespace HorrorFox.Fox
             bool rayCastTest = Physics.Raycast(transform.position, -transform.up, out hit);
 
             if (rayCastTest)
-                if (hit.collider.transform.CompareTag("floor") || hit.collider.transform.CompareTag("bed"))
+                if (!hit.transform.CompareTag("wall"))
                 {
                     float dist = Vector3.Distance(hit.point, transform.position);
 
@@ -365,7 +365,7 @@ namespace HorrorFox.Fox
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
+            if (!collision.gameObject.CompareTag("wall"))
             {
 
                 if (isItReallyGrounded())
@@ -379,13 +379,13 @@ namespace HorrorFox.Fox
 
         private void OnCollisionStay(Collision collision)
         {
-            if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
+            if (!collision.gameObject.CompareTag("wall"))
                 isGrounded = true;
         }
 
         private void OnCollisionExit(Collision collision)
         {
-            if (collision.gameObject.CompareTag("floor") || collision.gameObject.CompareTag("bed"))
+            if (!collision.gameObject.CompareTag("wall"))
             {
                 /*
                 if (isItReallyGrounded() && jumpCount > 0) //kun jumpcount on yli 0. Jos se on 0 tai alle, on hypätty eikä tiputtu
