@@ -171,6 +171,7 @@ MonoBehaviour:
   defaultTargetPoints: []
   isChasingPlayer: 0
   player: {fileID: 0}
+  hunterFov: {fileID: 1262846638010609861}
 --- !u!114 &1262846638010609861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +187,7 @@ MonoBehaviour:
   fovAngle: 90
   seeDistance: 5
   detectionWait: 2
+  isSeen: 0
   whatIsFox:
     serializedVersion: 2
     m_Bits: 128

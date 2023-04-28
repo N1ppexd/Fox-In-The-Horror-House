@@ -110,7 +110,7 @@ MonoBehaviour:
   smoothSpeed: 4
   keyTrigger: {fileID: 323939137202052894}
   foxInteract: {fileID: 0}
-  keyMesh: {fileID: 323939136644349731}
+  keyMesh: {fileID: 1602825613627661694}
 --- !u!54 &323939136644349734
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14848,6 +14848,12 @@ PrefabInstance:
 --- !u!4 &465363605902288401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4cd49a12e6323874a98c3bbad8233d9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 144102846949622266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1602825613627661694 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4cd49a12e6323874a98c3bbad8233d9d,
     type: 3}
   m_PrefabInstance: {fileID: 144102846949622266}
   m_PrefabAsset: {fileID: 0}

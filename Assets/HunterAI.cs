@@ -18,6 +18,9 @@ namespace HorrorFox.Enemies
 
         [SerializeField] private Transform player;
 
+
+        [SerializeField] private HunterFov hunterFov; //huntterin näkökenttä...
+
         private void Awake()
         {
             agent.avoidancePriority = Random.Range(1, 100);
@@ -33,6 +36,18 @@ namespace HorrorFox.Enemies
         // Update is called once per frame
         void Update()
         {
+
+            //TÄSSÄ SIMPPELI KOODI JONK APITÄISI TOIMIA. PARANNA HUOMENNA.
+            if (hunterFov.isSeen)
+            {
+                isChasingPlayer = true;
+            }
+            else
+            {
+                isChasingPlayer = false;
+            }
+
+
             if(isChasingPlayer)
                 agent.SetDestination(nextTargetPoint.position);
 
