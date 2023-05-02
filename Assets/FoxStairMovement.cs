@@ -33,7 +33,7 @@ namespace HorrorFox.Fox
             //Jos portaisiin osutaan, mennään ylöspäin...
             if (hitStair)
             {
-                rb.position += transform.up * stepSmooth;
+                rb.position += Vector3.up * stepSmooth;
             }
 
             Vector3 rotationAngle = Vector3.Cross(transform.right, stairTrigger.transform.up);
