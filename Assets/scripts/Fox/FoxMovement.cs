@@ -45,6 +45,14 @@ namespace HorrorFox.Fox
         [SerializeField] private Transform IkRotationTransform;
 
 
+
+        /// <summary>
+        /// PORTAAT !!
+        /// </summary>
+        /// 
+        [SerializeField] private FoxStairMovement foxStairMovement;
+
+
         public MovementMode movementMode;
 
         public enum MovementMode
@@ -134,6 +142,7 @@ namespace HorrorFox.Fox
                 }
                     
             }
+            foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehk‰ voisi laittaa if(isStairZone) hommaan, mutta pitt‰‰ testailla)
 
             rb.velocity = RunSpeed(isRunning);
         }

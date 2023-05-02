@@ -13,6 +13,7 @@ TagManager:
   - useKeyZone
   - stairs
   - sceneChange
+  - stairZone
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - fox
   - environment
   - foxChild
-  - 
+  - stairs
   - 
   - 
   - 
