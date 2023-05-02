@@ -38,9 +38,19 @@ namespace HorrorFox.Fox
                 rb.position += Vector3.up * stepSmooth;
             }
 
-            bodyTransform.rotation = Quaternion.FromToRotation(Vector3.up, stairTrigger.up);
+            /*Vector3 rotationAxis = Vector3.Cross(transform.forward, stairTrigger.up);
 
-            //bodyTransform.localRotation = Quaternion.Euler(bodyTransform.localRotation.x, 0, bodyTransform.localRotation.z);
+            bodyTransform.rotation = Quaternion.Euler(rotationAxis * 45);
+
+            bodyTransform.Rotate(bodyTransform.up * 90);
+
+            RaycastHit hit;
+
+            Physics.Raycast(transform.position, -transform.up, out hit, maxDistance, whatIsStair);
+
+            bodyTransform.rotation = Quaternion.FromToRotation(transform.up, hit.normal);*/
+
+            //bodyTransform.rotation = 
         }
 
 
