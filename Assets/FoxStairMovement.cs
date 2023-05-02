@@ -17,11 +17,16 @@ namespace HorrorFox.Fox
         [SerializeField] private Rigidbody rb;
 
 
-        [HideInInspector] public bool isStairZone;
+        public bool isStairZone;
 
+
+        private Transform stairTrigger;
 
         public void CheckForChairs()
         {
+            if (!isStairZone)
+                return;
+
             stairShootPoint = transform.position;
             bool hitStair = Physics.Raycast(stairShootPoint, transform.forward, maxDistance, whatIsStair);
 
@@ -30,6 +35,10 @@ namespace HorrorFox.Fox
             {
                 rb.position += transform.up * stepSmooth;
             }
+
+            Vector3 rotationAngle = Vector3.Cross(transform.right, stairTrigger.transform.up);
+            rotationAngle = new Vector3(rotationAngle.x, transform.rotation.y, rotationAngle.z);
+            transform.localRotation = Quaternion.Euler(rotationAngle * 45);
         }
 
 
@@ -39,7 +48,21 @@ namespace HorrorFox.Fox
         {
             if (other.CompareTag(stairZoneString))
             {
+
+                rb.mass = 10;
+
+                stairTrigger = other.transform;
                 isStairZone = true;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag(stairZoneString))
+            {
+                rb.mass = 1;
+
+                isStairZone = false;
             }
         }
     }

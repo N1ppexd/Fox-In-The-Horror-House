@@ -121,6 +121,7 @@ namespace HorrorFox.Fox
             Debug.Log("jumpcount = " + jumpCount);
             if (movementAxis != Vector3.zero)        //kun liikutaan, tehd‰‰n liikkumisanimaatiot....
             {
+                foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehk‰ voisi laittaa if(isStairZone) hommaan, mutta pitt‰‰ testailla)
                 float angle = Vector3.Dot(Vector3.right, movementAxis);
                 angle = Mathf.Acos(angle);
                 angle = Mathf.Rad2Deg * angle;
@@ -142,7 +143,6 @@ namespace HorrorFox.Fox
                 }
                     
             }
-            foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehk‰ voisi laittaa if(isStairZone) hommaan, mutta pitt‰‰ testailla)
 
             rb.velocity = RunSpeed(isRunning);
         }
@@ -268,7 +268,14 @@ namespace HorrorFox.Fox
             Vector2 axis = obj.ReadValue<Vector2>();
 
             Vector3 toBeMovemedAxis = new Vector3(axis.x, 0, axis.y);
+
+            toBeMovemedAxis = transform.TransformDirection(toBeMovemedAxis);
+
             movementAxis = Vector3.Lerp(movementAxis, toBeMovemedAxis, turnSpeed).normalized;
+
+            movementAxis = transform.InverseTransformDirection(movementAxis);
+
+            
 
             Debug.Log("axis = " + movementAxis);
 
@@ -300,9 +307,9 @@ namespace HorrorFox.Fox
         private Vector3 RunSpeed(bool running)
         {
             if (!running)
-                return movementAxis * speed + Vector3.up * rb.velocity.y; //kettu liikkuu...
+                return movementAxis * speed + transform.up * rb.velocity.y; //kettu liikkuu...
             if (running)
-                return movementAxis * runSpeed + Vector3.up * rb.velocity.y; //kettu liikkuu...
+                return movementAxis * runSpeed  + transform.up * rb.velocity.y; //kettu liikkuu...
 
             return Vector3.zero;
         }
