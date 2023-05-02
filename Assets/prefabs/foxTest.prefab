@@ -185,7 +185,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   maxDistance: 0.5
-  stepSmooth: 0.1
+  stepSmooth: 0.2
   rb: {fileID: 4259577743496660694}
   isStairZone: 0
   stairZoneString: stairZone
