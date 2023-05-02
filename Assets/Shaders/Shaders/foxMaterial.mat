@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: foxMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: dd7ab56bf46a25949914167bcc7c575b,
+  m_Shader: {fileID: -6465566751694194690, guid: 2b634c920c536814cb22e53e23e6f55e,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -68,11 +68,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Brightness_Rim: 2.11
+    - Brightness_Rim: 3.57
     - LIGHTMAP: 0
-    - Rim_Power: 5
-    - Toon_Ramp_Offset: 0.5
-    - Toon_Ramp_Smoothness: 0.43
+    - Rim_Power: 1.37
+    - Toon_Ramp_Offset: 0.779
+    - Toon_Ramp_Smoothness: 0
     - _LightProbeContribution: 3.67
     - _OutlineDepthSensitivity: 1
     - _OutlineNormalsSensitivity: 1
@@ -80,6 +80,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 1
+    - _ambient_occulsion: 0
     m_Colors:
     - Toon_Ramp_Tint: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
