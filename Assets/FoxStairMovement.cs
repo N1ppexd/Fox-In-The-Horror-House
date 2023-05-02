@@ -36,9 +36,7 @@ namespace HorrorFox.Fox
                 rb.position += Vector3.up * stepSmooth;
             }
 
-            Vector3 rotationAngle = Vector3.Cross(transform.right, stairTrigger.transform.up);
-            rotationAngle = new Vector3(rotationAngle.x, transform.rotation.y, rotationAngle.z);
-            transform.localRotation = Quaternion.Euler(rotationAngle * 45);
+            transform.rotation = Quaternion.FromToRotation(transform.up, stairTrigger.up);
         }
 
 
