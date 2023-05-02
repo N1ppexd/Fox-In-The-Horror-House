@@ -143,7 +143,7 @@ namespace HorrorFox.Fox
                 }
                     
             }
-
+            
             rb.velocity = RunSpeed(isRunning);
         }
 
@@ -300,10 +300,11 @@ namespace HorrorFox.Fox
 
         private Vector3 RunSpeed(bool running)
         {
+            Vector3 roatatedVector = (Quaternion.Euler(body.rotation.x, body.rotation.y, body.rotation.z) * movementAxis);
             if (!running)
-                return movementAxis * speed + transform.up * rb.velocity.y; //kettu liikkuu...
+                return roatatedVector * speed + transform.up * rb.velocity.y; //kettu liikkuu...
             if (running)
-                return movementAxis * runSpeed  + transform.up * rb.velocity.y; //kettu liikkuu...
+                return roatatedVector * runSpeed  + transform.up * rb.velocity.y; //kettu liikkuu...
 
             return Vector3.zero;
         }

@@ -22,6 +22,8 @@ namespace HorrorFox.Fox
 
         private Transform stairTrigger;
 
+        [SerializeField] private Transform bodyTransform;
+
         public void CheckForChairs()
         {
             if (!isStairZone)
@@ -36,7 +38,9 @@ namespace HorrorFox.Fox
                 rb.position += Vector3.up * stepSmooth;
             }
 
-            transform.rotation = Quaternion.FromToRotation(transform.up, stairTrigger.up);
+            bodyTransform.rotation = Quaternion.FromToRotation(Vector3.up, stairTrigger.up);
+
+            //bodyTransform.localRotation = Quaternion.Euler(bodyTransform.localRotation.x, 0, bodyTransform.localRotation.z);
         }
 
 
@@ -59,6 +63,8 @@ namespace HorrorFox.Fox
             if (other.CompareTag(stairZoneString))
             {
                 rb.mass = 1;
+
+                bodyTransform.rotation = Quaternion.Euler(0,0,0);
 
                 isStairZone = false;
             }
