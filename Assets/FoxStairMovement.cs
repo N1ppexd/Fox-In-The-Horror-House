@@ -27,7 +27,12 @@ namespace HorrorFox.Fox
         public void CheckForChairs()
         {
             if (!isStairZone)
+            {
+                //rb.isKinematic = false;
+                rb.freezeRotation = true;
                 return;
+            }
+            //rb.isKinematic = true;   
 
             stairShootPoint = transform.position;
             bool hitStair = Physics.Raycast(stairShootPoint, transform.forward, maxDistance, whatIsStair);
@@ -37,9 +42,7 @@ namespace HorrorFox.Fox
             {
                 rb.position += Vector3.up * stepSmooth;
             }
-
         }
-
 
 
         [SerializeField] private string stairZoneString; //xdd
@@ -47,8 +50,6 @@ namespace HorrorFox.Fox
         {
             if (other.CompareTag(stairZoneString))
             {
-
-                rb.mass = 10;
 
                 stairTrigger = other.transform;
                 isStairZone = true;
@@ -59,8 +60,6 @@ namespace HorrorFox.Fox
         {
             if (other.CompareTag(stairZoneString))
             {
-                rb.mass = 1;
-
                 bodyTransform.rotation = Quaternion.Euler(0,0,0);
 
                 isStairZone = false;

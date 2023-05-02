@@ -128,7 +128,8 @@ namespace HorrorFox.Fox
 
                 IkRotationTransform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), 30 * Time.deltaTime);
 
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
+                if(!foxStairMovement.isStairZone)
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
                 //Quaternion.Euler(0, angle, 0);
                 MovementAnim();
 
