@@ -269,11 +269,11 @@ namespace HorrorFox.Fox
 
             Vector3 toBeMovemedAxis = new Vector3(axis.x, 0, axis.y);
 
-            toBeMovemedAxis = transform.TransformDirection(toBeMovemedAxis);
+            toBeMovemedAxis = transform.InverseTransformDirection(toBeMovemedAxis);
 
             movementAxis = Vector3.Lerp(movementAxis, toBeMovemedAxis, turnSpeed).normalized;
 
-            movementAxis = transform.InverseTransformDirection(movementAxis);
+            movementAxis = transform.TransformDirection(movementAxis);
 
             
 
