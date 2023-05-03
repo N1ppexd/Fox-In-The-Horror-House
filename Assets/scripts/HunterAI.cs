@@ -28,6 +28,8 @@ namespace HorrorFox.Enemies
 
         [SerializeField] private AudioSource footStepAudio;
 
+        [SerializeField] bool isLeaving; // t‰m‰ on true, kun l‰hdet‰‰n huoneesta....
+
         private void Awake()
         {
             agent.avoidancePriority = Random.Range(1, 100);
@@ -62,11 +64,16 @@ namespace HorrorFox.Enemies
                 isChasingPlayer = false;
             }
 
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator) && !footStepAudio.isPlaying)
+                footStepAudio.Play();
+            else if (!animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator))
+                footStepAudio.Stop();
 
-            if(isChasingPlayer)
+
+            if (isChasingPlayer)
                 agent.SetDestination(nextTargetPoint.position);
 
-            if (nextTargetPoint == null || !isChasingPlayer)
+            if (nextTargetPoint == null || !isChasingPlayer || isLeaving)
                 return;
 
             if(transform.position - transform.up == agent.pathEndPosition || Vector3.Distance(transform.position -transform.up, agent.pathEndPosition) < 1f)
@@ -85,16 +92,42 @@ namespace HorrorFox.Enemies
             }
 
 
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator) && !footStepAudio.isPlaying)
-                footStepAudio.Play();
-            else if (!animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator))
-                footStepAudio.Stop();
+            
         }
 
 
         private void ChasePlayer()
         {
             isChasingPlayer = true;
+        }
+
+
+        /// <summary>
+        /// Spawning the hunter at the same position as <paramref name="point"/> transform.
+        /// </summary>
+        /// <param name="point"></param>
+        public void SpawnHunter(Transform point)
+        {
+            agent.enabled = false;
+
+            transform.position = point.position;
+
+            agent.enabled = true;
+
+            isLeaving = false;
+        }
+
+        /// <summary>
+        /// This is played, when hunter leaves the room. Hunter moves to <paramref name="point"/> position..
+        /// </summary>
+        /// <param name="point"></param>
+        public void LeaveRoom(Transform point)
+        {
+            isLeaving = true;
+
+            agent.SetDestination(point.position);
+
+
         }
 
     }
