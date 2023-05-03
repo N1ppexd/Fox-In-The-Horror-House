@@ -64,6 +64,7 @@ namespace HorrorFox.Clock
                 }
                 if (currentClockTime <= 0)
                 {
+                    clockViisari.localRotation = Quaternion.Euler(0, 0, 0);
                     SpawnHunters();
                 }
             }
@@ -89,6 +90,8 @@ namespace HorrorFox.Clock
         {
             hunterInRoom = true;
             currentClockTime = clockTimeDuration; //resetataan clockTime;
+
+            currentHunterTime = hunterTimeDuration;
 
             HunterAI hunter = hunterAI[Random.Range(0, hunterAI.Length)]; //Random rangessa toinen luku on aina poissasuljettu, eli ottaa random rangen 0 - hunterAI.length-1 väliltä...
 
