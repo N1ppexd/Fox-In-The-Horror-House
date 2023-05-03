@@ -70,11 +70,14 @@ namespace HorrorFox.Enemies
                 footStepAudio.Stop();
 
 
+            if (nextTargetPoint == null || isLeaving)
+                return;
+
+
             if (isChasingPlayer)
                 agent.SetDestination(nextTargetPoint.position);
 
-            if (nextTargetPoint == null || !isChasingPlayer || isLeaving)
-                return;
+            
 
             if(transform.position - transform.up == agent.pathEndPosition || Vector3.Distance(transform.position -transform.up, agent.pathEndPosition) < 1f)
             {

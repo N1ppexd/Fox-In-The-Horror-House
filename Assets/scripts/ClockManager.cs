@@ -31,6 +31,8 @@ namespace HorrorFox.Clock
         bool hunterInRoom;
 
 
+        [SerializeField] private Transform clockViisari; //viisarikelloon, joka pyörii...
+
 
         [Space(30)]
         [SerializeField]
@@ -43,6 +45,9 @@ namespace HorrorFox.Clock
             currentClockTime = clockTimeDuration;
         }
 
+
+        float rotationAngle;
+
         // Update is called once per frame
         void Update()
         {
@@ -51,6 +56,10 @@ namespace HorrorFox.Clock
             {
                 if (currentClockTime > 0)
                 {
+                    rotationAngle = currentClockTime / clockTimeDuration * 360;
+
+                    clockViisari.localRotation = Quaternion.Euler(0, 0, rotationAngle);
+
                     currentClockTime -= Time.deltaTime; //VÄHENNETÄÄN AIKAA
                 }
                 if (currentClockTime <= 0)
@@ -60,11 +69,11 @@ namespace HorrorFox.Clock
             }
             else if (hunterInRoom)
             {
-                if (currentClockTime > 0)
+                if (currentHunterTime > 0)
                 {
-                    currentClockTime -= Time.deltaTime; //VÄHENNETÄÄN AIKAA
+                    currentHunterTime -= Time.deltaTime; //VÄHENNETÄÄN AIKAA
                 }
-                if (currentClockTime <= 0)
+                if (currentHunterTime <= 0)
                 {
                     HuntersLeave();
                 }
@@ -92,8 +101,9 @@ namespace HorrorFox.Clock
 
         private void HuntersLeave()
         {
-
             hunterInRoom = false;
+
+            currentHunterTime = hunterTimeDuration;
 
             currentHunter.LeaveRoom(spawnPoints[0]); //hunter lähtee huoneesta pois...
 
