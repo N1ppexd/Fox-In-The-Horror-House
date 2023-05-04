@@ -153,7 +153,7 @@ namespace HorrorFox.Fox
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
-            staminaBar.value = currentRunCoolDown / maxRunCoolDown;
+            staminaBar.value = (maxRunCoolDown - currentRunCoolDown) / maxRunCoolDown;
 
             Debug.Log("isSquashing = " + isSquashing);
 

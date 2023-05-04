@@ -13,6 +13,9 @@ namespace HorrorFox
 
         [SerializeField] private ParticleSystem explosionParticle; //explosionParticle tulee, kun lyhyt viisari menee ylös.
 
+
+        [SerializeField] private AudioSource clockAudio;
+
         private void Awake()
         {
             if(Instance == null)
@@ -37,6 +40,8 @@ namespace HorrorFox
         /// </summary>
         public void KelloStop()
         {
+            clockAudio.Play();
+
             pikkuviisari.localRotation = Quaternion.Euler(0, 0, 0);
 
             explosionParticle.Play();
