@@ -133,6 +133,21 @@ namespace HorrorFox.Enemies
 
         }
 
+
+
+
+        /// <summary>
+        /// tämä on simppeli alku!!!
+        /// </summary>
+        /// <param name="collision"></param>
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("fox"))
+            {
+
+            }
+        }
+
     }
 
 }
