@@ -68,10 +68,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Brightness_Rim: 3.57
+    - Brightness_Rim: 5
     - LIGHTMAP: 0
-    - Rim_Power: 1.37
-    - Toon_Ramp_Offset: 0.779
+    - Rim_Power: 0.23
+    - Toon_Ramp_Offset: 0.917
     - Toon_Ramp_Smoothness: 0
     - _LightProbeContribution: 3.67
     - _OutlineDepthSensitivity: 1
