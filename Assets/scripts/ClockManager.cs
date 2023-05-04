@@ -45,6 +45,10 @@ namespace HorrorFox.Clock
         private HunterAI[] hunterAI;
 
 
+        [Space(20)]
+        [Header("OviSYsteemi, jotta avataan ovi")]
+        [SerializeField] private EnemyDoorTrigger doorTrigger;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -101,6 +105,9 @@ namespace HorrorFox.Clock
         private void SpawnHunters()
         {
             hunterInRoom = true;
+
+            doorTrigger.doorMode = EnemyDoorTrigger.DoorMode.waitToOpen;
+
             currentClockTime = clockTimeDuration; //resetataan clockTime;
 
             currentHunterTime = hunterTimeDuration;
@@ -116,6 +123,8 @@ namespace HorrorFox.Clock
 
         private void HuntersLeave()
         {
+            doorTrigger.doorMode = EnemyDoorTrigger.DoorMode.waitToClose;
+
             hunterInRoom = false;
 
             currentHunterTime = hunterTimeDuration;
