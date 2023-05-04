@@ -22,10 +22,16 @@ namespace HorrorFox.Clock
         [Header("hunttereiden spawn pointit")]
         [SerializeField] private Transform[] spawnPoints;
 
+        [Space(20)]
+        [Header("max level pituus (minuuteissa)")]
+        [Range(1,5)]
+        [SerializeField] private float maxLevelDuration;
+
 
         private float
             currentClockTime,       //tämänhetkinen kellon aika
-            currentHunterTime;      //tämän hetkinen hunterin aika (kuinka kauan se on ollut huoneessa..)
+            currentHunterTime,      //tämän hetkinen hunterin aika (kuinka kauan se on ollut huoneessa..)
+            currentLevelTime;
 
 
         bool hunterInRoom;
@@ -43,10 +49,12 @@ namespace HorrorFox.Clock
         void Start()
         {
             currentClockTime = clockTimeDuration;
+
+            currentLevelTime = maxLevelDuration * 60; //kerrotaaan 60:llä, koska maxLevelDuration on minuuteissa...
         }
 
 
-        float rotationAngle;
+        float pikkuViisariAngle, isoViisariAngle;
 
         // Update is called once per frame
         void Update()
@@ -56,15 +64,15 @@ namespace HorrorFox.Clock
             {
                 if (currentClockTime > 0)
                 {
-                    rotationAngle = currentClockTime / clockTimeDuration * 360;
+                    pikkuViisariAngle = currentClockTime / clockTimeDuration * 360;
 
-                    clockViisari.localRotation = Quaternion.Euler(0, 0, rotationAngle);
+                    Kellokaappi.Instance.KelloMove(Quaternion.Euler(0, 0, pikkuViisariAngle));
 
                     currentClockTime -= Time.deltaTime; //VÄHENNETÄÄN AIKAA
                 }
                 if (currentClockTime <= 0)
                 {
-                    clockViisari.localRotation = Quaternion.Euler(0, 0, 0);
+                    Kellokaappi.Instance.KelloStop();
                     SpawnHunters();
                 }
             }
@@ -79,6 +87,10 @@ namespace HorrorFox.Clock
                     HuntersLeave();
                 }
             }
+
+            currentLevelTime -= Time.deltaTime;
+            isoViisariAngle = currentLevelTime / (maxLevelDuration * 60) * 360;
+            Kellokaappi.Instance.MoveIsoViisari(Quaternion.Euler(0, 0, isoViisariAngle));
             
         }
 
