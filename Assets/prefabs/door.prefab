@@ -239,12 +239,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7609556542733880737}
     m_Modifications:
+    - target: {fileID: 2494022581587641984, guid: db47df041cb8cb24eb97c5af41f08f8a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f9b22afced0febe47bdcdbc584bbfe1e,
+        type: 3}
+    - target: {fileID: 3442816342068066122, guid: db47df041cb8cb24eb97c5af41f08f8a,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6031183909164066768, guid: db47df041cb8cb24eb97c5af41f08f8a,
         type: 3}
       propertyPath: m_text
       value: 'Press
 
-        [F]
+
 
         To use the key'
       objectReference: {fileID: 0}
