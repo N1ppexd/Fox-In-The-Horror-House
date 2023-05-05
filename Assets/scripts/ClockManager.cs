@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HorrorFox.Enemies;
+using Cinemachine;
 
 namespace HorrorFox.Clock
 {
@@ -49,6 +50,22 @@ namespace HorrorFox.Clock
         [Header("OviSYsteemi, jotta avataan ovi")]
         [SerializeField] private EnemyDoorTrigger doorTrigger;
 
+
+        [Space(20)]
+        [Header("Pelaajan ameran cinemachine")]
+        [SerializeField] private CinemachineVirtualCamera cineMachineCam;
+
+
+
+
+        //private hommat kameran tärinän kontrollointia varten...
+        private float
+            startingIntensity,
+            shakeTimer,
+            shakeTimerTotal;
+
+
+
         // Start is called before the first frame update
         void Start()
         {
@@ -76,6 +93,7 @@ namespace HorrorFox.Clock
                 }
                 if (currentClockTime <= 0)
                 {
+                    Shake(3, 2); //kameran pitäisi täristä...
                     Kellokaappi.Instance.KelloStop();
                     SpawnHunters();
                 }
@@ -95,7 +113,17 @@ namespace HorrorFox.Clock
             currentLevelTime -= Time.deltaTime;
             isoViisariAngle = currentLevelTime / (maxLevelDuration * 60) * 360;
             Kellokaappi.Instance.MoveIsoViisari(Quaternion.Euler(0, 0, isoViisariAngle));
-            
+
+
+
+            if (shakeTimer > 0)
+            {
+                shakeTimer -= Time.deltaTime;
+                cineMachineCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain =
+                    Mathf.Lerp(startingIntensity, 0, 1 - shakeTimer / shakeTimerTotal);
+
+            }
+
         }
 
 
@@ -131,6 +159,22 @@ namespace HorrorFox.Clock
 
             currentHunter.LeaveRoom(spawnPoints[0]); //hunter lähtee huoneesta pois...
 
+        }
+
+
+        //CAMERA SHAKE
+
+        /// <summary>
+        /// <paramref name="intensity"/> is the intensity of the camera shake while <paramref name="time"/> is the duration of the shake in seconds.
+        /// </summary>
+        /// <param name="intensity"></param>
+        /// <param name="time"></param>
+        public void Shake(float intensity, float time)//cinemachine kamera tärinä
+        {
+            cineMachineCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
+            startingIntensity = intensity;
+            shakeTimer = time;
+            shakeTimerTotal = time;
         }
     }
 }
