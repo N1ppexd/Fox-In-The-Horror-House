@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3724014572357362611}
   - component: {fileID: 8473540072694733537}
   - component: {fileID: 4118498090937763753}
+  - component: {fileID: 8892921191166095464}
   m_Layer: 7
   m_Name: foxTest
   m_TagString: fox
@@ -190,6 +191,20 @@ MonoBehaviour:
   isStairZone: 0
   bodyTransform: {fileID: 8207382865266717684}
   stairZoneString: stairZone
+--- !u!114 &8892921191166095464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259577743496660693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54098f1746cf5f48bb4904f9717e7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 0
+  hp: 0
 --- !u!1 &4259577744366935224
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +781,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.07
+      scalar: 0.04
       minScalar: 1
       maxCurve:
         serializedVersion: 2
