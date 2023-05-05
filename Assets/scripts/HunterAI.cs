@@ -14,21 +14,33 @@ namespace HorrorFox.Enemies
 
         private Transform nextTargetPoint;//vihu menee tähän seuraavaksi....
 
+        [Header("jos tämä on true, vihu seuraa pelaajaa automaattisesti.... TÄMÄ ON VAIN TESTAAMISTA VARTEN")]
         [SerializeField]private bool isChasingPlayer; //xddd
 
         [SerializeField] private Transform player;
 
-
+        [Header("scripti, jossa on fov, jonka avulla tulevaisuudessa vihu etsii pelaajaa...")]
         [SerializeField] private HunterFov hunterFov; //huntterin näkökenttä...
 
+        [Header("vihun animator homma...")]
         [SerializeField] private Animator animator;
         [SerializeField] private string walkStringAnimator;
 
+
+        [Header("true, kun vihu etsii pelaajaa...")]
         [SerializeField] bool seekPlayer; // jos tämä on false, ei edes yritetä etsiä pelaajaa.,........
 
+        [Space(20)]
+        [Header("vihun askelten äänet loop...")]
         [SerializeField] private AudioSource footStepAudio;
 
+        [Space(20)]
+        [Header("tämä on true, kun vihju lähtee huoneesta...")]
         [SerializeField] bool isLeaving; // tämä on true, kun lähdetään huoneesta....
+
+        [Space(20)]
+        [Header("Millä etäisyydellä vihu grabaa pelaajan")]
+        [SerializeField] private float grabDistance = 1.0f; //perus distance on 1...
 
         private void Awake()
         {
@@ -75,7 +87,17 @@ namespace HorrorFox.Enemies
 
 
             if (isChasingPlayer)
+            {
                 agent.SetDestination(nextTargetPoint.position);
+
+                float sqrtDistance = Vector3.SqrMagnitude(transform.position - nextTargetPoint.position);
+
+                if(sqrtDistance <= grabDistance * grabDistance)
+                {
+                    GrabPlayer(nextTargetPoint);
+                }
+            }
+                
 
             
 
@@ -144,8 +166,18 @@ namespace HorrorFox.Enemies
         {
             if (collision.gameObject.CompareTag("fox"))
             {
-
+                GrabPlayer(collision.transform);
             }
+        }
+
+
+
+        /// <summary>
+        /// TÄMÄ ON TESTAUS, MUTTA SE ON SE JUTTU, KUN PELAAJA GRABATAAN.... PARANNETAAN MYÖHEMMIN....
+        /// </summary>
+        private void GrabPlayer(Transform player)
+        {
+
         }
 
     }
