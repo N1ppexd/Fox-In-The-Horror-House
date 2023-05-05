@@ -81,6 +81,8 @@ namespace HorrorFox.Fox.Keys
         {
             if (other.CompareTag("useKeyZone"))         //pit‰‰ laitata niin, ett‰ tulee prompt, ja vasta kun on painettu sit‰ nappia, tehd‰‰n seuravaa asia...
             {
+                Debug.Log("interactZone");
+
                 if (isInInteractRadius)
                 {
                     isInInteractRadius = false;
