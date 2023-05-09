@@ -406,6 +406,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 8892921191166095464, guid: cb5e83b220469134686e7908ccae77b9,
+        type: 3}
+      propertyPath: maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8892921191166095464, guid: cb5e83b220469134686e7908ccae77b9,
+        type: 3}
+      propertyPath: DeathScreen
+      value: 
+      objectReference: {fileID: 77553510}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5e83b220469134686e7908ccae77b9, type: 3}
 --- !u!4 &53696288 stripped
@@ -565,6 +575,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &77553510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6288910636843665225, guid: 68d713f97463dcf439c02c43f6567cdc,
+    type: 3}
+  m_PrefabInstance: {fileID: 77553508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &84856319
 PrefabInstance:
   m_ObjectHideFlags: 0
