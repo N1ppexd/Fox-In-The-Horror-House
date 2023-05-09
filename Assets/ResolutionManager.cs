@@ -18,28 +18,38 @@ namespace HorrorFox
         void Start()
         {
             string currentAspectRatio = GetCurrentAspectRatio();
-            Debug.Log("Current aspect ratio: " + currentAspectRatio);
 
-            SetAspectRatio(currentAspectRatio);
+            
 
             switch (currentAspectRatio)
             {
                 case "16:9":
                     aspectRatioDropdown.value = 0;
-                    return;
+                    break;
                 case "16:10":
                     aspectRatioDropdown.value = 1;
-                    return;
+                    break;
                 case "4:3":
                     aspectRatioDropdown.value = 2;
-                    return;
+                    break;
                 case "21:9":
                     aspectRatioDropdown.value = 3;
-                    return;
+                    break;
                 case "32:9":
                     aspectRatioDropdown.value = 4;
-                    return;
+                    break;
+                default:
+                    aspectRatioDropdown.value = 0;
+                    currentAspectRatio = "16:9";
+                    Debug.Log("aspect ratio not supported in this game you idiot");
+                    break;
+
             }
+
+            Debug.Log("Current aspect ratio: " + currentAspectRatio);
+
+            SetAspectRatio(currentAspectRatio);
+
         }
 
         private string GetCurrentAspectRatio()
@@ -160,10 +170,14 @@ namespace HorrorFox
                     return;
 
             }
+
+            
         }
 
         void SetAspectRatio(string selectedAspectRatio)
         {
+
+            Debug.Log("aspect ratio change");
             List<Vector2Int> resolutionsForAspectRatio = GetAvailableResolutionsForAspectRatio(selectedAspectRatio);
 
             // Clear and update the resolution dropdown with the new list of resolutions
