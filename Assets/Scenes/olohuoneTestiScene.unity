@@ -760,8 +760,8 @@ GameObject:
   - component: {fileID: 507290304}
   - component: {fileID: 507290303}
   m_Layer: 8
-  m_Name: floor (5)
-  m_TagString: floor
+  m_Name: wall
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1466,8 +1466,8 @@ GameObject:
   - component: {fileID: 1586678355}
   - component: {fileID: 1586678354}
   m_Layer: 8
-  m_Name: floor (6)
-  m_TagString: floor
+  m_Name: wall
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1891,7 +1891,7 @@ GameObject:
   - component: {fileID: 2052560716}
   - component: {fileID: 2052560715}
   - component: {fileID: 2052560714}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}
