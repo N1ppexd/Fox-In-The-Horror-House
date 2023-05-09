@@ -11,6 +11,9 @@ namespace HorrorFox.Fox
         [SerializeField] private float maxHp;
         [HideInInspector] public float hp;
 
+
+        [SerializeField] private GameObject DeathScreen; //tulee p‰‰lle, kun kettu kuolee...
+
         // Start is called before the first frame update
         void Start()
         {
@@ -22,8 +25,18 @@ namespace HorrorFox.Fox
         {
             if (hp <= 0)
             {
+                KillFox();
                 Debug.Log("fox should die now");
             }
+        }
+
+
+        //kettu kuolee
+        public void KillFox()
+        {
+            DeathScreen.SetActive(true);
+
+            gameObject.SetActive(false);
         }
     }
 }

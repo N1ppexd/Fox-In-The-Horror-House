@@ -1,3 +1,4 @@
+using HorrorFox.Fox;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -177,7 +178,7 @@ namespace HorrorFox.Enemies
         /// </summary>
         private void GrabPlayer(Transform player)
         {
-
+            player.gameObject.GetComponent<FoxHealth>().KillFox();
         }
 
     }
