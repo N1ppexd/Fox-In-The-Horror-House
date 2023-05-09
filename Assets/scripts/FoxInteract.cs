@@ -23,6 +23,11 @@ namespace HorrorFox.Fox.Keys
         private bool isInInteractRadius;//kun ollaan alueella, jossa voidaan painaa interact nappia...
 
 
+        private bool 
+            isDoor,         //tömö in true, kun pitää käyttää avainta
+            isDragObj;      //tämä on true
+
+
         private void Awake()
         {
             inputMaster = new InputMaster();
@@ -72,8 +77,31 @@ namespace HorrorFox.Fox.Keys
 
                 isInInteractRadius = true;
 
+                isDoor = true;
+
                 DisplayPrompt();
                 
+            }
+
+            if (other.CompareTag("interactZone"))
+            {
+                if (currentKeys.Count > 0)      //EI VOI INTERACTATA, JOS ON AVAIMIA
+                    return;
+
+                isDoor = false;
+                try
+                {
+                    promptCanvas = other.transform.Find("PropmtPanel").gameObject;
+                }
+                catch
+                {
+                    Debug.Log("parenpt object has no door scriot");
+                    return;
+                }
+
+                isInInteractRadius = true;
+
+                DisplayPrompt();
             }
         }
 
@@ -89,7 +117,7 @@ namespace HorrorFox.Fox.Keys
 
                     promptCanvas.SetActive(false);
                 }
-
+                isDoor = false;
             }
         }
 
@@ -112,8 +140,27 @@ namespace HorrorFox.Fox.Keys
             Debug.Log("painetaan juttua");
 
             promptCanvas.SetActive(false);
-            currentKeys[0].UseKey(door);
-            currentKeys.Remove(currentKeys[0]);
+            if (isDoor)
+            {
+                currentKeys[0].UseKey(door);
+
+                currentKeys.Remove(currentKeys[0]);
+                return;
+            }
+
+            if(currentKeys.Count > 0)      //EI VOI INTERACTATA, JOS ON AVAIMIA
+                    return;
+
+
+            //jotain millä saadaan esine liikkumaan ketun mukana ja lopettamaan liikkuminen, kun lopetetaan painaminen...
+        }
+
+        /// <summary>
+        /// tämä tulee, jos liikutetaan jotain esinettä, ja lopetetaan painaminen. Tämä tulee myös, kun otetaan avain, koska avaimen kanssa ei voi interactata huonekalujen kanssa...
+        /// </summary>
+        public void StopPressingInteractButton()
+        {
+
         }
 
 
