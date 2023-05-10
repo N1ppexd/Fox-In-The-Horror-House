@@ -96,6 +96,8 @@ namespace HorrorFox.Fox.Keys
                 try
                 {
                     promptCanvas = other.transform.Find("PropmtPanel").gameObject;
+
+                    interactObj = other.gameObject.GetComponent<InteractObj>(); //xdd
                 }
                 catch
                 {
@@ -187,6 +189,11 @@ namespace HorrorFox.Fox.Keys
 
             if(currentKeys.Count > 0)      //EI VOI INTERACTATA, JOS ON AVAIMIA
                     return;
+
+            if (isInteractableThing)
+            {
+                interactObj.Interact(); //tehd‰‰n n‰in...
+            }
 
 
             //jotain mill‰ saadaan esine liikkumaan ketun mukana ja lopettamaan liikkuminen, kun lopetetaan painaminen...

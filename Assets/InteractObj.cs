@@ -6,16 +6,16 @@ namespace HorrorFox
 {
     public class InteractObj : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        public delegate void FunctionDelegate();
 
+        public event FunctionDelegate OnInteractHappened; //kun kettu interaktaa t‰m‰n kanssa, tehd‰‰n t‰m‰...
+
+        
+        public void Interact()
+        {
+            Debug.Log("interacting");
+            OnInteractHappened?.Invoke();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }
