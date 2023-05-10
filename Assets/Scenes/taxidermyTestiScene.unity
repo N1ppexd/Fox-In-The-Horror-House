@@ -204,12 +204,12 @@ PrefabInstance:
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.244892
+      value: 2.0448916
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.894621
+      value: -7.394621
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
@@ -249,12 +249,12 @@ PrefabInstance:
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2448916
+      value: 2.0448916
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.894621
+      value: -7.394621
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
@@ -1471,7 +1471,12 @@ PrefabInstance:
     - target: {fileID: 3491564357452550617, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
         type: 3}
       propertyPath: m_Name
-      value: "ilmastointi kanava t\xE4st\xE4 seuraavaan huoneeseen (2)"
+      value: TURHA
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491564357452550617, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3491564357452550619, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
         type: 3}
@@ -1669,7 +1674,7 @@ PrefabInstance:
     - target: {fileID: 3491564357452550617, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
         type: 3}
       propertyPath: m_Name
-      value: "ilmastointi kanava t\xE4st\xE4 seuraavaan huoneeseen (1)"
+      value: "REIK\xC4 SEIN\xC4SS\xC4 SIIRTYM\xC4"
       objectReference: {fileID: 0}
     - target: {fileID: 3491564357452550619, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
         type: 3}
