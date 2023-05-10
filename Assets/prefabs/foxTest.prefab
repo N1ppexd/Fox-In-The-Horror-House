@@ -205,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   hp: 0
+  DeathScreen: {fileID: 0}
 --- !u!1 &4259577744366935224
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,8 +233,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4259577744366935224}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47392854, y: 3.2448916, z: -10.894623}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 8.090001, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6188,12 +6189,17 @@ PrefabInstance:
     - target: {fileID: 5117754677927269649, guid: d5d1641e91cd56d48924d9aa2f6501a9,
         type: 3}
       propertyPath: CameraDistance
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5117754677927269649, guid: d5d1641e91cd56d48924d9aa2f6501a9,
         type: 3}
       propertyPath: ShoulderOffset.y
-      value: 2
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117754677927269649, guid: d5d1641e91cd56d48924d9aa2f6501a9,
+        type: 3}
+      propertyPath: ShoulderOffset.z
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 5117754677927269649, guid: d5d1641e91cd56d48924d9aa2f6501a9,
         type: 3}
