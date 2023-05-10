@@ -5493,6 +5493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pikkuviisari: {fileID: 4131602097719403315}
   isoviisari: {fileID: 628902170016196875}
+  isoviisariUI: {fileID: 0}
+  pikkuviisariUI: {fileID: 0}
   explosionParticle: {fileID: 876412973846005294}
   clockAudio: {fileID: 166019685083351711}
 --- !u!1 &9207581839401034088

@@ -401,6 +401,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2685726286543413414, guid: 68d713f97463dcf439c02c43f6567cdc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3914126228025048737, guid: 68d713f97463dcf439c02c43f6567cdc,
         type: 3}
       propertyPath: m_Name
@@ -3831,6 +3836,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1cef19bd2724a4bbd206f3590d63b3, type: 3}
+--- !u!224 &1260244514 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2685726286543413414, guid: 68d713f97463dcf439c02c43f6567cdc,
+    type: 3}
+  m_PrefabInstance: {fileID: 77553508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1262049388
 GameObject:
   m_ObjectHideFlags: 0
@@ -4139,7 +4150,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh52972
+  m_Name: pb_Mesh114368
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5476,7 +5487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1916306349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10684,6 +10695,12 @@ Transform:
   m_Father: {fileID: 179067312}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &2083036279 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 886385946650867681, guid: 68d713f97463dcf439c02c43f6567cdc,
+    type: 3}
+  m_PrefabInstance: {fileID: 77553508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2125287665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1747952912926311058, guid: 039277ca9586b4542a782359c8c5d183,
@@ -11332,6 +11349,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5972691793455099740, guid: f11aa15d84338d04aa25287d3050049a,
+        type: 3}
+      propertyPath: isoviisariUI
+      value: 
+      objectReference: {fileID: 2083036279}
+    - target: {fileID: 5972691793455099740, guid: f11aa15d84338d04aa25287d3050049a,
+        type: 3}
+      propertyPath: pikkuviisariUI
+      value: 
+      objectReference: {fileID: 1260244514}
     - target: {fileID: 8444134465463908398, guid: f11aa15d84338d04aa25287d3050049a,
         type: 3}
       propertyPath: m_RootOrder

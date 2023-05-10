@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UIElements;
 
 namespace HorrorFox
 {
@@ -9,7 +9,7 @@ namespace HorrorFox
     {
         public static Kellokaappi Instance;
 
-        [SerializeField] private Transform pikkuviisari, isoviisari;
+        [SerializeField] private Transform pikkuviisari, isoviisari, isoviisariUI, pikkuviisariUI;
 
         [SerializeField] private ParticleSystem explosionParticle; //explosionParticle tulee, kun lyhyt viisari menee ylös.
 
@@ -32,6 +32,7 @@ namespace HorrorFox
         public void KelloMove(Quaternion viisariRotation)
         {
             pikkuviisari.localRotation = viisariRotation;
+            pikkuviisariUI.localRotation = Quaternion.Inverse(viisariRotation);
         }
 
 
@@ -43,6 +44,7 @@ namespace HorrorFox
             clockAudio.Play();
 
             pikkuviisari.localRotation = Quaternion.Euler(0, 0, 0);
+            pikkuviisariUI.localRotation = Quaternion.Euler(0, 0, 0);
 
             explosionParticle.Play();
         }
@@ -55,6 +57,7 @@ namespace HorrorFox
         public void MoveIsoViisari(Quaternion viisariRotation)
         {
             isoviisari.localRotation = viisariRotation;
+            isoviisariUI.localRotation = Quaternion.Inverse(viisariRotation);
         }
     }
 }
