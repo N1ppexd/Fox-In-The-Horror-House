@@ -211,13 +211,17 @@ namespace HorrorFox.Fox.Keys
 
 
 
-            joint = dragObj.AddComponent<ConfigurableJoint>();
-
-            joint.xMotion = ConfigurableJointMotion.Locked;
-            joint.zMotion = ConfigurableJointMotion.Locked;
-            joint.yMotion = ConfigurableJointMotion.Locked;
-
+            joint = dragObj.GetComponent<ConfigurableJoint>();
             joint.connectedBody = rb;
+
+            joint.configuredInWorldSpace = true;
+            
+
+            /*
+            joint.angularXMotion = ConfigurableJointMotion.Locked;
+            joint.angularYMotion = ConfigurableJointMotion.Locked;
+            joint.angularZMotion = ConfigurableJointMotion.Locked;*/
+
 
 
 
@@ -230,7 +234,8 @@ namespace HorrorFox.Fox.Keys
         /// </summary>
         public void StopPressingInteractButton()
         {
-            Destroy(joint);
+            joint.connectedBody = null;
+            //Destroy(joint);
         }
 
 
