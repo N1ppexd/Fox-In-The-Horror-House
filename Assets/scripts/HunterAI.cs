@@ -54,6 +54,7 @@ namespace HorrorFox.Enemies
             if(agent.isOnNavMesh)
                 agent.SetDestination(nextTargetPoint.position);
 
+            agent.SetDestination(nextTargetPoint.position);
 
             animator.Play(walkStringAnimator); // tehd‰‰n k‰velyAnimaatio...
 
@@ -102,8 +103,10 @@ namespace HorrorFox.Enemies
 
             
 
-            if(transform.position - transform.up == agent.pathEndPosition || Vector3.Distance(transform.position -transform.up, agent.pathEndPosition) < 1f)
+            if(transform.position - transform.up == nextTargetPoint.position || Vector3.Distance(transform.position -transform.up, nextTargetPoint.position) < 1f)
             {
+                agent.SetDestination(nextTargetPoint.position);
+
                 for(int i = 0; i < defaultTargetPoints.Length; i++)
                 {
                     if(nextTargetPoint == defaultTargetPoints[i])
