@@ -25,6 +25,7 @@ namespace HorrorFox.Fox.Keys
 
         private bool 
             isDoor,         //tömö in true, kun pitää käyttää avainta
+            isInteractableThing, //tämä on true, kun yritetään painaa jotain nappia tai jotain..
             isDragObj;      //tämä on true
 
 
@@ -57,6 +58,8 @@ namespace HorrorFox.Fox.Keys
 
 
         Door door;
+        InteractObj interactObj; // tämä on scripti, joka handlaa kaikki perus interaktiot paitsi oven ja esineiden raahamisen..
+
 
         private void OnTriggerEnter(Collider other)
         {
@@ -83,12 +86,13 @@ namespace HorrorFox.Fox.Keys
                 
             }
 
+            if (currentKeys.Count > 0)      //EI VOI INTERACTATA, JOS ON AVAIMIA
+                return;
+
+            isDoor = false;
+
             if (other.CompareTag("interactZone"))
             {
-                if (currentKeys.Count > 0)      //EI VOI INTERACTATA, JOS ON AVAIMIA
-                    return;
-
-                isDoor = false;
                 try
                 {
                     promptCanvas = other.transform.Find("PropmtPanel").gameObject;
@@ -101,6 +105,27 @@ namespace HorrorFox.Fox.Keys
 
                 isInInteractRadius = true;
 
+                isDragObj = false;
+                isInteractableThing = true;
+
+                DisplayPrompt();
+            }
+
+            if (other.CompareTag("interactObjZone"))
+            {
+                try
+                {
+                    promptCanvas = other.transform.Find("PropmtPanel").gameObject;
+                }
+                catch
+                {
+                    Debug.Log("parenpt object has no door scriot");
+                    return;
+                }
+
+                isInInteractRadius = true;
+                isDragObj = true;
+                isInteractableThing = false;
                 DisplayPrompt();
             }
         }
@@ -118,6 +143,18 @@ namespace HorrorFox.Fox.Keys
                     promptCanvas.SetActive(false);
                 }
                 isDoor = false;
+            }
+
+            if (other.CompareTag("interactZone"))   //interactzone on zone, jossa interaktataan esim nappien kaa. interactobj zone on esineet, joita voi työntää..
+            {
+                Debug.Log("interactZone");
+
+                if (isInInteractRadius)
+                {
+                    isInInteractRadius = false;
+
+                    promptCanvas.SetActive(false);
+                }
             }
         }
 

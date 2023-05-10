@@ -16,6 +16,7 @@ TagManager:
   - stairZone
   - hunter
   - interactZone
+  - interactObjZone
   layers:
   - Default
   - TransparentFX
