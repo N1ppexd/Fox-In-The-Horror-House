@@ -36,9 +36,9 @@ namespace HorrorFox.Fox.Keys
                 takeKeyParticle.Play();
                 keyTrigger.SetActive(false);
 
+                foxInteract.currentKeys.Add(this);
                 foxInteract.StopPressingInteractButton(); //kettu lopettaa kaiken interaktion huonekalujen kanssa...
 
-                foxInteract.currentKeys.Add(this);
             }
         }
 
