@@ -87,7 +87,7 @@ namespace HorrorFox.Clock
                 {
                     pikkuViisariAngle = currentClockTime / clockTimeDuration * 360;
 
-                    Kellokaappi.Instance.KelloMove(Quaternion.Euler(0, 0, pikkuViisariAngle));
+                    Kellokaappi.Instance.KelloMove(Quaternion.Euler(0, 0, -pikkuViisariAngle));
 
                     currentClockTime -= Time.deltaTime; //VÄHENNETÄÄN AIKAA
                 }
@@ -112,7 +112,7 @@ namespace HorrorFox.Clock
 
             currentLevelTime -= Time.deltaTime;
             isoViisariAngle = currentLevelTime / (maxLevelDuration * 60) * 360;
-            Kellokaappi.Instance.MoveIsoViisari(Quaternion.Euler(0, 0, isoViisariAngle));
+            Kellokaappi.Instance.MoveIsoViisari(Quaternion.Euler(0, 0, -isoViisariAngle));
 
 
 
