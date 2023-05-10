@@ -29,6 +29,9 @@ namespace HorrorFox.Fox.Keys
             isDragObj;      //t‰m‰ on true
 
 
+        [SerializeField] private Rigidbody rb;
+
+
         private void Awake()
         {
             inputMaster = new InputMaster();
@@ -41,6 +44,7 @@ namespace HorrorFox.Fox.Keys
             //pit‰‰ laitata se juttu t‰h‰n ewtt‰ prompti toimiI!!!!
 
             inputMaster.Player.Interact.performed += _ => PressPromptButton();
+            inputMaster.Player.Interact.canceled += _ => StopPressingInteractButton();
 
         }
         private void OnDisable()
@@ -60,6 +64,10 @@ namespace HorrorFox.Fox.Keys
         Door door;
         InteractObj interactObj; // t‰m‰ on scripti, joka handlaa kaikki perus interaktiot paitsi oven ja esineiden raahamisen..
 
+        /// <summary>
+        /// transform that is dragged by the fox..
+        /// </summary>
+        Transform dragObj;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -117,7 +125,7 @@ namespace HorrorFox.Fox.Keys
             {
                 try
                 {
-                    promptCanvas = other.transform.Find("PropmtPanel").gameObject;
+                    promptCanvas = other.transform.parent.transform.Find("PropmtPanel").gameObject;
                 }
                 catch
                 {
@@ -128,6 +136,9 @@ namespace HorrorFox.Fox.Keys
                 isInInteractRadius = true;
                 isDragObj = true;
                 isInteractableThing = false;
+
+                dragObj = other.transform.parent;
+
                 DisplayPrompt();
             }
         }
@@ -167,7 +178,9 @@ namespace HorrorFox.Fox.Keys
             promptCanvas.SetActive(true);
         }
 
-        
+
+        private ConfigurableJoint joint;
+
         /// <summary>
         /// kun painetaan prompt buttonia...
         /// </summary>
@@ -193,7 +206,20 @@ namespace HorrorFox.Fox.Keys
             if (isInteractableThing)
             {
                 interactObj.Interact(); //tehd‰‰n n‰in...
+                return;
             }
+
+
+
+            joint = dragObj.AddComponent<ConfigurableJoint>();
+
+            joint.xMotion = ConfigurableJointMotion.Locked;
+            joint.zMotion = ConfigurableJointMotion.Locked;
+            joint.yMotion = ConfigurableJointMotion.Locked;
+
+            joint.connectedBody = rb;
+
+
 
 
             //jotain mill‰ saadaan esine liikkumaan ketun mukana ja lopettamaan liikkuminen, kun lopetetaan painaminen...
@@ -204,7 +230,7 @@ namespace HorrorFox.Fox.Keys
         /// </summary>
         public void StopPressingInteractButton()
         {
-
+            Destroy(joint);
         }
 
 
