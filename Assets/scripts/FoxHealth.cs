@@ -35,8 +35,6 @@ namespace HorrorFox.Fox
         public void KillFox()
         {
             DeathScreen.SetActive(true);
-
-            gameObject.SetActive(false);
         }
     }
 }
