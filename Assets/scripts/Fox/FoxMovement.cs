@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 namespace HorrorFox.Fox
 {
@@ -24,32 +25,46 @@ namespace HorrorFox.Fox
         [SerializeField] private Slider staminaBar; //n‰ytet‰‰n juoksun coolDown....
 
 
-        private bool isHiding, waitToSquashBackUp; //isUnderbed on kun ollaan s‰ngyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan s‰ngyn alla
+        [HideInInspector] public bool isHiding;
+        private bool waitToSquashBackUp; //isUnderbed on kun ollaan s‰ngyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan s‰ngyn alla
 
         private bool isGrounded;//kun kettu on maassa
 
         private bool isSquashing;
 
-        [Space]
+        [Space(10)]
+        [Header("nopeus, jolla kettu k‰‰ntyy")]
         [SerializeField] private float turnSpeed; //nopeus, jolla kettu k‰‰ntyy
 
+        [Space(10)]
+        [Header("maksimi m‰‰r‰ sekunneissa, kuinka kauan kettu voi juosta")]
         [SerializeField] private float maxRunDuration; //maksimi m‰‰r‰ sekunneissa, kuinka kauan kettu voi juosta
+        [Header("aika sekunneissa, kuinka kauan menee ett‰ voi juosta taas....")]
         [SerializeField] private float maxRunCoolDown; //aika sekunneissa, kuinka kauan menee ett‰ voi juosta taas....
 
 
         private bool isRunning, isJumping;//isRunning on true, kun painetaan shifti‰ pohjassa. IsRunning on true, kun painetaan hyppy nappia pohjassa.
-        [SerializeField] private float currentRunDuration, currentRunCoolDown, currentJumpDuration;
+        private float currentRunDuration, currentRunCoolDown, currentJumpDuration;
         private int jumpCount;//k‰ytet‰‰n hyppyyn...
 
 
+        [Space(10)]
+        [Header("t‰m‰ osa ketusta k‰‰ntyy, koska kettu ei k‰‰nn‰ koko kroppaa kerrallla...")]
         [SerializeField] private Transform IkRotationTransform;
 
+
+        [Space (30)]
+        [Header("post processsing homma lol")]
+        [SerializeField] private Volume postProcessingVolume;
+        private Vignette vignette;
 
 
         /// <summary>
         /// PORTAAT !!
         /// </summary>
         /// 
+        [Space(20)]
+        [Header("t‰t‰ paskaa ei k‰ytet‰ peliss‰")]
         [SerializeField] private FoxStairMovement foxStairMovement;
 
 
@@ -441,7 +456,15 @@ namespace HorrorFox.Fox
         {
             if (other.gameObject.CompareTag("UnderBed") || other.gameObject.CompareTag("hideZone"))
             {
-                isHiding = true;
+                isHiding = true; 
+
+                postProcessingVolume.profile.TryGet<Vignette>(out vignette);
+
+                if (vignette == null)
+                    return;
+
+                vignette.intensity.value = 0.8f;
+
             }
         }
 
@@ -456,6 +479,13 @@ namespace HorrorFox.Fox
                     FoxSquash(false);
                     waitToSquashBackUp = false;
                 }
+
+                postProcessingVolume.profile.TryGet<Vignette>(out vignette);
+
+                if (vignette == null)
+                    return;
+
+                vignette.intensity.value = 0.3f;
             }
         }
 
