@@ -234,6 +234,9 @@ namespace HorrorFox.Fox.Keys
         /// </summary>
         public void StopPressingInteractButton()
         {
+            if (joint == null)
+                return;
+
             joint.connectedBody = null;
             //Destroy(joint);
         }
