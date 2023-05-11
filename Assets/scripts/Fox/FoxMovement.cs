@@ -24,7 +24,7 @@ namespace HorrorFox.Fox
         [SerializeField] private Slider staminaBar; //n‰ytet‰‰n juoksun coolDown....
 
 
-        private bool isUnderBed, waitToSquashBackUp; //isUnderbed on kun ollaan s‰ngyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan s‰ngyn alla
+        private bool isHiding, waitToSquashBackUp; //isUnderbed on kun ollaan s‰ngyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan s‰ngyn alla
 
         private bool isGrounded;//kun kettu on maassa
 
@@ -249,7 +249,7 @@ namespace HorrorFox.Fox
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
-            if (isUnderBed || !isGrounded || isSquashing)
+            if (isHiding || !isGrounded || isSquashing)
                 return;
 
             jumpCount = 1;
@@ -331,7 +331,7 @@ namespace HorrorFox.Fox
             if (!isGrounded) //jos on ilmassa tai on s‰ngyn alla....
                 return;
 
-            if (isUnderBed)
+            if (isHiding)
             {
                 isSquashing = true;
 
@@ -439,17 +439,17 @@ namespace HorrorFox.Fox
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("UnderBed"))
+            if (other.gameObject.CompareTag("UnderBed") || other.gameObject.CompareTag("hideZone"))
             {
-                isUnderBed = true;
+                isHiding = true;
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.CompareTag("UnderBed"))
+            if (other.gameObject.CompareTag("UnderBed") || other.gameObject.CompareTag("hideZone"))
             {
-                isUnderBed = false;
+                isHiding = false;
 
                 if (waitToSquashBackUp)
                 {
