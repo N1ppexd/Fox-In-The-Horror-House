@@ -155,9 +155,11 @@ namespace HorrorFox.Fox
                 if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !isSquashing)
                 {
                     foxAnimator.Play(idle);
-                    movementMode = MovementMode.idle;
-                }
                     
+                }
+
+                movementMode = MovementMode.idle;
+
             }
             
             rb.velocity = RunSpeed(isRunning);
@@ -318,9 +320,19 @@ namespace HorrorFox.Fox
         {
             Vector3 roatatedVector = (Quaternion.Euler(body.rotation.x, body.rotation.y, body.rotation.z) * movementAxis);
             if (!running)
+            {
+                movementMode = MovementMode.walkMode; //laitetaan walkMode...
+
                 return roatatedVector * speed + transform.up * rb.velocity.y; //kettu liikkuu...
+            }
+                
             if (running)
-                return roatatedVector * runSpeed  + transform.up * rb.velocity.y; //kettu liikkuu...
+            {
+                movementMode = MovementMode.runMode; //laitetaan runMode...
+
+                return roatatedVector * runSpeed + transform.up * rb.velocity.y; //kettu liikkuu...
+            }
+                
 
             return Vector3.zero;
         }

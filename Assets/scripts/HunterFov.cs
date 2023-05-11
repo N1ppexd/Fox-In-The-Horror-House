@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using HorrorFox.Fox;
 
 
 namespace HorrorFox.Enemies
@@ -17,6 +18,10 @@ namespace HorrorFox.Enemies
 
         [SerializeField] private LayerMask whatIsFox, whatIsObstacle;
 
+
+        [Space(10)]
+        [Header("ketun movement scripti, jotta voidaan katsoa, onko se piilossa")]
+        FoxMovement foxMovement; //voidaan sitten, kun olen laittanut statemachinen, niin että katsotaan, onko se idle vai liikku tämän lisäksi, jolloin se huomataan, jos ei ole idle...
         
 
         // Start is called before the first frame update
@@ -40,6 +45,14 @@ namespace HorrorFox.Enemies
             Collider[] rangeChecks = Physics.OverlapSphere(lookPositionVector, seeDistance, whatIsFox);
 
             //float playerRotation = Vector3.Angle(enemyAxis, transform.forward);
+
+
+            if (foxMovement.isHiding && foxMovement.movementMode == FoxMovement.MovementMode.idle)//jos on paikallaan ja piilossa...
+            {
+                Debug.Log("vihollinen ei voi nähdä sinua...");
+                return;
+            }
+                
 
 
             if (rangeChecks.Length != 0)
