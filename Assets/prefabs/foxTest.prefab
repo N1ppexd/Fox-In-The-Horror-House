@@ -251,8 +251,8 @@ Camera:
   m_GameObject: {fileID: 4259577744366935224}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 4259577744564719287}
   - component: {fileID: 4259577744564719284}
   - component: {fileID: 4259577744564719285}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: fox
   m_Icon: {fileID: 0}

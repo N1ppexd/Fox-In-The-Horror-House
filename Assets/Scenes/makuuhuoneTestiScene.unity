@@ -4874,7 +4874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &763479825
 Transform:
   m_ObjectHideFlags: 0
@@ -7001,7 +7001,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28484
+  m_Name: pb_Mesh42108
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8261,7 +8261,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: a85996cf26f67ee4ebb9ded14999b25e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: db1625c5e89a021419ae9349a44189bb, type: 2}
 --- !u!4 &1856940918
 Transform:
   m_ObjectHideFlags: 0
@@ -8328,7 +8328,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16246
+  m_Name: pb_Mesh41960
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
