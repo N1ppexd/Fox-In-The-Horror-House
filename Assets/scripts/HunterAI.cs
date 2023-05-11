@@ -72,10 +72,15 @@ namespace HorrorFox.Enemies
             if (hunterFov.isSeen && seekPlayer)
             {
                 isChasingPlayer = true;
+                nextTargetPoint = player;
             }
             else if(!hunterFov.isSeen && seekPlayer)
             {
+                Debug.Log("nextTargetPoint position = " + nextTargetPoint.position);
                 isChasingPlayer = false;
+
+                if (nextTargetPoint = player)
+                    nextTargetPoint = defaultTargetPoints[0];
             }
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator) && !footStepAudio.isPlaying)
@@ -87,10 +92,11 @@ namespace HorrorFox.Enemies
             if (nextTargetPoint == null || isLeaving)
                 return;
 
+            agent.SetDestination(nextTargetPoint.position);
+
 
             if (isChasingPlayer)
             {
-                agent.SetDestination(nextTargetPoint.position);
 
                 float sqrtDistance = Vector3.SqrMagnitude(transform.position - nextTargetPoint.position);
 
@@ -98,14 +104,12 @@ namespace HorrorFox.Enemies
                 {
                     GrabPlayer(nextTargetPoint);
                 }
+
+                return;
             }
-                
 
-            
-
-            if(transform.position - transform.up == nextTargetPoint.position || Vector3.Distance(transform.position -transform.up, nextTargetPoint.position) < 1f)
+            if(transform.position == nextTargetPoint.position || Vector3.Distance(transform.position, nextTargetPoint.position) < 0.5f)
             {
-                agent.SetDestination(nextTargetPoint.position);
 
                 for(int i = 0; i < defaultTargetPoints.Length; i++)
                 {
