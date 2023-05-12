@@ -79,8 +79,9 @@ namespace HorrorFox.Enemies
                 Debug.Log("nextTargetPoint position = " + nextTargetPoint.position);
                 isChasingPlayer = false;
 
-                if (nextTargetPoint = player)
-                    nextTargetPoint = defaultTargetPoints[0];
+                
+                if (nextTargetPoint == player)
+                    nextTargetPoint = defaultTargetPoints[Random.Range(0,1)];
             }
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator) && !footStepAudio.isPlaying)
@@ -108,8 +109,10 @@ namespace HorrorFox.Enemies
                 return;
             }
 
-            if(transform.position == nextTargetPoint.position || Vector3.Distance(transform.position, nextTargetPoint.position) < 0.5f)
+            if(transform.position == nextTargetPoint.position || Vector3.Distance(transform.position, nextTargetPoint.position) < 0.1f)
             {
+                Debug.Log("yritetään ottaa uusi nextTargetposition...");
+                agent.SetDestination(transform.position);
 
                 for(int i = 0; i < defaultTargetPoints.Length; i++)
                 {
