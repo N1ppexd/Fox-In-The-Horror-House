@@ -105,19 +105,18 @@ namespace HorrorFox.Enemies
                 if(!isSeen && !hunterAI.isLeaving && !noticeEffect.isPlaying)
                     noticeEffect.Play(); //paskaa koodia, muttta aivan sama....
 
-                isSeen = true; //tämä on väliaikainen juttu....
+                //isSeen = true; //tämä on väliaikainen juttu....
 
-                /*
                 if (Vector3.Angle(transform.forward, targetDirVector) < fovAngle / 2)//jatetaan kahdella, koska niin
                 {
 
                     float distToTarget = Vector3.Distance(transform.position + targetDir, transform.position);
                     if (!Physics.Raycast(transform.position, targetDir, distToTarget, whatIsObstacle))//jos välissä ei ole esteitä
-                    {*/
+                    {
                         /*
                         if (!yellShock.isPlaying)
                             yellShock.Play();
-                        *//*
+                        */
                         targets.Add(target);//lisätään kettu listaan..
                         isSeen = true;
 
@@ -132,7 +131,7 @@ namespace HorrorFox.Enemies
                 {
 
                     isSeen = false;
-                }*/
+                }
             }
             else
             {
