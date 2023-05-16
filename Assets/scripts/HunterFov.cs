@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using HorrorFox.Fox;
-
+using UnityEngine.AI;
 
 namespace HorrorFox.Enemies
 {
@@ -65,8 +65,22 @@ namespace HorrorFox.Enemies
 
             if (foxMovement.isHiding && foxMovement.movementMode == FoxMovement.MovementMode.idle)//jos on paikallaan ja piilossa...
             {
+                GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("draggableObj");
+
+                foreach (GameObject draggableObject in draggableObjects)
+                    draggableObject.GetComponent<NavMeshObstacle>().enabled = true;
+
+                isSeen = false;
+
                 Debug.Log("vihollinen ei voi nähdä sinua...");
                 return;
+            }
+            else
+            {
+                GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("draggableObj");
+
+                foreach (GameObject draggableObject in draggableObjects)
+                    draggableObject.GetComponent<NavMeshObstacle>().enabled = true;
             }
                 
 

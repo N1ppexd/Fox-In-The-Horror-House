@@ -45,7 +45,7 @@ namespace HorrorFox.Enemies
 
         private void Awake()
         {
-            agent.avoidancePriority = Random.Range(1, 100);
+            //agent.avoidancePriority = Random.Range(1, 100);
 
             nextTargetPoint = defaultTargetPoints[0];
             if (isChasingPlayer)

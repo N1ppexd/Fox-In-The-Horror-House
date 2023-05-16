@@ -309,9 +309,10 @@ GameObject:
   - component: {fileID: 5693303034263385739}
   - component: {fileID: 6087733664267310481}
   - component: {fileID: 1357949095918336729}
+  - component: {fileID: 7861965443614889434}
   m_Layer: 13
   m_Name: Tuoli
-  m_TagString: Untagged
+  m_TagString: draggableObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,7 +365,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 9b9b2f4b480dd18458336d13229402a8, type: 3}
+  - {fileID: 2100000, guid: 9c521a004c8b5ed4880f1df84dd441cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -524,6 +525,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!208 &7861965443614889434
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443702539563952278}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.015, y: 0.015, z: 0.017}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.017}
+  m_TimeToStationary: 0.5
 --- !u!1001 &5421234925364446835
 PrefabInstance:
   m_ObjectHideFlags: 0

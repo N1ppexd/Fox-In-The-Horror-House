@@ -31,8 +31,8 @@ namespace HorrorFox
         /// <param name="viisariRotation"></param>
         public void KelloMove(Quaternion viisariRotation)
         {
-            pikkuviisari.localRotation = viisariRotation;
-            pikkuviisariUI.localRotation = Quaternion.Inverse(viisariRotation);
+            isoviisari.localRotation = viisariRotation;
+            isoviisariUI.localRotation = Quaternion.Inverse(viisariRotation);
         }
 
 
@@ -43,8 +43,8 @@ namespace HorrorFox
         {
             clockAudio.Play();
 
-            pikkuviisari.localRotation = Quaternion.Euler(0, 0, 0);
-            pikkuviisariUI.localRotation = Quaternion.Euler(0, 0, 0);
+            isoviisari.localRotation = Quaternion.Euler(0, 0, 0);
+            isoviisariUI.localRotation = Quaternion.Euler(0, 0, 0);
 
             explosionParticle.Play();
         }
@@ -56,8 +56,8 @@ namespace HorrorFox
         /// <param name="viisariRotation"></param>
         public void MoveIsoViisari(Quaternion viisariRotation)
         {
-            isoviisari.localRotation = viisariRotation;
-            isoviisariUI.localRotation = Quaternion.Inverse(viisariRotation);
+            pikkuviisari.localRotation = viisariRotation;
+            pikkuviisariUI.localRotation = Quaternion.Inverse(viisariRotation);
         }
     }
 }

@@ -90,7 +90,8 @@ namespace HorrorFox.Fox.Keys
 
                 isDoor = true;
 
-                DisplayPrompt();
+                if(currentKeys.Count > 0)
+                    DisplayPrompt();
                 
             }
 
