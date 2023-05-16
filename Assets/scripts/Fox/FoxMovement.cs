@@ -389,7 +389,7 @@ namespace HorrorFox.Fox
             else if (!enabled)
                 foxAnimator.Play(squashEndString);
 
-            Debug.Log("fox squash enabled = " + enabled);
+            //Debug.Log("fox squash enabled = " + enabled);
         }
 
         /// <summary>
@@ -397,7 +397,7 @@ namespace HorrorFox.Fox
         /// </summary>
         public void StopSquashing()
         {
-            Debug.Log("stopSquashing");
+            //Debug.Log("stopSquashing");
             
             isSquashing = false;
         }
@@ -421,7 +421,7 @@ namespace HorrorFox.Fox
                 {
                     float dist = Vector3.Distance(hit.point, transform.position);
 
-                    Debug.Log("distance to floor = " + dist);
+                    //Debug.Log("distance to floor = " + dist);
 
                     if (dist <= 0.3f)
                         return true;
