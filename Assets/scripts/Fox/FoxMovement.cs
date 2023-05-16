@@ -96,8 +96,8 @@ namespace HorrorFox.Fox
         {
             inputMaster.Enable();
 
-            inputMaster.Player.Move.performed += FoxMove;
-            inputMaster.Player.Move.canceled += FoxMove;
+            inputMaster.Player.Move.performed += _  => FoxMove(_.ReadValue<Vector2>());
+            inputMaster.Player.Move.canceled += _ => FoxMove(Vector2.zero);
 
             inputMaster.Player.Run.performed += _ => isRunning = setRunningMode(true);
             inputMaster.Player.Run.canceled += _ => isRunning = setRunningMode(false);
@@ -115,8 +115,8 @@ namespace HorrorFox.Fox
         {
             inputMaster.Disable();
 
-            inputMaster.Player.Move.performed -= FoxMove;
-            inputMaster.Player.Move.canceled -= FoxMove;
+            inputMaster.Player.Move.performed -= _ => FoxMove(_.ReadValue<Vector2>());
+            inputMaster.Player.Move.canceled -= _ => FoxMove(Vector2.zero);
 
             inputMaster.Player.Run.performed -= _ => isRunning = setRunningMode(true);
             inputMaster.Player.Run.canceled -= _ => isRunning = setRunningMode(false);
@@ -149,7 +149,7 @@ namespace HorrorFox.Fox
                 MovementAnim();
 
             }
-            else//muuten on vain idelAnimaatio
+            else if (movementAxis == Vector3.zero)//muuten on vain idelAnimaatio
             {
                 //IkRotationTransform.rotation = Quaternion.Euler(0, 0, 0);
                 if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !isSquashing)
@@ -281,13 +281,21 @@ namespace HorrorFox.Fox
 
 
         Vector3 movementAxis;
-        private void FoxMove(InputAction.CallbackContext obj)
+        private void FoxMove(Vector2 axis)
         {
-            Vector2 axis = obj.ReadValue<Vector2>();
+            if(axis != Vector2.zero)
+            {
+                Vector3 toBeMovemedAxis = new Vector3(axis.x, 0, axis.y);
 
-            Vector3 toBeMovemedAxis = new Vector3(axis.x, 0, axis.y);
+                movementAxis = Vector3.Lerp(movementAxis, toBeMovemedAxis, turnSpeed).normalized;
 
-            movementAxis = Vector3.Lerp(movementAxis, toBeMovemedAxis, turnSpeed).normalized;
+                return;
+            }
+
+            movementAxis = Vector3.zero;
+
+            Debug.Log("KETUN PITÄS OLLA PAIKOILLAAN");
+            
 
             Debug.Log("axis = " + movementAxis);
 
@@ -321,14 +329,16 @@ namespace HorrorFox.Fox
             Vector3 roatatedVector = (Quaternion.Euler(body.rotation.x, body.rotation.y, body.rotation.z) * movementAxis);
             if (!running)
             {
-                movementMode = MovementMode.walkMode; //laitetaan walkMode...
+                if(movementAxis != Vector3.zero)
+                    movementMode = MovementMode.walkMode; //laitetaan walkMode...
 
                 return roatatedVector * speed + transform.up * rb.velocity.y; //kettu liikkuu...
             }
                 
             if (running)
             {
-                movementMode = MovementMode.runMode; //laitetaan runMode...
+                if(movementAxis != Vector3.zero)
+                    movementMode = MovementMode.runMode; //laitetaan runMode...
 
                 return roatatedVector * runSpeed + transform.up * rb.velocity.y; //kettu liikkuu...
             }

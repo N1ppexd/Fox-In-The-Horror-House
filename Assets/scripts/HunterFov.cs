@@ -11,7 +11,7 @@ namespace HorrorFox.Enemies
     {
 
         [SerializeField] private float fovAngle;
-        [SerializeField] private float seeDistance;
+        public float seeDistance;
         [SerializeField] private float detectionWait;//kuinka kauan odotetaan, että ammutaan...
 
         [HideInInspector] public bool isSeen;//true, kun hunter näkee ketun.
@@ -21,13 +21,13 @@ namespace HorrorFox.Enemies
 
         [Space(10)]
         [Header("ketun movement scripti, jotta voidaan katsoa, onko se piilossa")]
-        FoxMovement foxMovement; //voidaan sitten, kun olen laittanut statemachinen, niin että katsotaan, onko se idle vai liikku tämän lisäksi, jolloin se huomataan, jos ei ole idle...
+        [SerializeField] FoxMovement foxMovement; //voidaan sitten, kun olen laittanut statemachinen, niin että katsotaan, onko se idle vai liikku tämän lisäksi, jolloin se huomataan, jos ei ole idle...
         
 
         // Start is called before the first frame update
         void Start()
         {
-
+            StartCoroutine(CheckTheFov());
         }
 
         // Update is called once per frame
@@ -35,6 +35,19 @@ namespace HorrorFox.Enemies
         {
 
         }
+
+
+        IEnumerator CheckTheFov()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(0.2f);
+
+                FOVCheck();
+
+            }
+        }
+
 
 
         public List<Transform> targets = new List<Transform>(); //targetit, jotka on vihollisen fovin sisällä.
@@ -46,6 +59,9 @@ namespace HorrorFox.Enemies
 
             //float playerRotation = Vector3.Angle(enemyAxis, transform.forward);
 
+            Debug.Log("foxMovement.isHiding = " + foxMovement.isHiding);
+
+            Debug.Log("foxMovement mode = " + foxMovement.movementMode);
 
             if (foxMovement.isHiding && foxMovement.movementMode == FoxMovement.MovementMode.idle)//jos on paikallaan ja piilossa...
             {
@@ -54,7 +70,7 @@ namespace HorrorFox.Enemies
             }
                 
 
-
+            
             if (rangeChecks.Length != 0)
             {
                 Transform target = rangeChecks[0].transform;
@@ -63,19 +79,18 @@ namespace HorrorFox.Enemies
                 Vector3 targetDirVector = targetDir.normalized; //en tiedä tarvitaanko.... tämä on suuntavektori ufoon päin vihollisesta katsottuna....
                 targetDirVector.y = 0;                          //laitetaan y nollaan... eli ei katsota ylöspäin...
 
-
-
-
+                isSeen = true; //tämä on väliaikainen juttu....
+                /*
                 if (Vector3.Angle(transform.forward, targetDirVector) < fovAngle / 2)//jatetaan kahdella, koska niin
                 {
 
                     float distToTarget = Vector3.Distance(transform.position + targetDir, transform.position);
                     if (!Physics.Raycast(transform.position, targetDir, distToTarget, whatIsObstacle))//jos välissä ei ole esteitä
-                    {
+                    {*/
                         /*
                         if (!yellShock.isPlaying)
                             yellShock.Play();
-                        */
+                        *//*
                         targets.Add(target);//lisätään kettu listaan..
                         isSeen = true;
 
@@ -90,7 +105,7 @@ namespace HorrorFox.Enemies
                 {
 
                     isSeen = false;
-                }
+                }*/
             }
             else
             {

@@ -71,6 +71,7 @@ namespace HorrorFox.Enemies
             //TÄSSÄ SIMPPELI KOODI JONK APITÄISI TOIMIA. PARANNA HUOMENNA.
             if (hunterFov.isSeen && seekPlayer)
             {
+                Debug.Log("nähdään pelaaja");
                 isChasingPlayer = true;
                 nextTargetPoint = player;
             }

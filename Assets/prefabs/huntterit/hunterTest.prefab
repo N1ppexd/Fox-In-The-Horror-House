@@ -76,12 +76,12 @@ MonoBehaviour:
   defaultTargetPoints:
   - {fileID: 0}
   - {fileID: 0}
-  isChasingPlayer: 1
+  isChasingPlayer: 0
   player: {fileID: 0}
   hunterFov: {fileID: 4915622270902799932}
   animator: {fileID: 1426395456624295403}
   walkStringAnimator: walk
-  seekPlayer: 0
+  seekPlayer: 1
   footStepAudio: {fileID: 4801126055607083992}
   isLeaving: 0
   grabDistance: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fovAngle: 90
-  seeDistance: 5
+  seeDistance: 10
   detectionWait: 2
   isSeen: 0
   whatIsFox:
