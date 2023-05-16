@@ -22,7 +22,16 @@ namespace HorrorFox.Enemies
         [Space(10)]
         [Header("ketun movement scripti, jotta voidaan katsoa, onko se piilossa")]
         [SerializeField] FoxMovement foxMovement; //voidaan sitten, kun olen laittanut statemachinen, niin että katsotaan, onko se idle vai liikku tämän lisäksi, jolloin se huomataan, jos ei ole idle...
-        
+
+
+
+        [Space(5)]
+        [Header("ääniefekti, joka tulee, kun vihu huomaa pelaajan")]
+        [SerializeField] private AudioSource noticeEffect;
+
+        [SerializeField] private HunterAI hunterAI;
+
+
 
         // Start is called before the first frame update
         void Start()
@@ -82,7 +91,7 @@ namespace HorrorFox.Enemies
                 foreach (GameObject draggableObject in draggableObjects)
                     draggableObject.GetComponent<NavMeshObstacle>().enabled = true;
             }
-                
+            
 
             
             if (rangeChecks.Length != 0)
@@ -93,7 +102,11 @@ namespace HorrorFox.Enemies
                 Vector3 targetDirVector = targetDir.normalized; //en tiedä tarvitaanko.... tämä on suuntavektori ufoon päin vihollisesta katsottuna....
                 targetDirVector.y = 0;                          //laitetaan y nollaan... eli ei katsota ylöspäin...
 
+                if(!isSeen && !hunterAI.isLeaving)
+                    noticeEffect.Play(); //paskaa koodia, muttta aivan sama....
+
                 isSeen = true; //tämä on väliaikainen juttu....
+
                 /*
                 if (Vector3.Angle(transform.forward, targetDirVector) < fovAngle / 2)//jatetaan kahdella, koska niin
                 {

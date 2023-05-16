@@ -37,7 +37,7 @@ namespace HorrorFox.Enemies
 
         [Space(20)]
         [Header("t‰m‰ on true, kun vihju l‰htee huoneesta...")]
-        [SerializeField] bool isLeaving; // t‰m‰ on true, kun l‰hdet‰‰n huoneesta....
+        public bool isLeaving; // t‰m‰ on true, kun l‰hdet‰‰n huoneesta....
 
         [Space(20)]
         [Header("Mill‰ et‰isyydell‰ vihu grabaa pelaajan")]
