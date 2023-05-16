@@ -221,6 +221,8 @@ namespace HorrorFox.Fox
         #region foxJump
         private void ApplyJumpingForce()
         {
+            if (isHiding)
+                return;
 
             Vector3 jumpVector = Vector3.up * jumpForce + Vector3.up * currentJumpDuration * 2;//hyppy vektori, joka on rigidbodyyn lisättävän voiman vektori skaalattuna voimakkuudella.
                                                                                                //ja sen lisäksi skaalataan alaspäin 0-1 sen perusteella, kuinka kauan on pidetty hyppy nappia pohjassa.
@@ -485,7 +487,7 @@ namespace HorrorFox.Fox
                 if (vignette == null)
                     return;
 
-                vignette.intensity.value = 0.8f;
+                vignette.intensity.value = 0.6f;
 
             }
         }
