@@ -172,6 +172,18 @@ namespace HorrorFox.Fox.Keys
                     promptCanvas.SetActive(false);
                 }
             }
+
+            if (other.CompareTag("interactObjZone"))   //interactzone on zone, jossa interaktataan esim nappien kaa. interactobj zone on esineet, joita voi työntää..
+            {
+                if (isInInteractRadius)
+                {
+                    isInInteractRadius = false;
+
+                    promptCanvas.SetActive(false);
+
+                    StopPressingInteractButton();
+                }
+            }
         }
 
 

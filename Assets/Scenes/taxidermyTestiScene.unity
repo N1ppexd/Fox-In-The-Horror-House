@@ -1140,7 +1140,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh82896
+  m_Name: pb_Mesh103636
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1939,17 +1939,17 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
-    positionSpring: 1
+    positionSpring: 0
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_YDrive:
     serializedVersion: 3
-    positionSpring: 1
+    positionSpring: 0
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ZDrive:
     serializedVersion: 3
-    positionSpring: 1
+    positionSpring: 0
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1973,14 +1973,14 @@ ConfigurableJoint:
   m_ProjectionMode: 0
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
-  m_ConfiguredInWorldSpace: 0
+  m_ConfiguredInWorldSpace: 1
   m_SwapBodies: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
-  m_MassScale: 4
-  m_ConnectedMassScale: 2
+  m_MassScale: 3
+  m_ConnectedMassScale: 4
 --- !u!114 &808423516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2801,8 +2801,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.030376, y: 2.7082105, z: 2.4150233}
-  m_Center: {x: -0.077176094, y: -0.007289171, z: -0.4902864}
+  m_Size: {x: 2.8080316, y: 3.2116885, z: 2.5393429}
+  m_Center: {x: -0.008557916, y: 0.0776875, z: -0.42812634}
 --- !u!1001 &1260528917
 PrefabInstance:
   m_ObjectHideFlags: 0
