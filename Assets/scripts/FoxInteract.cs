@@ -22,6 +22,8 @@ namespace HorrorFox.Fox.Keys
 
         private bool isInInteractRadius;//kun ollaan alueella, jossa voidaan painaa interact nappia...
 
+        [SerializeField] private Transform draggerObj; //ketun kuono..
+
 
         private bool 
             isDoor,         //tömö in true, kun pitää käyttää avainta
@@ -210,6 +212,13 @@ namespace HorrorFox.Fox.Keys
                 return;
             }
 
+            DragObj dragObjScript = dragObj.GetComponent<DragObj>();
+
+
+            dragObjScript.draggerObj = draggerObj;
+            //dragObjScript.SetDragOffset();
+
+            dragObjScript.isBeingDragged = true;
 
 
             joint = dragObj.GetComponent<ConfigurableJoint>();
@@ -218,13 +227,15 @@ namespace HorrorFox.Fox.Keys
             joint.configuredInWorldSpace = true;
             
 
-            /*
-            joint.angularXMotion = ConfigurableJointMotion.Locked;
-            joint.angularYMotion = ConfigurableJointMotion.Locked;
-            joint.angularZMotion = ConfigurableJointMotion.Locked;*/
+            joint.xMotion = ConfigurableJointMotion.Locked;
+            joint.yMotion = ConfigurableJointMotion.Free;
+            joint.zMotion = ConfigurableJointMotion.Locked;
 
+            joint.angularYMotion = ConfigurableJointMotion.Limited;
 
+            joint.angularXMotion = ConfigurableJointMotion.Limited;
 
+            joint.angularZMotion = ConfigurableJointMotion.Limited;
 
 
             //jotain millä saadaan esine liikkumaan ketun mukana ja lopettamaan liikkuminen, kun lopetetaan painaminen...
@@ -235,10 +246,35 @@ namespace HorrorFox.Fox.Keys
         /// </summary>
         public void StopPressingInteractButton()
         {
+            
+            try
+            {
+                DragObj dragObjScript = dragObj.GetComponent<DragObj>();
+
+
+                dragObjScript.isBeingDragged = false;
+            }
+            catch
+            {
+
+            }
+            
             if (joint == null)
                 return;
 
             joint.connectedBody = null;
+
+            joint.xMotion = ConfigurableJointMotion.Free;
+            joint.yMotion = ConfigurableJointMotion.Free;
+            joint.zMotion = ConfigurableJointMotion.Free;
+
+            joint.angularYMotion = ConfigurableJointMotion.Free;
+
+            joint.angularXMotion = ConfigurableJointMotion.Free;
+
+            joint.angularZMotion = ConfigurableJointMotion.Free;
+
+
             //Destroy(joint);
         }
 

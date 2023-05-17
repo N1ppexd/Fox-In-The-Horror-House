@@ -480,6 +480,9 @@ namespace HorrorFox.Fox
         {
             if (other.gameObject.CompareTag("UnderBed") || other.gameObject.CompareTag("hideZone"))
             {
+                if (!isSquashing) //ei voi mennä piiloon, jos ei ole kyykyssä..
+                    return;
+
                 isHiding = true; 
 
                 postProcessingVolume.profile.TryGet<Vignette>(out vignette);

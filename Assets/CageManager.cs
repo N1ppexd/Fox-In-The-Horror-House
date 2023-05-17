@@ -6,7 +6,8 @@ namespace HorrorFox
 {
     public class CageManager : MonoBehaviour
     {
-        [SerializeField] private GameObject doorCollider;
+        [SerializeField] private GameObject doorCollider,
+            draggableObjTrigger;
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -20,6 +21,8 @@ namespace HorrorFox
         private void OpenDoor()
         {
             doorCollider.SetActive(false); //tehd‰‰n nyt aluksi vain n‰in, koska pit‰‰ testata...
+            draggableObjTrigger.SetActive(true); // kun t‰m‰ on true, t‰t‰ voidaan raahata...
+
         }
 
     }
