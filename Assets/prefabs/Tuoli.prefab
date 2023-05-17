@@ -448,9 +448,9 @@ ConfigurableJoint:
   m_XMotion: 2
   m_YMotion: 2
   m_ZMotion: 2
-  m_AngularXMotion: 2
+  m_AngularXMotion: 0
   m_AngularYMotion: 2
-  m_AngularZMotion: 2
+  m_AngularZMotion: 0
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -518,7 +518,7 @@ ConfigurableJoint:
   m_ProjectionMode: 0
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
-  m_ConfiguredInWorldSpace: 0
+  m_ConfiguredInWorldSpace: 1
   m_SwapBodies: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
