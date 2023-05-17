@@ -15000,41 +15000,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: door
       objectReference: {fileID: 0}
-    - target: {fileID: 7609556542733880738, guid: 6f1b8f3621330ab4f9752976aafd94fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7609556543090530009, guid: 6f1b8f3621330ab4f9752976aafd94fc,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.5291055
-      objectReference: {fileID: 0}
-    - target: {fileID: 7609556543090530009, guid: 6f1b8f3621330ab4f9752976aafd94fc,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 1.3208119
-      objectReference: {fileID: 0}
-    - target: {fileID: 7609556543090530009, guid: 6f1b8f3621330ab4f9752976aafd94fc,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.036691986
-      objectReference: {fileID: 0}
-    - target: {fileID: 7609556543638364222, guid: 6f1b8f3621330ab4f9752976aafd94fc,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10.626903
-      objectReference: {fileID: 0}
-    - target: {fileID: 7609556543638364222, guid: 6f1b8f3621330ab4f9752976aafd94fc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.8953
-      objectReference: {fileID: 0}
-    - target: {fileID: 7609556543638364222, guid: 6f1b8f3621330ab4f9752976aafd94fc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.0366
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1b8f3621330ab4f9752976aafd94fc, type: 3}
 --- !u!1001 &7725397046034555564
