@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 6087733664267310481}
   - component: {fileID: 1357949095918336729}
   - component: {fileID: 7861965443614889434}
+  - component: {fileID: 6125799163853145621}
   m_Layer: 13
   m_Name: Tuoli
   m_TagString: draggableObj
@@ -444,12 +445,12 @@ ConfigurableJoint:
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 0
+  m_XMotion: 2
   m_YMotion: 2
-  m_ZMotion: 0
-  m_AngularXMotion: 0
-  m_AngularYMotion: 0
-  m_AngularZMotion: 0
+  m_ZMotion: 2
+  m_AngularXMotion: 2
+  m_AngularYMotion: 2
+  m_AngularZMotion: 2
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -541,6 +542,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.017}
   m_TimeToStationary: 0.5
+--- !u!114 &6125799163853145621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443702539563952278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bfcc684b780d741be5bc1ab3d35f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBeingDragged: 0
+  draggerObj: {fileID: 0}
+  joint: {fileID: 1357949095918336729}
 --- !u!1001 &5421234925364446835
 PrefabInstance:
   m_ObjectHideFlags: 0
