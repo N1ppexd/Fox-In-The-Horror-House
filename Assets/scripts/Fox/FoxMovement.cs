@@ -136,18 +136,45 @@ namespace HorrorFox.Fox
             Debug.Log("jumpcount = " + jumpCount);
             if (movementAxis != Vector3.zero)        //kun liikutaan, tehd‰‰n liikkumisanimaatiot....
             {
-                foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehk‰ voisi laittaa if(isStairZone) hommaan, mutta pitt‰‰ testailla)
+                //foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehk‰ voisi laittaa if(isStairZone) hommaan, mutta pitt‰‰ testailla)
 
-                IkRotationTransform.rotation = Quaternion.Lerp(IkRotationTransform.rotation, Quaternion.LookRotation(movementAxis), fasterTurnSpeed * Time.deltaTime);
+                float dotProduct = Vector3.Dot(movementAxis, IkRotationTransform.forward);
 
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
+                Quaternion lookRot = Quaternion.LookRotation(movementAxis);
+
+
+                IkRotationTransform.rotation = Quaternion.Lerp(IkRotationTransform.rotation, lookRot, fasterTurnSpeed * Time.deltaTime);
+
+
+                if (dotProduct < -0.5f)
+                {
+                    //Vector3 tempMovementAxis = Vector3.Lerp(IkRotationTransform.forward, movementAxis, turnSpeed * Time.deltaTime);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, IkRotationTransform.rotation, fasterTurnSpeed * Time.deltaTime);
+
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, IkRotationTransform.rotation, turnSpeed * 2 * Time.deltaTime);
+                }
+
+
+
+                if (IkRotationTransform.localRotation.y >= 180)
+                {
+                    IkRotationTransform.localRotation = Quaternion.Euler(0, 180, 0);
+                }
+                if (IkRotationTransform.localRotation.y <= -180)
+                {
+                    IkRotationTransform.localRotation = Quaternion.Euler(0, -180, 0);
+                }
+
 
                 MovementAnim();
 
             }
             else if (movementAxis == Vector3.zero)//muuten on vain idelAnimaatio
             {
-                //IkRotationTransform.rotation = Quaternion.Euler(0, 0, 0);
+                //IkRotationTransform.localRotation = Quaternion.Euler(0, 0, 0);
                 if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !isSquashing)
                 {
                     foxAnimator.Play(idle);
