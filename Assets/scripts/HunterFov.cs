@@ -86,10 +86,18 @@ namespace HorrorFox.Enemies
             }
             else
             {
-                GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("draggableObj");
+                try
+                {
+                    GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("draggableObj");
 
-                foreach (GameObject draggableObject in draggableObjects)
-                    draggableObject.GetComponent<NavMeshObstacle>().enabled = true;
+                    foreach (GameObject draggableObject in draggableObjects)
+                        draggableObject.GetComponent<NavMeshObstacle>().enabled = true;
+                }
+                catch
+                {
+                    Debug.Log("ei ole navmeshobstaclea siinä");
+                }
+                
             }
             
 
