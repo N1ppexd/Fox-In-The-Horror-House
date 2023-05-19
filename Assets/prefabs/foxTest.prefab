@@ -5841,7 +5841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1480549324640705703
 Transform:
   m_ObjectHideFlags: 0
@@ -10873,13 +10873,13 @@ MonoBehaviour:
   speed: 7
   jumpForce: 5
   runSpeed: 14
-  foxAnimator: {fileID: 6631524835337042854}
-  squashStartStrin: foxcrounch
-  squashEndString: foxcrounchUp
-  walk: foxwalk
+  foxAnimator: {fileID: 5121035464891518988}
+  squashStartStrin: crounch
+  squashEndString: crounchUp
+  walk: walk
   run: 
   jump: 
-  idle: foxIdle
+  idle: 
   body: {fileID: 8207382865266717684}
   staminaBar: {fileID: 0}
   isHiding: 0
@@ -22815,7 +22815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2034370152864468174
 Transform:
   m_ObjectHideFlags: 0
@@ -28029,7 +28029,7 @@ PrefabInstance:
     - target: {fileID: 3623240865228866962, guid: e9feafd667917c34fa0a154c9bf42671,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3623240865228866962, guid: e9feafd667917c34fa0a154c9bf42671,
         type: 3}
@@ -28418,6 +28418,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9feafd667917c34fa0a154c9bf42671, type: 3}
+--- !u!95 &5121035464891518988 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1149666220409486544, guid: e9feafd667917c34fa0a154c9bf42671,
+    type: 3}
+  m_PrefabInstance: {fileID: 5252883581785386204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5685636844839016551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 433063954555352251, guid: e9feafd667917c34fa0a154c9bf42671,
