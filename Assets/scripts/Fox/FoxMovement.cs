@@ -34,7 +34,7 @@ namespace HorrorFox.Fox
 
         [Space(10)]
         [Header("nopeus, jolla kettu k‰‰ntyy")]
-        [SerializeField] private float turnSpeed; //nopeus, jolla kettu k‰‰ntyy
+        [SerializeField] private float turnSpeed, fasterTurnSpeed = 15; //nopeus, jolla kettu k‰‰ntyy
 
         [Space(10)]
         [Header("maksimi m‰‰r‰ sekunneissa, kuinka kauan kettu voi juosta")]
@@ -137,15 +137,11 @@ namespace HorrorFox.Fox
             if (movementAxis != Vector3.zero)        //kun liikutaan, tehd‰‰n liikkumisanimaatiot....
             {
                 foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehk‰ voisi laittaa if(isStairZone) hommaan, mutta pitt‰‰ testailla)
-                float angle = Vector3.Dot(Vector3.right, movementAxis);
-                angle = Mathf.Acos(angle);
-                angle = Mathf.Rad2Deg * angle;
 
-                IkRotationTransform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), 30 * Time.deltaTime);
+                IkRotationTransform.rotation = Quaternion.Lerp(IkRotationTransform.rotation, Quaternion.LookRotation(movementAxis), fasterTurnSpeed * Time.deltaTime);
 
-                if(!foxStairMovement.isStairZone)
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
-                //Quaternion.Euler(0, angle, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movementAxis), turnSpeed * Time.deltaTime);
+
                 MovementAnim();
 
             }
@@ -287,9 +283,8 @@ namespace HorrorFox.Fox
         {
             if(axis != Vector2.zero)
             {
-                Vector3 toBeMovemedAxis = new Vector3(axis.x, 0, axis.y);
 
-                movementAxis = Vector3.Lerp(movementAxis, toBeMovemedAxis, turnSpeed).normalized;
+                movementAxis = new Vector3(axis.x, 0, axis.y);
 
                 return;
             }
