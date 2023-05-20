@@ -138,15 +138,32 @@ namespace HorrorFox.Fox
             {
                 //foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehkä voisi laittaa if(isStairZone) hommaan, mutta pittää testailla)
 
-                float dotProduct = Vector3.Dot(movementAxis, IkRotationTransform.forward);
+                float dotProduct = Vector3.Dot(movementAxis.normalized, transform.forward);
 
                 Quaternion lookRot = Quaternion.LookRotation(movementAxis);
 
+                Quaternion lookRotLocal = Quaternion.LookRotation(IkRotationTransform.InverseTransformDirection(movementAxis));
 
-                IkRotationTransform.rotation = Quaternion.Lerp(IkRotationTransform.rotation, lookRot, fasterTurnSpeed * Time.deltaTime);
+                float angle = Mathf.Acos(dotProduct) * Mathf.Rad2Deg;
+
+                if (angle + lookRotLocal.y >= 180)
+                {
+                    IkRotationTransform.localRotation = Quaternion.Euler(0, angle, 0);
+                }
+                else if (angle + lookRotLocal.y <= -180)
+                {
+                    IkRotationTransform.localRotation = Quaternion.Euler(0, angle, 0);
+                }
+                else
+                {
+                    IkRotationTransform.rotation = Quaternion.Lerp(IkRotationTransform.rotation, lookRot, fasterTurnSpeed * Time.deltaTime);
+                }
+                
+
+                
 
 
-                if (dotProduct < -0.5f)
+                if (dotProduct < 0)
                 {
                     //Vector3 tempMovementAxis = Vector3.Lerp(IkRotationTransform.forward, movementAxis, turnSpeed * Time.deltaTime);
                     transform.rotation = Quaternion.Lerp(transform.rotation, IkRotationTransform.rotation, fasterTurnSpeed * Time.deltaTime);
@@ -154,18 +171,7 @@ namespace HorrorFox.Fox
                 }
                 else
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, IkRotationTransform.rotation, turnSpeed * 2 * Time.deltaTime);
-                }
-
-
-
-                if (IkRotationTransform.localRotation.y >= 180)
-                {
-                    IkRotationTransform.localRotation = Quaternion.Euler(0, 180, 0);
-                }
-                if (IkRotationTransform.localRotation.y <= -180)
-                {
-                    IkRotationTransform.localRotation = Quaternion.Euler(0, -180, 0);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, IkRotationTransform.rotation, turnSpeed * Time.deltaTime);
                 }
 
 
