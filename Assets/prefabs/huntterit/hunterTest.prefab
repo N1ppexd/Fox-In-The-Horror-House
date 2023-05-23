@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3436380953733854375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5581139144829403451}
+  m_Layer: 6
+  m_Name: hunter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5581139144829403451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3436380953733854375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6926275599402318083}
+  m_Father: {fileID: 4311760275670464348}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4311760275670464349
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,7 +68,7 @@ Transform:
   - {fileID: 4311760276114662043}
   - {fileID: 4801126055068920020}
   - {fileID: 5254243488334877765}
-  - {fileID: 6926275599402318083}
+  - {fileID: 5581139144829403451}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,10 +115,11 @@ MonoBehaviour:
   hunterFov: {fileID: 4915622270902799932}
   animator: {fileID: 3962954510370431865}
   walkStringAnimator: walk
+  grabFoxStringAnimator: grabFox
   seekPlayer: 1
   footStepAudio: {fileID: 4801126055607083992}
   isLeaving: 0
-  grabDistance: 0
+  grabDistance: 0.2
 --- !u!114 &4915622270902799932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,12 +694,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4311760275670464348}
+    m_TransformParent: {fileID: 5581139144829403451}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f64e054c02d608d4dba60ca3ff89abbf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f64e054c02d608d4dba60ca3ff89abbf,
         type: 3}
@@ -691,7 +724,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f64e054c02d608d4dba60ca3ff89abbf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.053
+      value: -0.099999905
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f64e054c02d608d4dba60ca3ff89abbf,
         type: 3}

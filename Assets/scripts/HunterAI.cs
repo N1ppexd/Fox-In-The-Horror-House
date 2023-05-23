@@ -25,7 +25,7 @@ namespace HorrorFox.Enemies
 
         [Header("vihun animator homma...")]
         [SerializeField] private Animator animator;
-        [SerializeField] private string walkStringAnimator;
+        [SerializeField] private string walkStringAnimator, grabFoxStringAnimator;
 
 
         [Header("true, kun vihu etsii pelaajaa...")]
@@ -189,6 +189,18 @@ namespace HorrorFox.Enemies
         /// </summary>
         private void GrabPlayer(Transform player)
         {
+            agent.SetDestination(transform.position);
+            animator.Play(grabFoxStringAnimator);
+
+            StartCoroutine(waitGrab());
+        }
+
+
+        //t‰‰ on v‰liaikainenhomma jonka poistan tulevaisuudessa.
+        IEnumerator waitGrab()
+        {
+            yield return new WaitForSeconds(2);
+
             player.gameObject.GetComponent<FoxHealth>().KillFox();
         }
 
