@@ -32,6 +32,10 @@ namespace HorrorFox.Enemies
         [SerializeField] private HunterAI hunterAI;
 
 
+        public delegate void FoxMovementDelegate();
+
+        public event FoxMovementDelegate OnFoxSeen;
+
 
         // Start is called before the first frame update
         void Start()
@@ -113,7 +117,11 @@ namespace HorrorFox.Enemies
                 if(!isSeen && !hunterAI.isLeaving && !noticeEffect.isPlaying)
                     noticeEffect.Play(); //paskaa koodia, muttta aivan sama....
 
+                if(!isSeen) //tehd‰‰n ainoastaan, jos kettua ei nhd‰ alumperin, jolloin se ei tee t‰t‰ uudelleen ja uudelleen loputtomasti...
+                    SeeFox(); // tehd‰‰n n‰in, joka freezaa ketun muutamaksi sekunniksi...
                 isSeen = true; //t‰m‰ on v‰liaikainen juttu....
+
+
                 /*
                 if (Vector3.Angle(transform.forward, targetDirVector) < fovAngle / 2)//jatetaan kahdella, koska niin
                 {
@@ -145,6 +153,13 @@ namespace HorrorFox.Enemies
             {
                 isSeen = false;
             }
+        }
+
+
+        public void SeeFox()
+        {
+            
+            OnFoxSeen?.Invoke();
         }
 
     }

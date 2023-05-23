@@ -6,12 +6,16 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
+using HorrorFox.Enemies;
+using TMPro;
 
 namespace HorrorFox.Fox
 {
     public class FoxMovement : MonoBehaviour
     {
         public InputMaster inputMaster;
+
+        [SerializeField] HunterFov hunterFov; 
 
 
         [SerializeField] Rigidbody rb; //rigidbody ketulle...
@@ -26,6 +30,8 @@ namespace HorrorFox.Fox
 
 
         [HideInInspector] public bool isHiding;
+        [HideInInspector] public bool isSeen; //kun kettu n‰hd‰‰n...
+
         private bool waitToSquashBackUp; //isUnderbed on kun ollaan s‰ngyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan s‰ngyn alla
 
         private bool isGrounded;//kun kettu on maassa
@@ -68,6 +74,16 @@ namespace HorrorFox.Fox
         [SerializeField] private FoxStairMovement foxStairMovement;
 
 
+
+        [Space(20)]
+        [Header("slider, josta n‰kee, kuinka kauan pelaaja ei voi liikkua....")]
+        [SerializeField] Slider isSeenSlider;
+
+        [Header("kuinka kauan odotetaan, kun kettu on n‰hty..., ja kuinka kauan on odotettu...")]
+        [SerializeField] float waitAmount = 3, currentTime;
+        
+
+
         public MovementMode movementMode;
 
         public enum MovementMode
@@ -88,6 +104,8 @@ namespace HorrorFox.Fox
 
             jumpCount = 1;
             isGrounded = isItReallyGrounded();
+
+            hunterFov.OnFoxSeen += FoxSeen;
         }
 
         #region enabledisable
@@ -133,6 +151,10 @@ namespace HorrorFox.Fox
         // Update is called once per frame
         void FixedUpdate()
         {
+            if(isSeen)
+                return;
+
+
             Debug.Log("jumpcount = " + jumpCount);
             if (movementAxis != Vector3.zero)        //kun liikutaan, tehd‰‰n liikkumisanimaatiot....
             {
@@ -196,6 +218,13 @@ namespace HorrorFox.Fox
 
         void Update() //joka frame juttuja tehd‰‰n...
         {
+            if (isSeen && currentTime > 0)
+            {
+                currentTime -= Time.deltaTime;
+                isSeenSlider.value = currentTime;
+                return;
+            }
+
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
@@ -250,6 +279,9 @@ namespace HorrorFox.Fox
         #region foxJump
         private void ApplyJumpingForce()
         {
+            if (isSeen)
+                return;
+
             if (isHiding)
                 return;
 
@@ -314,7 +346,10 @@ namespace HorrorFox.Fox
         Vector3 movementAxis;
         private void FoxMove(Vector2 axis)
         {
-            if(axis != Vector2.zero)
+            if (isSeen)
+                return;
+
+            if (axis != Vector2.zero)
             {
 
                 movementAxis = new Vector3(axis.x, 0, axis.y);
@@ -386,6 +421,9 @@ namespace HorrorFox.Fox
         /// <param name="enabled"></param>
         private void FoxSquash(bool enabled)
         {
+            if (isSeen)
+                return;
+
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
@@ -432,6 +470,38 @@ namespace HorrorFox.Fox
             isSquashing = false;
         }
 
+
+        //freezataan kettu jne kun kettu n‰hd‰‰n....
+        private void FoxSeen()
+        {
+
+            Debug.Log("isSeen juttu pit‰s menn‰ p‰‰lle....");
+            currentTime = waitAmount;
+
+            isSeenSlider.gameObject.SetActive(true);
+            isSeen = true;
+            rb.velocity = Vector3.zero;
+
+
+            StartCoroutine(FoxSeenCoroutine());
+
+        }
+
+        IEnumerator FoxSeenCoroutine()
+        {
+
+
+            rb.isKinematic = true;
+
+            yield return new WaitForSeconds(3);
+
+            rb.isKinematic = false;
+            isSeen = false;
+            isSeenSlider.gameObject.SetActive(false);
+
+        }
+
+        
 
 
         #region CheckGroundedStage
