@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/models/KirjaHylly_Normal_Finished.fbx.meta
 guid: 13a081423d3f78a49ac5880cdd65f613
+========
+guid: 021c36e81a201034f9d107a5ebb27bcd
+>>>>>>>> d76b758948977a307864737fd01d8b17c47b7d8b:Assets/Models/KirjaHylly_Wide_Finished.fbx.meta
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/animations/blender files/vittutoimi.fbx.meta
-guid: 43246d2c5840ff4468ff03e47e0554db
-========
-guid: fba1e80738d3c9a4f9172ffb43fb391b
->>>>>>>> d76b758948977a307864737fd01d8b17c47b7d8b:Assets/Models/KirjaHylly_MaxWide_Finished.fbx.meta
+guid: 120a8cf16851aa44c9dbef0a8576163c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
