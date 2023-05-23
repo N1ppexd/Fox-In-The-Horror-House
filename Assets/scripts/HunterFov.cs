@@ -21,7 +21,7 @@ namespace HorrorFox.Enemies
 
         [Space(10)]
         [Header("ketun movement scripti, jotta voidaan katsoa, onko se piilossa")]
-        [SerializeField] FoxMovement foxMovement; //voidaan sitten, kun olen laittanut statemachinen, niin että katsotaan, onko se idle vai liikku tämän lisäksi, jolloin se huomataan, jos ei ole idle...
+        public FoxMovement foxMovement; //voidaan sitten, kun olen laittanut statemachinen, niin että katsotaan, onko se idle vai liikku tämän lisäksi, jolloin se huomataan, jos ei ole idle...
 
 
 
