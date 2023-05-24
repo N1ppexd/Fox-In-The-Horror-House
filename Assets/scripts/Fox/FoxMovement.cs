@@ -32,6 +32,7 @@ namespace HorrorFox.Fox
         [HideInInspector] public bool isHiding;
         [HideInInspector] public bool isSeen; //kun kettu n‰hd‰‰n...
         [HideInInspector] public bool isStopped;
+        [HideInInspector] public bool isJumping;//Isjumping on true, kun painetaan hyppy nappia pohjassa.
 
         private bool waitToSquashBackUp; //isUnderbed on kun ollaan s‰ngyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan s‰ngyn alla
 
@@ -50,9 +51,10 @@ namespace HorrorFox.Fox
         [SerializeField] private float maxRunCoolDown; //aika sekunneissa, kuinka kauan menee ett‰ voi juosta taas....
 
 
-        private bool isRunning, isJumping;//isRunning on true, kun painetaan shifti‰ pohjassa. IsRunning on true, kun painetaan hyppy nappia pohjassa.
-        private float currentRunDuration, currentRunCoolDown, currentJumpDuration;
-        private int jumpCount;//k‰ytet‰‰n hyppyyn...
+        private bool isRunning;//isRunning on true, kun painetaan shifti‰ pohjassa. 
+        private float currentRunDuration, currentRunCoolDown;
+        [HideInInspector] public float currentJumpDuration;
+        [HideInInspector] public int jumpCount;//k‰ytet‰‰n hyppyyn...
 
 
         [Space(10)]
@@ -157,7 +159,7 @@ namespace HorrorFox.Fox
 
 
             Debug.Log("jumpcount = " + jumpCount);
-            if (movementAxis != Vector3.zero)        //kun liikutaan, tehd‰‰n liikkumisanimaatiot....
+            if (movementAxis != Vector3.zero && jumpCount > 0)        //kun liikutaan, tehd‰‰n liikkumisanimaatiot....
             {
                 //foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehk‰ voisi laittaa if(isStairZone) hommaan, mutta pitt‰‰ testailla)
 
@@ -201,7 +203,7 @@ namespace HorrorFox.Fox
                 MovementAnim();
 
             }
-            else if (movementAxis == Vector3.zero)//muuten on vain idelAnimaatio
+            else if (movementAxis == Vector3.zero && jumpCount > 0)//muuten on vain idelAnimaatio
             {
                 //IkRotationTransform.localRotation = Quaternion.Euler(0, 0, 0);
                 if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !isSquashing)
@@ -311,11 +313,11 @@ namespace HorrorFox.Fox
 
             foxAnimator.Play(jump); //hyppy animaatio...
 
+            //isJumping = true;
 
-            isJumping = true;           //laitetaan isJUmping trueksi, koska hyp‰t‰‰n..
-
-            currentJumpDuration = 0;
             jumpCount = 0;
+            currentJumpDuration = 0;
+            
             return;
 
 
@@ -432,7 +434,7 @@ namespace HorrorFox.Fox
             if (!isItReallyGrounded())
             {
                 isGrounded = false;
-                foxAnimator.Play(jump);
+                //foxAnimator.Play(jump);
             }
                 
             if (!isGrounded) //jos on ilmassa tai on s‰ngyn alla....
@@ -563,7 +565,7 @@ namespace HorrorFox.Fox
                 if (!isItReallyGrounded())
                 {
                     isGrounded = false;
-                    foxAnimator.Play(jump);
+                    //foxAnimator.Play(jump);
                     FoxSquash(false);
                 }
 
