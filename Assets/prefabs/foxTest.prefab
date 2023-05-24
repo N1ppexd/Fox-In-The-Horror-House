@@ -5308,9 +5308,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 419939437211258021, guid: e445c171f9510a342942b472193af893,
         type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7609777074853113339, guid: a5842daa1ff284b47ab0d6528a30390d,
+        type: 3}
+    - target: {fileID: 419939437211258021, guid: e445c171f9510a342942b472193af893,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 62761734384c16b419cf4d0cc398903d, type: 2}
+      objectReference: {fileID: 2100000, guid: f30c1d894dc388143a97917ad1036f75, type: 2}
     - target: {fileID: 1358038554342517908, guid: e445c171f9510a342942b472193af893,
         type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
