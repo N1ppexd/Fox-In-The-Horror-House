@@ -43,13 +43,6 @@ namespace HorrorFox.Enemies
             StartCoroutine(CheckTheFov());
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-
         IEnumerator CheckTheFov()
         {
             while (true)
@@ -158,8 +151,17 @@ namespace HorrorFox.Enemies
 
         public void SeeFox()
         {
+            StartCoroutine(seefoxCoroutine());
             
-            OnFoxSeen?.Invoke();
+        }
+
+
+        IEnumerator seefoxCoroutine()
+        {
+            yield return new WaitForSeconds(2);
+
+            if(!hunterAI.isLeaving)
+                OnFoxSeen?.Invoke();
         }
 
     }
