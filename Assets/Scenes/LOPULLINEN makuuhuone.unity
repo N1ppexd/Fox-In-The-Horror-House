@@ -588,6 +588,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -6.695535
       objectReference: {fileID: 0}
+    - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129033, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_Follow
@@ -1160,6 +1170,11 @@ PrefabInstance:
     - target: {fileID: 4037635718555669123, guid: 68d713f97463dcf439c02c43f6567cdc,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684789147015828912, guid: 68d713f97463dcf439c02c43f6567cdc,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7082868833449495423, guid: 68d713f97463dcf439c02c43f6567cdc,
