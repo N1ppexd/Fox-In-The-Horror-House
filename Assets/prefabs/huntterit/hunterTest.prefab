@@ -5363,6 +5363,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &6259911641146536184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8227564661026499721}
+  m_Layer: 0
+  m_Name: grabTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8227564661026499721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259911641146536184}
+  m_LocalRotation: {x: 0.04799645, y: -0.044812262, z: -0.72935945, w: 0.6809721}
+  m_LocalPosition: {x: 0.037, y: 0.12, z: 0.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1024405488487637691}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -7.53, z: -93.93}
 --- !u!1001 &4801126055409795194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5657,15 +5688,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f64e054c02d608d4dba60ca3ff89abbf, type: 3}
---- !u!95 &3962954510370431865 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: f64e054c02d608d4dba60ca3ff89abbf,
+--- !u!4 &1024405488487637691 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7611858344209153107, guid: f64e054c02d608d4dba60ca3ff89abbf,
     type: 3}
   m_PrefabInstance: {fileID: 7464060560463224552}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4289153116561416785 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6634797860163353785, guid: f64e054c02d608d4dba60ca3ff89abbf,
+--- !u!95 &3962954510370431865 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: f64e054c02d608d4dba60ca3ff89abbf,
     type: 3}
   m_PrefabInstance: {fileID: 7464060560463224552}
   m_PrefabAsset: {fileID: 0}
@@ -5695,4 +5726,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunterFov: {fileID: 4915622270902799932}
   fox: {fileID: 0}
-  grabTransform: {fileID: 4289153116561416785}
+  grabTransform: {fileID: 8227564661026499721}
