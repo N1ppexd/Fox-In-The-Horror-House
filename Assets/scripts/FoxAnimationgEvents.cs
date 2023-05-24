@@ -14,6 +14,15 @@ namespace HorrorFox.Fox.Animation
             Debug.Log("stop crounching pit‰s tapahtua");
             foxMovement.StopSquashing();    //tehd‰‰n n‰in...
         }
+
+        public void StartJump()
+        {
+            //foxMovement jumop homma...
+
+            foxMovement.isJumping = true;           //laitetaan isJUmping trueksi, koska hyp‰t‰‰n..
+            foxMovement.currentJumpDuration = 0;
+            foxMovement.jumpCount = 0;
+        }
     }
 }
 

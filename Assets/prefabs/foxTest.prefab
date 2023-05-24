@@ -67,17 +67,20 @@ MonoBehaviour:
   squashEndString: crounchUp
   walk: walk
   run: walk
-  jump: jump
+  jump: jumpUp
   idle: idle
   body: {fileID: 8207382865266717684}
   staminaBar: {fileID: 0}
   isHiding: 0
   isSeen: 0
   isStopped: 0
+  isJumping: 0
   turnSpeed: 5
   fasterTurnSpeed: 15
   maxRunDuration: 1
   maxRunCoolDown: 4
+  currentJumpDuration: 0
+  jumpCount: 0
   IkRotationTransform: {fileID: 2487172850662877188}
   postProcessingVolume: {fileID: 4259577744366935230}
   foxStairMovement: {fileID: 4118498090937763753}
@@ -220,8 +223,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4259577744366935224}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.09, y: 11.71, z: -8}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 5.27, y: 2.4900208, z: -0.005999616}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5407,6 +5410,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5102218718714891324}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8705692569439738990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4476135614461186130, guid: e445c171f9510a342942b472193af893,
+    type: 3}
+  m_PrefabInstance: {fileID: 5102218718714891324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6966807005134581983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8705692569439738990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0412e1c9aa174d74ab8b408e12674a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foxMovement: {fileID: 4259577743496660692}
 --- !u!1001 &5252883581785386204
 PrefabInstance:
   m_ObjectHideFlags: 0
