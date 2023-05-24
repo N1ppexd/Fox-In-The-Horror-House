@@ -309,6 +309,8 @@ namespace HorrorFox.Fox
 
             Debug.Log("isHoldingJumpButton");
 
+            foxAnimator.Play(jump); //hyppy animaatio...
+
 
             isJumping = true;           //laitetaan isJUmping trueksi, koska hyp‰t‰‰n..
 
