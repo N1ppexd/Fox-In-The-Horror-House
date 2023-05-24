@@ -12,6 +12,8 @@ namespace HorrorFox
         [SerializeField] private HunterFov hunterFov;
         [SerializeField] private GameObject fox;
 
+        [SerializeField] private Transform grabTransform;
+
 
         private bool hasBeenGrabbed;
 
@@ -19,7 +21,17 @@ namespace HorrorFox
         {
             hunterFov.foxMovement.isStopped = true;
 
+            hasBeenGrabbed = true;
+        }
 
+
+        private void Update()
+        {
+            if (hasBeenGrabbed)
+            {
+                fox.transform.position = grabTransform.position;
+                fox.transform.rotation = grabTransform.rotation;
+            }
         }
 
     }

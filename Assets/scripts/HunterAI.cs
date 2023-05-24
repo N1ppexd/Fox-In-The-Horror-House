@@ -86,7 +86,10 @@ namespace HorrorFox.Enemies
             }
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator) && !footStepAudio.isPlaying)
+            {
+                Debug.Log("hunter footsteps pitäs kuulua...");
                 footStepAudio.Play();
+            }
             else if (!animator.GetCurrentAnimatorStateInfo(0).IsName(walkStringAnimator))
                 footStepAudio.Stop();
 
