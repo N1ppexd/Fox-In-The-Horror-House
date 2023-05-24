@@ -5146,7 +5146,8 @@ AudioSource:
   m_GameObject: {fileID: 4801126055607083994}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 942ded48e12100c46b7bb6d32b8f8ed2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a990270b503f2ac4981e014fda32b67a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5158,7 +5159,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -5278,7 +5279,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 4bcb89f99d3eb5541a1899125db798c1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5662,6 +5663,12 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7464060560463224552}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &4289153116561416785 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6634797860163353785, guid: f64e054c02d608d4dba60ca3ff89abbf,
+    type: 3}
+  m_PrefabInstance: {fileID: 7464060560463224552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6926275599402318083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f64e054c02d608d4dba60ca3ff89abbf,
@@ -5688,3 +5695,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunterFov: {fileID: 4915622270902799932}
   fox: {fileID: 0}
+  grabTransform: {fileID: 4289153116561416785}
