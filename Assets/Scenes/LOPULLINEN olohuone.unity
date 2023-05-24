@@ -353,12 +353,12 @@ PrefabInstance:
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0448916
+      value: 1.2448915
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.394621
+      value: -4.394621
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744366935229, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
@@ -393,12 +393,12 @@ PrefabInstance:
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0448916
+      value: 1.2448915
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.394621
+      value: -4.394621
       objectReference: {fileID: 0}
     - target: {fileID: 4259577744423129046, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
@@ -1637,6 +1637,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a75ff0cbaeff12a43a5e55d8971acb3e, type: 3}
+--- !u!4 &335609265 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4259577743496660695, guid: cb5e83b220469134686e7908ccae77b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 53696287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &335609270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3724014572357362611, guid: cb5e83b220469134686e7908ccae77b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 53696287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5faf08bce60d64e924b23891b56d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &378228514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8101,6 +8119,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: key
       objectReference: {fileID: 0}
+    - target: {fileID: 323939136644349741, guid: f3480373cd266b140abb3d63696f1b8f,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 335609265}
+    - target: {fileID: 323939136644349741, guid: f3480373cd266b140abb3d63696f1b8f,
+        type: 3}
+      propertyPath: foxInteract
+      value: 
+      objectReference: {fileID: 335609270}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3480373cd266b140abb3d63696f1b8f, type: 3}
 --- !u!1001 &2090725871

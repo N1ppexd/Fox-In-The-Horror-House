@@ -159,7 +159,7 @@ namespace HorrorFox.Fox
 
 
             Debug.Log("jumpcount = " + jumpCount);
-            if (movementAxis != Vector3.zero && jumpCount > 0)        //kun liikutaan, tehdään liikkumisanimaatiot....
+            if (movementAxis != Vector3.zero)        //kun liikutaan, tehdään liikkumisanimaatiot....
             {
                 //foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehkä voisi laittaa if(isStairZone) hommaan, mutta pittää testailla)
 
@@ -199,8 +199,8 @@ namespace HorrorFox.Fox
                     transform.rotation = Quaternion.Lerp(transform.rotation, IkRotationTransform.rotation, turnSpeed * Time.deltaTime);
                 }
 
-
-                MovementAnim();
+                if(jumpCount > 0)
+                    MovementAnim();
 
             }
             else if (movementAxis == Vector3.zero && jumpCount > 0)//muuten on vain idelAnimaatio
