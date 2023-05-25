@@ -3320,7 +3320,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 45573a1c6f526dc4e9faf3d5ca840036, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: e469d49bae40354479313e90b9faa387, type: 2}
 --- !u!4 &896902756
 Transform:
   m_ObjectHideFlags: 0
@@ -8089,6 +8089,31 @@ PrefabInstance:
       propertyPath: fox
       value: 
       objectReference: {fileID: 713546356}
+    - target: {fileID: 2020185768923635520, guid: 63e97585bf2a9e04f881358a94420207,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 335609265}
+    - target: {fileID: 2020185768923635520, guid: 63e97585bf2a9e04f881358a94420207,
+        type: 3}
+      propertyPath: defaultTargetPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020185768923635520, guid: 63e97585bf2a9e04f881358a94420207,
+        type: 3}
+      propertyPath: defaultTargetPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 2088485566}
+    - target: {fileID: 2020185768923635520, guid: 63e97585bf2a9e04f881358a94420207,
+        type: 3}
+      propertyPath: defaultTargetPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1679361958}
+    - target: {fileID: 2020185768923635520, guid: 63e97585bf2a9e04f881358a94420207,
+        type: 3}
+      propertyPath: defaultTargetPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 717288321}
     - target: {fileID: 4311760275670464348, guid: 63e97585bf2a9e04f881358a94420207,
         type: 3}
       propertyPath: m_RootOrder
@@ -8153,6 +8178,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915622270902799932, guid: 63e97585bf2a9e04f881358a94420207,
+        type: 3}
+      propertyPath: foxMovement
+      value: 
+      objectReference: {fileID: 53696290}
+    - target: {fileID: 4915622270902799932, guid: 63e97585bf2a9e04f881358a94420207,
+        type: 3}
+      propertyPath: whatIsFox.m_Bits
+      value: 640
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e97585bf2a9e04f881358a94420207, type: 3}
@@ -8417,7 +8452,7 @@ LightingSettings:
   m_AlbedoBoost: 1
   m_IndirectOutputScale: 1
   m_UsingShadowmask: 1
-  m_BakeBackend: 1
+  m_BakeBackend: 2
   m_LightmapMaxSize: 1024
   m_BakeResolution: 40
   m_Padding: 2

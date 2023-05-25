@@ -10,6 +10,7 @@ namespace HorrorFox
     {
 
         [SerializeField] private HunterFov hunterFov;
+        [SerializeField] private HunterAI hunterAI;
         [SerializeField] private GameObject fox;
 
         [SerializeField] private Transform grabTransform;
@@ -19,6 +20,7 @@ namespace HorrorFox
 
         public void GrabFox()
         {
+            hunterAI.hasBeenGrabbed = true;
             hunterFov.foxMovement.isStopped = true;
 
             hasBeenGrabbed = true;
@@ -31,6 +33,7 @@ namespace HorrorFox
             {
                 fox.transform.position = grabTransform.position;
                 fox.transform.rotation = grabTransform.rotation;
+
             }
         }
 
