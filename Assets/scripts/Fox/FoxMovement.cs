@@ -22,7 +22,7 @@ namespace HorrorFox.Fox
         [SerializeField] private float speed, jumpForce, runSpeed; //speed on liikkuminen, jump force on hyppy...
 
         [SerializeField] private Animator foxAnimator;
-        [SerializeField] private string squashStartStrin, squashEndString, walk, run, jump, idle;
+        [SerializeField] private string squashStartStrin, squashEndString, walk, run, jump, idle, land;
 
         [SerializeField] private Transform body;
 
@@ -198,19 +198,25 @@ namespace HorrorFox.Fox
                 {
                     transform.rotation = Quaternion.Lerp(transform.rotation, IkRotationTransform.rotation, turnSpeed * Time.deltaTime);
                 }
+                foxAnimator.SetBool("isMoving", true);
 
-                if(jumpCount > 0)
+                if (jumpCount > 0 && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(land))
                     MovementAnim();
 
             }
             else if (movementAxis == Vector3.zero && jumpCount > 0)//muuten on vain idelAnimaatio
             {
                 //IkRotationTransform.localRotation = Quaternion.Euler(0, 0, 0);
-                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) && !isSquashing)
+                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) 
+                    && !isSquashing 
+                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) 
+                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(land))
                 {
                     foxAnimator.Play(idle);
                     
                 }
+
+                foxAnimator.SetBool("isMoving", false);
 
                 movementMode = MovementMode.idle;
 
@@ -544,6 +550,11 @@ namespace HorrorFox.Fox
 
                     isGrounded = true;
                     jumpCount = 1;
+
+                    if (foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump))
+                    {
+                        foxAnimator.Play(land);
+                    }
                 }
             }
         }
