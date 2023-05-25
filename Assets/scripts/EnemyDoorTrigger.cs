@@ -55,6 +55,8 @@ namespace HorrorFox
         /// </summary>
         public void OpenDoor()
         {
+            if (doorAnimator == null)
+                return;
             doorAnimator.Play(doorOpenString);
         }
 
@@ -64,6 +66,9 @@ namespace HorrorFox
         /// </summary>
         void CloseDoor()
         {
+            if (doorAnimator == null)
+                return;
+
             doorAnimator.Play(doorCloseString);
         }
     }
