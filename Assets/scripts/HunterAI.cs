@@ -43,6 +43,10 @@ namespace HorrorFox.Enemies
         [Header("Millä etäisyydellä vihu grabaa pelaajan")]
         [SerializeField] private float grabDistance = 1.0f; //perus distance on 1...
 
+
+        [HideInInspector]
+        public bool hasBeenGrabbed;
+
         private void Awake()
         {
             //agent.avoidancePriority = Random.Range(1, 100);
@@ -63,6 +67,12 @@ namespace HorrorFox.Enemies
         // Update is called once per frame
         void Update()
         {
+            if (hasBeenGrabbed)
+            {
+                agent.isStopped = true;
+                return;
+            }
+                
             if (!agent.isOnNavMesh)
                 return;
 

@@ -317,7 +317,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 0.02
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4933,6 +4933,7 @@ MonoBehaviour:
   footStepAudio: {fileID: 4801126055607083992}
   isLeaving: 0
   grabDistance: 0.2
+  hasBeenGrabbed: 0
 --- !u!114 &4915622270902799932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5725,5 +5726,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hunterFov: {fileID: 4915622270902799932}
+  hunterAI: {fileID: 2020185768923635520}
   fox: {fileID: 0}
   grabTransform: {fileID: 8227564661026499721}
