@@ -22,7 +22,7 @@ namespace HorrorFox.Fox
         [SerializeField] private float speed, jumpForce, runSpeed; //speed on liikkuminen, jump force on hyppy...
 
         [SerializeField] private Animator foxAnimator;
-        [SerializeField] private string squashStartStrin, squashEndString, walk, run, jump, idle, land;
+        [SerializeField] private string squashStartStrin, squashEndString, walk, run, jump, idle, land, fly;
 
         [SerializeField] private Transform body;
 
@@ -200,7 +200,9 @@ namespace HorrorFox.Fox
                 }
                 foxAnimator.SetBool("isMoving", true);
 
-                if (jumpCount > 0 && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(land))
+                if (jumpCount > 0 && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) 
+                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(land) 
+                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(fly))
                     MovementAnim();
 
             }
@@ -210,7 +212,8 @@ namespace HorrorFox.Fox
                 if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) 
                     && !isSquashing 
                     && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) 
-                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(land))
+                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(land)
+                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(fly))
                 {
                     foxAnimator.Play(idle);
                     
@@ -275,9 +278,13 @@ namespace HorrorFox.Fox
             rb.velocity = velocityVector;
         }
 
-
+        public bool startJump;
         private void FoxJump(bool enable)
         {
+            
+            
+
+
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
@@ -290,11 +297,15 @@ namespace HorrorFox.Fox
             if (!isGrounded)
                 return;
 
-            Debug.Log("isHoldingJumpButton");
+            if (foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) || foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(fly))
+                return;
+
+            if (startJump || isJumping || jumpCount == 0)
+                return;
 
             foxAnimator.Play(jump); //hyppy animaatio...
 
-            //isJumping = true;
+            startJump = true;
 
             jumpCount = 0;
             currentJumpDuration = 0;
@@ -382,6 +393,7 @@ namespace HorrorFox.Fox
             if (!isItReallyGrounded())
             {
                 isGrounded = false;
+                foxAnimator.Play(fly);
                 //foxAnimator.Play(jump);
             }
                 
@@ -490,12 +502,10 @@ namespace HorrorFox.Fox
             if (!collision.gameObject.CompareTag("wall"))
             {
                 
-
-
                 isGrounded = true;
                 jumpCount = 1;
 
-                if (foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump))
+                if (foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) || foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(fly))
                 {
                     foxAnimator.Play(land);
                 }
@@ -526,7 +536,7 @@ namespace HorrorFox.Fox
                 if (!isItReallyGrounded())
                 {
                     isGrounded = false;
-                    //foxAnimator.Play(jump);
+                    foxAnimator.Play(fly);
                     FoxSquash(false);
                 }
 
