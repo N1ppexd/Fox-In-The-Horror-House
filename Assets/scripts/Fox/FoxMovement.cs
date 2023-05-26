@@ -548,35 +548,30 @@ namespace HorrorFox.Fox
         {
             if (!collision.gameObject.CompareTag("wall"))
             {
-                if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) < 1)
-                {
-                    isGrounded = true;
-                    jumpCount = 1;
+                
 
-                    if (foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump))
-                    {
-                        foxAnimator.Play(land);
-                    }
+
+                isGrounded = true;
+                jumpCount = 1;
+
+                if (foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump))
+                {
+                    foxAnimator.Play(land);
                 }
-                /*
-                if (isItReallyGrounded())
-                {
-
-                    isGrounded = true;
-                    jumpCount = 1;
-
-                    if (foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump))
-                    {
-                        foxAnimator.Play(land);
-                    }
-                }*/
             }
         }
 
         private void OnCollisionStay(Collision collision)
         {
             if (!collision.gameObject.CompareTag("wall"))
-                isGrounded = true;
+            {
+                if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) < 1)
+                {
+                    isGrounded = true;
+                    jumpCount = 1;
+
+                }
+            }
         }
 
         private void OnCollisionExit(Collision collision)
