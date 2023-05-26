@@ -71,16 +71,22 @@ namespace HorrorFox.Fox.Keys
         /// </summary>
         Transform dragObj;
 
+
+        GameObject explanationCanvas;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("useKeyZone"))         //pit‰‰ laitata niin, ett‰ tulee prompt, ja vasta kun on painettu sit‰ nappia, tehd‰‰n seuravaa asia...
             {
                 Debug.Log("used key");
+
+                
                 
                 try
                 {
                     door = other.transform.root.GetComponent<Door>();
                     promptCanvas = door.transform.Find("PropmtPanel").gameObject;
+                    explanationCanvas = door.transform.Find("explanationPanel").gameObject;
                 }
                 catch
                 {
@@ -94,6 +100,10 @@ namespace HorrorFox.Fox.Keys
 
                 if(currentKeys.Count > 0)
                     DisplayPrompt();
+                else
+                {
+                    explanationCanvas.SetActive(true);
+                }
                 
             }
 
@@ -157,6 +167,7 @@ namespace HorrorFox.Fox.Keys
                     isInInteractRadius = false;
 
                     promptCanvas.SetActive(false);
+                    explanationCanvas.SetActive(false);
                 }
                 isDoor = false;
             }
