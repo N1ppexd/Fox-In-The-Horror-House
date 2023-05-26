@@ -120,8 +120,8 @@ namespace HorrorFox.Fox
             inputMaster.Player.Move.performed += _  => FoxMove(_.ReadValue<Vector2>());
             inputMaster.Player.Move.canceled += _ => FoxMove(Vector2.zero);
 
-            inputMaster.Player.Run.performed += _ => isRunning = setRunningMode(true);
-            inputMaster.Player.Run.canceled += _ => isRunning = setRunningMode(false);
+            //inputMaster.Player.Run.performed += _ => isRunning = setRunningMode(true);
+            //inputMaster.Player.Run.canceled += _ => isRunning = setRunningMode(false);
 
 
 
@@ -139,8 +139,8 @@ namespace HorrorFox.Fox
             inputMaster.Player.Move.performed -= _ => FoxMove(_.ReadValue<Vector2>());
             inputMaster.Player.Move.canceled -= _ => FoxMove(Vector2.zero);
 
-            inputMaster.Player.Run.performed -= _ => isRunning = setRunningMode(true);
-            inputMaster.Player.Run.canceled -= _ => isRunning = setRunningMode(false);
+            //inputMaster.Player.Run.performed -= _ => isRunning = setRunningMode(true);
+            //inputMaster.Player.Run.canceled -= _ => isRunning = setRunningMode(false);
 
 
 
@@ -239,32 +239,7 @@ namespace HorrorFox.Fox
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
-            staminaBar.value = (maxRunCoolDown - currentRunCoolDown) / maxRunCoolDown;
-
             Debug.Log("isSquashing = " + isSquashing);
-
-            if (jumpCount < 1 || isSquashing)
-                isRunning = false;
-            if (currentRunCoolDown > 0f)//t‰m‰n avulla laitetaan niin, ettei voi juosta liikaa
-            {
-                currentRunCoolDown -= Time.deltaTime;
-            }
-
-            else if (currentRunCoolDown < 0)
-                currentRunCoolDown = 0;
-
-            if (currentRunDuration > 0f)
-                currentRunDuration -= Time.deltaTime;
-
-
-            else if (currentRunDuration <= 0)
-            {
-                currentRunDuration = 0;
-                //currentRunCoolDown = maxRunCoolDown;
-                //movementMode = MovementMode.walkMode;
-                isRunning = false;
-                //setRunningMode(false);
-            }
 
             if (isJumping)
             {
@@ -344,11 +319,7 @@ namespace HorrorFox.Fox
 
             jumpCount = 1;
 
-            if (isRunning)
-                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(run))
-                    foxAnimator.Play(run);
-            if (!isRunning)
-                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk))
+            if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk))
                     foxAnimator.Play(walk);
         }
 
@@ -376,50 +347,20 @@ namespace HorrorFox.Fox
 
         }
 
-        /// <summary>
-        /// Used to run, but also to stop running and to apply the 
-        /// </summary>
-        /// <param name="startRunning"></param>
-        /// <returns></returns>
-        private bool setRunningMode(bool startRunning)
-        {
-            if (startRunning && currentRunCoolDown <= 0) //jos aloitetaan juokseminen, ja cooldown on mennyt loppuun
-            {
-                currentRunDuration = maxRunDuration;
-
-                Debug.Log("run pit‰s toimia");
-
-                return true;
-            }
-            if (!startRunning && currentRunDuration > 0)
-            {
-                currentRunCoolDown = maxRunCoolDown - currentRunDuration;
-                return false;
-            }
-            return startRunning;
-        }
-
         private Vector3 RunSpeed(bool running)
         {
             Vector3 roatatedVector = (Quaternion.Euler(body.rotation.x, body.rotation.y, body.rotation.z) * movementAxis);
-            if (!running)
-            {
-                if(movementAxis != Vector3.zero)
-                    movementMode = MovementMode.walkMode; //laitetaan walkMode...
 
-                return roatatedVector * speed + transform.up * rb.velocity.y; //kettu liikkuu...
-            }
-                
-            if (running)
-            {
-                if(movementAxis != Vector3.zero)
-                    movementMode = MovementMode.runMode; //laitetaan runMode...
 
-                return roatatedVector * runSpeed + transform.up * rb.velocity.y; //kettu liikkuu...
-            }
-                
 
-            return Vector3.zero;
+            if (movementAxis != Vector3.zero)
+                movementMode = MovementMode.walkMode; //laitetaan walkMode...
+
+            return roatatedVector * speed + transform.up * rb.velocity.y; //kettu liikkuu...
+
+
+
+            //return Vector3.zero;
         }
 
 
