@@ -466,7 +466,10 @@ namespace HorrorFox.Fox
                 isSquashing = true;
             }
             else if (!enabled)
+            {
+                isSquashing = false;
                 foxAnimator.Play(squashEndString);
+            }
 
             //Debug.Log("fox squash enabled = " + enabled);
         }
@@ -545,7 +548,17 @@ namespace HorrorFox.Fox
         {
             if (!collision.gameObject.CompareTag("wall"))
             {
+                if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) < 1)
+                {
+                    isGrounded = true;
+                    jumpCount = 1;
 
+                    if (foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump))
+                    {
+                        foxAnimator.Play(land);
+                    }
+                }
+                /*
                 if (isItReallyGrounded())
                 {
 
@@ -556,7 +569,7 @@ namespace HorrorFox.Fox
                     {
                         foxAnimator.Play(land);
                     }
-                }
+                }*/
             }
         }
 
