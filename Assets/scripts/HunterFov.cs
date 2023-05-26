@@ -160,6 +160,12 @@ namespace HorrorFox.Enemies
         {
             yield return new WaitForSeconds(2);
 
+            if (!isSeen)
+            {
+                yield break;
+            }
+                
+
             if(!hunterAI.isLeaving)
                 OnFoxSeen?.Invoke();
         }
