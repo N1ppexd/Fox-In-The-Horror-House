@@ -251,7 +251,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &53696287
 PrefabInstance:
@@ -991,7 +991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &82545324
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2212,7 +2212,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh136034
+  m_Name: pb_Mesh139172
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2482,7 +2482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &507290303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3132,7 +3132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &753412198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3873,7 +3873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1225745017
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7452,6 +7452,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Olohuone prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 9154039513040744592, guid: 2cf23d3047357db408e387b6833ad876,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cf23d3047357db408e387b6833ad876, type: 3}
 --- !u!1001 &1453385798
@@ -9281,7 +9286,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh136190
+  m_Name: pb_Mesh139328
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10013,7 +10018,7 @@ PrefabInstance:
     - target: {fileID: 5206231664728973334, guid: 89814993d68668049b68c659627d018f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89814993d68668049b68c659627d018f, type: 3}

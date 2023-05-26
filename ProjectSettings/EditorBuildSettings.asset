@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/StoryScene.unity
     guid: 66b5f40c7c5a89d41a087b688f1adb43
   - enabled: 1
-    path: Assets/Scenes/KOPIOSCENET/LOPULLINEN taxidermy 1.unity
+    path: Assets/Scenes/TASOT/LOPULLINEN taxidermy 1.unity
     guid: 8811311ba3b42de49bf7b11d6e00dff9
   - enabled: 1
-    path: Assets/Scenes/KOPIOSCENET/LOPULLINEN makuuhuone 1.unity
+    path: Assets/Scenes/TASOT/LOPULLINEN makuuhuone 1.unity
     guid: cb61bdf9141f49a4ea022270527538ba
   - enabled: 1
     path: Assets/Scenes/KOPIOSCENET/LOPULLINEN olohuone 1.unity
