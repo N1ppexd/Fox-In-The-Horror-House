@@ -7750,6 +7750,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "REIK\xC4 SEIN\xC4SS\xC4 T\xC4ST\xC4 TULLAAN"
       objectReference: {fileID: 0}
+    - target: {fileID: 3491564357452550617, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3491564357452550629, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
         type: 3}
       propertyPath: m_RootOrder
@@ -16000,8 +16005,13 @@ PrefabInstance:
       objectReference: {fileID: 1282857347}
     - target: {fileID: 7487376911945952182, guid: dcf7230e37aa9ff498bec0ea5e70a53b,
         type: 3}
+      propertyPath: maxLevelDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487376911945952182, guid: dcf7230e37aa9ff498bec0ea5e70a53b,
+        type: 3}
       propertyPath: clockTimeDuration
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7487376911945952182, guid: dcf7230e37aa9ff498bec0ea5e70a53b,
         type: 3}

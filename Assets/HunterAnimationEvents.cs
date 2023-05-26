@@ -2,7 +2,7 @@ using HorrorFox.Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace HorrorFox
 {
@@ -34,7 +34,15 @@ namespace HorrorFox
                 fox.transform.position = grabTransform.position;
                 fox.transform.rotation = grabTransform.rotation;
 
+                StartCoroutine(RestartScene());   
             }
+        }
+
+
+        IEnumerator RestartScene()
+        {
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
     }

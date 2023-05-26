@@ -154,7 +154,7 @@ namespace HorrorFox.Fox
         // Update is called once per frame
         void FixedUpdate()
         {
-            if(isSeen || isStopped)
+            if(isStopped)
                 return;
 
 
@@ -290,7 +290,7 @@ namespace HorrorFox.Fox
         #region foxJump
         private void ApplyJumpingForce()
         {
-            if (isSeen || isStopped || isHiding)
+            if (isStopped || isHiding)
                 return;
 
             Vector3 jumpVector = Vector3.up * jumpForce + Vector3.up * currentJumpDuration * 2;//hyppy vektori, joka on rigidbodyyn lis‰tt‰v‰n voiman vektori skaalattuna voimakkuudella.
@@ -339,7 +339,7 @@ namespace HorrorFox.Fox
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
-            if (isHiding || !isGrounded || isSquashing || isSeen || isStopped)
+            if (isHiding || !isGrounded || isSquashing || isStopped)
                 return;
 
             jumpCount = 1;
@@ -356,7 +356,7 @@ namespace HorrorFox.Fox
         Vector3 movementAxis;
         private void FoxMove(Vector2 axis)
         {
-            if (isSeen || isStopped)
+            if (isStopped)
                 return;
 
             if (axis != Vector2.zero)
@@ -431,8 +431,9 @@ namespace HorrorFox.Fox
         /// <param name="enabled"></param>
         private void FoxSquash(bool enabled)
         {
+            /*
             if (isSeen)
-                return;
+                return;*/
 
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;

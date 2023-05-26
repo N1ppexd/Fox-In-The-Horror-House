@@ -6843,6 +6843,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4259577743496660695}
     m_Modifications:
+    - target: {fileID: 2612973203611465321, guid: d5d1641e91cd56d48924d9aa2f6501a9,
+        type: 3}
+      propertyPath: m_CollideAgainst.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2612973203611465321, guid: d5d1641e91cd56d48924d9aa2f6501a9,
+        type: 3}
+      propertyPath: m_TransparentLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5117754677380757870, guid: d5d1641e91cd56d48924d9aa2f6501a9,
         type: 3}
       propertyPath: m_Follow
@@ -6926,7 +6936,7 @@ PrefabInstance:
     - target: {fileID: 5117754677927269649, guid: d5d1641e91cd56d48924d9aa2f6501a9,
         type: 3}
       propertyPath: Damping.y
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5117754677927269649, guid: d5d1641e91cd56d48924d9aa2f6501a9,
         type: 3}
@@ -6941,7 +6951,7 @@ PrefabInstance:
     - target: {fileID: 5117754677927269649, guid: d5d1641e91cd56d48924d9aa2f6501a9,
         type: 3}
       propertyPath: CameraDistance
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5117754677927269649, guid: d5d1641e91cd56d48924d9aa2f6501a9,
         type: 3}
