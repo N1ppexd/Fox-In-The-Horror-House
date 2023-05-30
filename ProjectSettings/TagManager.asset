@@ -19,6 +19,7 @@ TagManager:
   - interactObjZone
   - hideZone
   - draggableObj
+  - fallingHead
   layers:
   - Default
   - TransparentFX

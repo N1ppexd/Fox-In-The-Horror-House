@@ -4,14 +4,11 @@ using UnityEngine;
 
 namespace HorrorFox
 {
-    public class SlabEmerge : MonoBehaviour
+    public class BisonHead : MonoBehaviour
     {
-
-        [SerializeField] private Animator slabAnimator;
+        [SerializeField] private Rigidbody rb;
 
         [SerializeField] private InteractObj interactObj;
-
-        [SerializeField] private string moveSlabString;
 
         private void Awake()
         {
@@ -20,7 +17,7 @@ namespace HorrorFox
 
         private void InteractHappened()
         {
-            slabAnimator.Play(moveSlabString);
+            rb.isKinematic = false;
         }
     }
 }
