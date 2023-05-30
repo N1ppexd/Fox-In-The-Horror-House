@@ -1,6 +1,7 @@
 using HorrorFox.Enemies;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,8 +19,13 @@ namespace HorrorFox
 
         private bool hasBeenGrabbed;
 
+        [SerializeField] private float grabFoxDistance;
+
         public void GrabFox()
         {
+            if ((fox.transform.position - grabTransform.position).sqrMagnitude > grabFoxDistance * grabFoxDistance)
+                return;
+
             hunterAI.hasBeenGrabbed = true;
             hunterFov.foxMovement.isStopped = true;
 
