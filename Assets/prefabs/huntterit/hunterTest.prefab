@@ -5729,3 +5729,4 @@ MonoBehaviour:
   hunterAI: {fileID: 2020185768923635520}
   fox: {fileID: 0}
   grabTransform: {fileID: 8227564661026499721}
+  grabFoxDistance: 1
