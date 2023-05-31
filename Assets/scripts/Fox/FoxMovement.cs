@@ -54,7 +54,7 @@ namespace HorrorFox.Fox
         private bool isRunning;//isRunning on true, kun painetaan shiftiä pohjassa. 
         private float currentRunDuration, currentRunCoolDown;
         [HideInInspector] public float currentJumpDuration;
-        [HideInInspector] public int jumpCount;//käytetään hyppyyn...
+        public int jumpCount;//käytetään hyppyyn...
 
 
         [Space(10)]
@@ -242,6 +242,8 @@ namespace HorrorFox.Fox
             if (movementMode == MovementMode.transitioning)//ei tehdä mitään, kun ollaan menossa uuteen sceneen...
                 return;
 
+            foxAnimator.SetInteger("jumpCount", jumpCount);
+
             Debug.Log("isSquashing = " + isSquashing);
 
             if (isJumping)
@@ -328,7 +330,9 @@ namespace HorrorFox.Fox
             if (isHiding || !isGrounded || isSquashing || isStopped)
                 return;
 
+
             jumpCount = 1;
+            foxAnimator.SetInteger("jumpCount", jumpCount);
 
             if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk))
                     foxAnimator.Play(walk);
@@ -533,11 +537,16 @@ namespace HorrorFox.Fox
                 if (isItReallyGrounded() && jumpCount > 0) //kun jumpcount on yli 0. Jos se on 0 tai alle, on hypätty eikä tiputtu
                     return;
                 */
-                if (!isItReallyGrounded())
+                if (!isItReallyGrounded() && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump))
                 {
                     isGrounded = false;
                     foxAnimator.Play(fly);
                     FoxSquash(false);
+                }
+                if (!isItReallyGrounded())
+                {
+                    isGrounded = false;
+                    jumpCount = 0;
                 }
 
                 
