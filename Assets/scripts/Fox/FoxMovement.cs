@@ -93,7 +93,6 @@ namespace HorrorFox.Fox
 
         public enum MovementMode
         {
-            runMode,            //kun kettu juoksee.
             walkMode,           //kun kettu kävelee
             flyMode,            //Kun kettu on ilmassa,
             squatMode,          //kun kettu on kyykyssä
@@ -495,6 +494,11 @@ namespace HorrorFox.Fox
         {
             if (!collision.gameObject.CompareTag("wall"))
             {
+
+                if (!landAudio.isPlaying)
+                {
+                    landAudio.Play();
+                }
                 
                 isGrounded = true;
                 jumpCount = 1;
