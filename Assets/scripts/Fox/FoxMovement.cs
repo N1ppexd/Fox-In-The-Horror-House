@@ -119,9 +119,6 @@ namespace HorrorFox.Fox
             inputMaster.Player.Move.performed += _  => FoxMove(_.ReadValue<Vector2>());
             inputMaster.Player.Move.canceled += _ => FoxMove(Vector2.zero);
 
-            //inputMaster.Player.Run.performed += _ => isRunning = setRunningMode(true);
-            //inputMaster.Player.Run.canceled += _ => isRunning = setRunningMode(false);
-
 
 
             inputMaster.Player.Jump.performed += _ => FoxJump(true);
@@ -137,9 +134,6 @@ namespace HorrorFox.Fox
 
             inputMaster.Player.Move.performed -= _ => FoxMove(_.ReadValue<Vector2>());
             inputMaster.Player.Move.canceled -= _ => FoxMove(Vector2.zero);
-
-            //inputMaster.Player.Run.performed -= _ => isRunning = setRunningMode(true);
-            //inputMaster.Player.Run.canceled -= _ => isRunning = setRunningMode(false);
 
 
 
@@ -360,10 +354,6 @@ namespace HorrorFox.Fox
         /// <param name="enabled"></param>
         private void FoxSquash(bool enabled)
         {
-            /*
-            if (isSeen)
-                return;*/
-
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
@@ -371,12 +361,7 @@ namespace HorrorFox.Fox
             {
                 isGrounded = false;
                 foxAnimator.Play(fly);
-                //foxAnimator.Play(jump);
             }
-                
-            /*if (!isGrounded) //jos on ilmassa tai on s‰ngyn alla....
-                return;*/
-            
             
 
             if (enabled)
@@ -387,14 +372,6 @@ namespace HorrorFox.Fox
 
                 if (isHiding)
                 {
-                    /*
-                    isSquashing = true;
-
-                    if (enabled)
-                        waitToSquashBackUp = true;
-                    if (!enabled)
-                        waitToSquashBackUp = false;
-                    return;*/
 
 
                     postProcessingVolume.profile.TryGet<Vignette>(out vignette);
@@ -425,8 +402,6 @@ namespace HorrorFox.Fox
 
                 }
             }
-
-            //Debug.Log("fox squash enabled = " + enabled);
         }
 
         /// <summary>
@@ -486,8 +461,6 @@ namespace HorrorFox.Fox
                 if (!hit.transform.CompareTag("wall"))
                 {
                     float dist = Vector3.Distance(hit.point, transform.position);
-
-                    //Debug.Log("distance to floor = " + dist);
 
                     if (dist <= 0.3f)
                         return true;

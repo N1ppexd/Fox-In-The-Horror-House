@@ -6148,7 +6148,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -8678823145569952518, guid: 3127d8932d5430c49b4bf1bf184a6969, type: 3}
+  m_Mesh: {fileID: -8678823145569952518, guid: 991a91b88dba1c04f861ec3257075f7f, type: 3}
 --- !u!23 &1522302395
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6773,6 +6773,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 193.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829172611471152504, guid: 82a83175d7091e14fae1b3f30b63cbb5,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 1829172611471152504, guid: 82a83175d7091e14fae1b3f30b63cbb5,
         type: 3}
