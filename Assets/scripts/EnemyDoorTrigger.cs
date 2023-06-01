@@ -12,6 +12,8 @@ namespace HorrorFox
 
         [SerializeField] private string doorOpenString, doorCloseString;
 
+        [SerializeField] private AudioSource doorSmashAudio;
+
         public enum DoorMode
         {
             waitToOpen,
@@ -57,6 +59,8 @@ namespace HorrorFox
         {
             if (doorAnimator == null)
                 return;
+
+            doorSmashAudio.Play();
             doorAnimator.Play(doorOpenString);
         }
 
@@ -69,6 +73,7 @@ namespace HorrorFox
             if (doorAnimator == null)
                 return;
 
+            doorSmashAudio.Play();
             doorAnimator.Play(doorCloseString);
         }
     }
