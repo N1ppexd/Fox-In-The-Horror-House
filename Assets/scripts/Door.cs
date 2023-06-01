@@ -16,8 +16,11 @@ namespace HorrorFox
         [SerializeField] private GameObject doorTrigger;//tämä laitetaan pois sitten kun siihen on osuttu..
 
 
+        [SerializeField] private AudioSource doorOpen;
+
         public void OpenDoor()
         {
+            doorOpen.Play();
             doorTrigger.SetActive(false);
             doorAnim.Play(doorOpenAnimName);
         }
