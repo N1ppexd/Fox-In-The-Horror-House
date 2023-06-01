@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 628902170016196875}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "yl\xE4ViisariHinge"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4164977933881201763}
   - component: {fileID: 8360611150921873569}
   - component: {fileID: 3569750653958990666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Yl\xE4koriste_Back"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 6288847969001959993}
   - component: {fileID: 899260001562606508}
   - component: {fileID: 2369247325600754589}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kaappikellon_rakenne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 5012478821592430721}
   - component: {fileID: 1122558091171917015}
   - component: {fileID: 92096336859146108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kellon_taulu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 2665906103738874901}
   - component: {fileID: 876412973846005294}
   - component: {fileID: 1376720925296494593}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5103,7 +5103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1141999519171514957}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lyhytViisari
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5135,7 +5135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4131602097719403315}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lyhyt_viisari_hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5167,7 +5167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4131602098456362304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "pitk\xE4_viisari_hinge"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5201,7 +5201,7 @@ GameObject:
   - component: {fileID: 8052224854918666329}
   - component: {fileID: 8764933947042631576}
   - component: {fileID: 8064476815847831067}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Yl\xE4koriste_Back (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5284,7 +5284,7 @@ GameObject:
   - component: {fileID: 6500429445911286337}
   - component: {fileID: 510553057534012090}
   - component: {fileID: 6327114751585253472}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lyhyt_viisari_kello
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5367,7 +5367,7 @@ GameObject:
   - component: {fileID: 7196341587489488133}
   - component: {fileID: 1669241846010830355}
   - component: {fileID: 1285787278946024360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "pitk\xE4_viisari_kello"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5449,7 +5449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8444134465463908398}
   - component: {fileID: 5972691793455099740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Kellokaappi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5507,7 +5507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7055034201125136908}
   - component: {fileID: 166019685083351711}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AudioSourche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
