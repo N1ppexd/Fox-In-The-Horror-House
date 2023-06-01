@@ -8,9 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 4d8980f7b4c3b494daa3310fffe8ec16
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StoryScene.unity
     guid: 66b5f40c7c5a89d41a087b688f1adb43
+  - enabled: 1
+    path: Assets/Scenes/intro animaatio1.unity
+    guid: d0ac75c32c4333543a8d93d599bc7055
+  - enabled: 1
+    path: Assets/Scenes/intro animaatio2.unity
+    guid: ce9465a2ebed59442b286a10a1b47283
+  - enabled: 1
+    path: Assets/Scenes/intro animaatio3.unity
+    guid: 634bdfdddc0b3be459b48a1534d5beaa
   - enabled: 1
     path: Assets/Scenes/TASOT/LOPULLINEN taxidermy 1.unity
     guid: 8811311ba3b42de49bf7b11d6e00dff9
