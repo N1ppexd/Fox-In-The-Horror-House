@@ -251,7 +251,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &53696287
 PrefabInstance:
@@ -484,7 +484,7 @@ PrefabInstance:
         type: 3}
       propertyPath: staminaBar
       value: 
-      objectReference: {fileID: 3914126229337325620}
+      objectReference: {fileID: 0}
     - target: {fileID: 4259577743496660692, guid: cb5e83b220469134686e7908ccae77b9,
         type: 3}
       propertyPath: isSeenSlider
@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 82545324}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2212,7 +2212,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh139172
+  m_Name: pb_Mesh488402
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7261,6 +7261,7 @@ MonoBehaviour:
   doorAnimator: {fileID: 0}
   doorOpenString: 
   doorCloseString: 
+  doorSmashAudio: {fileID: 0}
   doorMode: 0
 --- !u!65 &1405870604
 BoxCollider:
@@ -9797,18 +9798,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68d713f97463dcf439c02c43f6567cdc, type: 3}
---- !u!114 &3914126229337325620 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6737011411958475802, guid: 68d713f97463dcf439c02c43f6567cdc,
-    type: 3}
-  m_PrefabInstance: {fileID: 3914126229337325619}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &3914126229337325621 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2685726286543413414, guid: 68d713f97463dcf439c02c43f6567cdc,
@@ -10019,6 +10008,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206231664728973334, guid: 89814993d68668049b68c659627d018f,
+        type: 3}
+      propertyPath: m_TagString
+      value: wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89814993d68668049b68c659627d018f, type: 3}
