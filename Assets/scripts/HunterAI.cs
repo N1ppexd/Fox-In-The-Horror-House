@@ -72,9 +72,12 @@ namespace HorrorFox.Enemies
                 agent.isStopped = true;
                 return;
             }
-                
             if (!agent.isOnNavMesh)
-                return;
+            {
+                Debug.Log("is not on navmesh");
+            }
+            else
+                Debug.Log("is on navmesh");
 
 
 
@@ -158,11 +161,11 @@ namespace HorrorFox.Enemies
         /// <param name="point"></param>
         public void SpawnHunter(Transform point)
         {
-            agent.enabled = false;
+            //agent.enabled = false;
 
-            transform.position = point.position;
+            agent.Warp(point.position);
 
-            agent.enabled = true;
+            //agent.enabled = true;
 
             isLeaving = false;
         }
