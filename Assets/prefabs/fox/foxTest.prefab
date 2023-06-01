@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428365709121478038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0054848436, y: 0.0018863678, z: -0.0000045451206}
+  m_LocalPosition: {x: 0.0054848436, y: 0.0018863678, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991080337774110850}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.232, z: -0.129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -121,7 +121,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -234,7 +234,6 @@ MonoBehaviour:
   land: land
   fly: 
   body: {fileID: 8207382865266717684}
-  staminaBar: {fileID: 0}
   isHiding: 0
   isSeen: 0
   isStopped: 0
@@ -251,6 +250,8 @@ MonoBehaviour:
   isSeenSlider: {fileID: 0}
   waitAmount: 2
   currentTime: 2
+  walkAudio: {fileID: 690217440752595545}
+  landAudio: {fileID: 0}
   movementMode: 0
   startJump: 0
 --- !u!114 &4259577743496660681

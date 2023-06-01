@@ -82,7 +82,11 @@ namespace HorrorFox.Fox
 
         [Header("kuinka kauan odotetaan, kun kettu on n‰hty..., ja kuinka kauan on odotettu...")]
         [SerializeField] float waitAmount = 3, currentTime;
-        
+
+
+        [Space(20)]
+        [Header("ketun ‰‰niefektit")]
+        [SerializeField] private AudioSource walkAudio, landAudio;
 
 
         public MovementMode movementMode;
@@ -216,6 +220,15 @@ namespace HorrorFox.Fox
 
                 movementMode = MovementMode.idle;
 
+                if (walkAudio.isPlaying)    //k‰vely‰‰ni ei saa kuulua, kun ei liikuta...
+                    walkAudio.Stop();
+
+            }
+
+            if(jumpCount < 1)
+            {
+                if (walkAudio.isPlaying)    //k‰vely‰‰ni ei saa kuulua, kun ollaan ilmassa...
+                    walkAudio.Stop();
             }
             
             rb.velocity = RunSpeed(isRunning);
@@ -224,13 +237,13 @@ namespace HorrorFox.Fox
         void Update() //joka frame juttuja tehd‰‰n...
         {
             if (isStopped)
-                return;
-            if (isSeen && currentTime > 0)
             {
-                currentTime -= Time.deltaTime;
-                isSeenSlider.value = currentTime;
+                if (walkAudio.isPlaying)    //k‰vely‰‰ni ei saa kuulua, kun ei liikuta...
+                    walkAudio.Stop();
+
                 return;
             }
+                
 
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
@@ -254,6 +267,9 @@ namespace HorrorFox.Fox
 
                 ApplyJumpingForce();    //hyp‰t‰‰n
                 currentJumpDuration += Time.deltaTime * 1;
+
+                if (walkAudio.isPlaying)        //k‰vely‰‰ni ei saa kuulua, kun kettu on ilmassa...
+                    walkAudio.Stop();
             }
 
             
@@ -319,6 +335,9 @@ namespace HorrorFox.Fox
 
             if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk))
                     foxAnimator.Play(walk);
+
+            if(!walkAudio.isPlaying)        //jos k‰velyu‰‰nt‰ ei kuulu, se laitetaan p‰‰lle....
+                walkAudio.Play();
         }
 
 
@@ -495,7 +514,6 @@ namespace HorrorFox.Fox
                 {
                     isGrounded = true;
                     jumpCount = 1;
-
                 }
             }
         }
