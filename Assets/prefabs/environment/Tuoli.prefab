@@ -119,8 +119,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.009999999, y: 0.01, z: 0.013139671}
-  m_Center: {x: 0, y: 7.172119e-18, z: 0.00999123}
+  m_Size: {x: 0.009999999, y: 0.01, z: 0.008321768}
+  m_Center: {x: 0, y: -2.224736e-17, z: 0.012400204}
 --- !u!1 &2983465690399770396
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +565,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5346422659350240267}
     m_Modifications:
+    - target: {fileID: 1829172611471152504, guid: 82a83175d7091e14fae1b3f30b63cbb5,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 12.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829172611471152504, guid: 82a83175d7091e14fae1b3f30b63cbb5,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3591955480909906063, guid: 82a83175d7091e14fae1b3f30b63cbb5,
         type: 3}
       propertyPath: m_RootOrder

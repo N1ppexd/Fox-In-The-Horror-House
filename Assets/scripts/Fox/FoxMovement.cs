@@ -26,8 +26,6 @@ namespace HorrorFox.Fox
 
         [SerializeField] private Transform body;
 
-        [SerializeField] private Slider staminaBar; //n‰ytet‰‰n juoksun coolDown....
-
 
         [HideInInspector] public bool isHiding;
         [HideInInspector] public bool isSeen; //kun kettu n‰hd‰‰n...
@@ -84,17 +82,21 @@ namespace HorrorFox.Fox
 
         [Header("kuinka kauan odotetaan, kun kettu on n‰hty..., ja kuinka kauan on odotettu...")]
         [SerializeField] float waitAmount = 3, currentTime;
-        
+
+
+        [Space(20)]
+        [Header("ketun ‰‰niefektit")]
+        [SerializeField] private AudioSource walkAudio, landAudio;
 
 
         public MovementMode movementMode;
 
         public enum MovementMode
         {
-            runMode,            //kun kettu juoksee.
             walkMode,           //kun kettu k‰velee
             flyMode,            //Kun kettu on ilmassa,
             squatMode,          //kun kettu on kyykyss‰
+            hideMode,           //kun ollaan piilossa...
             idle,               //idle mode
             transitioning       //kun ollaan menossa uuteen sceneen....
         }
@@ -120,9 +122,6 @@ namespace HorrorFox.Fox
             inputMaster.Player.Move.performed += _  => FoxMove(_.ReadValue<Vector2>());
             inputMaster.Player.Move.canceled += _ => FoxMove(Vector2.zero);
 
-            //inputMaster.Player.Run.performed += _ => isRunning = setRunningMode(true);
-            //inputMaster.Player.Run.canceled += _ => isRunning = setRunningMode(false);
-
 
 
             inputMaster.Player.Jump.performed += _ => FoxJump(true);
@@ -138,9 +137,6 @@ namespace HorrorFox.Fox
 
             inputMaster.Player.Move.performed -= _ => FoxMove(_.ReadValue<Vector2>());
             inputMaster.Player.Move.canceled -= _ => FoxMove(Vector2.zero);
-
-            //inputMaster.Player.Run.performed -= _ => isRunning = setRunningMode(true);
-            //inputMaster.Player.Run.canceled -= _ => isRunning = setRunningMode(false);
 
 
 
@@ -223,6 +219,15 @@ namespace HorrorFox.Fox
 
                 movementMode = MovementMode.idle;
 
+                if (walkAudio.isPlaying)    //k‰vely‰‰ni ei saa kuulua, kun ei liikuta...
+                    walkAudio.Stop();
+
+            }
+
+            if(jumpCount < 1)
+            {
+                if (walkAudio.isPlaying)    //k‰vely‰‰ni ei saa kuulua, kun ollaan ilmassa...
+                    walkAudio.Stop();
             }
             
             rb.velocity = RunSpeed(isRunning);
@@ -231,13 +236,13 @@ namespace HorrorFox.Fox
         void Update() //joka frame juttuja tehd‰‰n...
         {
             if (isStopped)
-                return;
-            if (isSeen && currentTime > 0)
             {
-                currentTime -= Time.deltaTime;
-                isSeenSlider.value = currentTime;
+                if (walkAudio.isPlaying)    //k‰vely‰‰ni ei saa kuulua, kun ei liikuta...
+                    walkAudio.Stop();
+
                 return;
             }
+                
 
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
@@ -261,6 +266,9 @@ namespace HorrorFox.Fox
 
                 ApplyJumpingForce();    //hyp‰t‰‰n
                 currentJumpDuration += Time.deltaTime * 1;
+
+                if (walkAudio.isPlaying)        //k‰vely‰‰ni ei saa kuulua, kun kettu on ilmassa...
+                    walkAudio.Stop();
             }
 
             
@@ -284,9 +292,6 @@ namespace HorrorFox.Fox
         private void FoxJump(bool enable)
         {
             
-            
-
-
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
@@ -311,13 +316,6 @@ namespace HorrorFox.Fox
 
             jumpCount = 0;
             currentJumpDuration = 0;
-            
-            return;
-
-
-
-            //Vector3 jumpDirVector = Vector3.up * jumpForce;
-            //rb.AddForce(jumpDirVector);
         }
 
         #endregion
@@ -336,6 +334,9 @@ namespace HorrorFox.Fox
 
             if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk))
                     foxAnimator.Play(walk);
+
+            if(!walkAudio.isPlaying)        //jos k‰velyu‰‰nt‰ ei kuulu, se laitetaan p‰‰lle....
+                walkAudio.Play();
         }
 
 
@@ -345,20 +346,7 @@ namespace HorrorFox.Fox
             if (isStopped)
                 return;
 
-            if (axis != Vector2.zero)
-            {
-
-                movementAxis = new Vector3(axis.x, 0, axis.y);
-
-                return;
-            }
-
-            movementAxis = Vector3.zero;
-
-            Debug.Log("KETUN PITƒS OLLA PAIKOILLAAN");
-            
-
-            Debug.Log("axis = " + movementAxis);
+            movementAxis = new Vector3(axis.x, 0, axis.y);
 
         }
 
@@ -373,9 +361,6 @@ namespace HorrorFox.Fox
 
             return roatatedVector * speed + transform.up * rb.velocity.y; //kettu liikkuu...
 
-
-
-            //return Vector3.zero;
         }
 
 
@@ -387,10 +372,6 @@ namespace HorrorFox.Fox
         /// <param name="enabled"></param>
         private void FoxSquash(bool enabled)
         {
-            /*
-            if (isSeen)
-                return;*/
-
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
@@ -398,37 +379,47 @@ namespace HorrorFox.Fox
             {
                 isGrounded = false;
                 foxAnimator.Play(fly);
-                //foxAnimator.Play(jump);
             }
-                
-            if (!isGrounded) //jos on ilmassa tai on s‰ngyn alla....
-                return;
-
-            if (isHiding)
-            {
-                isSquashing = true;
-
-                if (enabled)
-                    waitToSquashBackUp = false;
-                if (!enabled)
-                    waitToSquashBackUp = true;
-
-                return;
-            }
+            
 
             if (enabled)
             {
                 foxAnimator.Play(squashStartStrin);
 
                 isSquashing = true;
+
+                if (isHiding)
+                {
+
+
+                    postProcessingVolume.profile.TryGet<Vignette>(out vignette);
+
+                    if (vignette == null)
+                        return;
+
+                    vignette.intensity.value = 0.6f;
+
+                }
             }
             else if (!enabled)
             {
                 isSquashing = false;
                 foxAnimator.Play(squashEndString);
-            }
 
-            //Debug.Log("fox squash enabled = " + enabled);
+                if (isHiding)
+                {
+                    if (waitToSquashBackUp)
+                        return;
+
+                    postProcessingVolume.profile.TryGet<Vignette>(out vignette);
+
+                    if (vignette == null)
+                        return;
+
+                    vignette.intensity.value = 0.6f;
+
+                }
+            }
         }
 
         /// <summary>
@@ -489,8 +480,6 @@ namespace HorrorFox.Fox
                 {
                     float dist = Vector3.Distance(hit.point, transform.position);
 
-                    //Debug.Log("distance to floor = " + dist);
-
                     if (dist <= 0.3f)
                         return true;
                 }
@@ -505,6 +494,11 @@ namespace HorrorFox.Fox
         {
             if (!collision.gameObject.CompareTag("wall"))
             {
+
+                if (!landAudio.isPlaying)
+                {
+                    landAudio.Play();
+                }
                 
                 isGrounded = true;
                 jumpCount = 1;
@@ -524,7 +518,6 @@ namespace HorrorFox.Fox
                 {
                     isGrounded = true;
                     jumpCount = 1;
-
                 }
             }
         }
@@ -559,10 +552,13 @@ namespace HorrorFox.Fox
         {
             if (other.gameObject.CompareTag("UnderBed") || other.gameObject.CompareTag("hideZone"))
             {
+                isHiding = true; 
                 if (!isSquashing) //ei voi menn‰ piiloon, jos ei ole kyykyss‰..
                     return;
 
-                isHiding = true; 
+                if(other.gameObject.CompareTag("UnderBed"))
+                    waitToSquashBackUp = true;
+
 
                 postProcessingVolume.profile.TryGet<Vignette>(out vignette);
 
