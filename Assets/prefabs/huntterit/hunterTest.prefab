@@ -4927,7 +4927,7 @@ MonoBehaviour:
   player: {fileID: 0}
   hunterFov: {fileID: 4915622270902799932}
   animator: {fileID: 3962954510370431865}
-  walkStringAnimator: walk
+  walkStringAnimator: walkReal
   grabFoxStringAnimator: grabFox
   seekPlayer: 1
   footStepAudio: {fileID: 4801126055607083992}
@@ -5147,11 +5147,12 @@ AudioSource:
   m_GameObject: {fileID: 4801126055607083994}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 942ded48e12100c46b7bb6d32b8f8ed2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a990270b503f2ac4981e014fda32b67a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.4
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -5194,7 +5195,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5209,7 +5210,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.37777779
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
