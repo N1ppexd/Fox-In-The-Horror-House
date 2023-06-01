@@ -26,8 +26,6 @@ namespace HorrorFox.Fox
 
         [SerializeField] private Transform body;
 
-        [SerializeField] private Slider staminaBar; //n‰ytet‰‰n juoksun coolDown....
-
 
         [HideInInspector] public bool isHiding;
         [HideInInspector] public bool isSeen; //kun kettu n‰hd‰‰n...
@@ -95,6 +93,7 @@ namespace HorrorFox.Fox
             walkMode,           //kun kettu k‰velee
             flyMode,            //Kun kettu on ilmassa,
             squatMode,          //kun kettu on kyykyss‰
+            hideMode,           //kun ollaan piilossa...
             idle,               //idle mode
             transitioning       //kun ollaan menossa uuteen sceneen....
         }
@@ -284,9 +283,6 @@ namespace HorrorFox.Fox
         private void FoxJump(bool enable)
         {
             
-            
-
-
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
@@ -311,13 +307,6 @@ namespace HorrorFox.Fox
 
             jumpCount = 0;
             currentJumpDuration = 0;
-            
-            return;
-
-
-
-            //Vector3 jumpDirVector = Vector3.up * jumpForce;
-            //rb.AddForce(jumpDirVector);
         }
 
         #endregion
@@ -345,20 +334,7 @@ namespace HorrorFox.Fox
             if (isStopped)
                 return;
 
-            if (axis != Vector2.zero)
-            {
-
-                movementAxis = new Vector3(axis.x, 0, axis.y);
-
-                return;
-            }
-
-            movementAxis = Vector3.zero;
-
-            Debug.Log("KETUN PITƒS OLLA PAIKOILLAAN");
-            
-
-            Debug.Log("axis = " + movementAxis);
+            movementAxis = new Vector3(axis.x, 0, axis.y);
 
         }
 
@@ -373,9 +349,6 @@ namespace HorrorFox.Fox
 
             return roatatedVector * speed + transform.up * rb.velocity.y; //kettu liikkuu...
 
-
-
-            //return Vector3.zero;
         }
 
 
@@ -401,31 +374,56 @@ namespace HorrorFox.Fox
                 //foxAnimator.Play(jump);
             }
                 
-            if (!isGrounded) //jos on ilmassa tai on s‰ngyn alla....
-                return;
-
-            if (isHiding)
-            {
-                isSquashing = true;
-
-                if (enabled)
-                    waitToSquashBackUp = false;
-                if (!enabled)
-                    waitToSquashBackUp = true;
-
-                return;
-            }
+            /*if (!isGrounded) //jos on ilmassa tai on s‰ngyn alla....
+                return;*/
+            
+            
 
             if (enabled)
             {
                 foxAnimator.Play(squashStartStrin);
 
                 isSquashing = true;
+
+                if (isHiding)
+                {
+                    /*
+                    isSquashing = true;
+
+                    if (enabled)
+                        waitToSquashBackUp = true;
+                    if (!enabled)
+                        waitToSquashBackUp = false;
+                    return;*/
+
+
+                    postProcessingVolume.profile.TryGet<Vignette>(out vignette);
+
+                    if (vignette == null)
+                        return;
+
+                    vignette.intensity.value = 0.6f;
+
+                }
             }
             else if (!enabled)
             {
                 isSquashing = false;
                 foxAnimator.Play(squashEndString);
+
+                if (isHiding)
+                {
+                    if (waitToSquashBackUp)
+                        return;
+
+                    postProcessingVolume.profile.TryGet<Vignette>(out vignette);
+
+                    if (vignette == null)
+                        return;
+
+                    vignette.intensity.value = 0.6f;
+
+                }
             }
 
             //Debug.Log("fox squash enabled = " + enabled);
@@ -559,10 +557,13 @@ namespace HorrorFox.Fox
         {
             if (other.gameObject.CompareTag("UnderBed") || other.gameObject.CompareTag("hideZone"))
             {
+                isHiding = true; 
                 if (!isSquashing) //ei voi menn‰ piiloon, jos ei ole kyykyss‰..
                     return;
 
-                isHiding = true; 
+                if(other.gameObject.CompareTag("UnderBed"))
+                    waitToSquashBackUp = true;
+
 
                 postProcessingVolume.profile.TryGet<Vignette>(out vignette);
 
