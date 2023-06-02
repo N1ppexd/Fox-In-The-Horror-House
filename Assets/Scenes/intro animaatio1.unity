@@ -766,6 +766,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2622948281289660448, guid: 6f9219f3979f01e489335e1837bdb374,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2622948281289660449, guid: 6f9219f3979f01e489335e1837bdb374,
         type: 3}
       propertyPath: m_Pivot.x
@@ -875,6 +880,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Safe Area Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622948281289660453, guid: 6f9219f3979f01e489335e1837bdb374,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f9219f3979f01e489335e1837bdb374, type: 3}

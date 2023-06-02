@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndCredits : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+namespace HorrorFox
+{
+    public class EndCredits : MonoBehaviour
     {
-        
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }
+

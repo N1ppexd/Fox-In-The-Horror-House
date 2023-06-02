@@ -514,11 +514,15 @@ namespace HorrorFox.Fox
         {
             if (!collision.gameObject.CompareTag("wall"))
             {
+                /*
                 if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) < 1)
                 {
                     isGrounded = true;
                     jumpCount = 1;
-                }
+                }*/
+
+                isGrounded = true;
+                jumpCount = 1;
             }
         }
 

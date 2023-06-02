@@ -10,7 +10,7 @@ namespace HorrorFox
     public class ResolutionManager : MonoBehaviour
     {
 
-        [SerializeField] private TMP_Dropdown resolutionDropdown, aspectRatioDropdown;
+        [SerializeField] private TMP_Dropdown resolutionDropdown, aspectRatioDropdown, screenModeDropDown;
 
         string currentScreenAspect;
 
@@ -49,6 +49,18 @@ namespace HorrorFox
             Debug.Log("Current aspect ratio: " + currentAspectRatio);
 
             SetAspectRatio(currentAspectRatio);
+
+            FullScreenMode screenMode = Screen.fullScreenMode;
+
+            switch (screenMode)
+            {
+                case FullScreenMode.FullScreenWindow:
+                    screenModeDropDown.value = 0;
+                    break;
+                case FullScreenMode.Windowed:
+                    screenModeDropDown.value = 1;
+                    break;
+            }
 
         }
 
@@ -172,6 +184,20 @@ namespace HorrorFox
             }
 
             
+        }
+
+        // pls toimiii...
+        public void PickScreenMode(int screenMode)
+        {
+            switch (screenMode)
+            {
+                case 0:
+                    Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+                    break;
+                case 1:
+                    Screen.fullScreenMode = FullScreenMode.Windowed;
+                    break;
+            }
         }
 
         void SetAspectRatio(string selectedAspectRatio)
