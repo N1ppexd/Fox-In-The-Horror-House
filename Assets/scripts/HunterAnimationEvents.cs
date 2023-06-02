@@ -29,6 +29,8 @@ namespace HorrorFox
             hunterAI.hasBeenGrabbed = true;
             hunterFov.foxMovement.isStopped = true;
 
+            fox.GetComponent<AudioSource>().Play();
+
             hasBeenGrabbed = true;
         }
 

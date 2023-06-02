@@ -86,7 +86,7 @@ namespace HorrorFox.Fox
 
         [Space(20)]
         [Header("ketun ‰‰niefektit")]
-        [SerializeField] private AudioSource walkAudio, landAudio;
+        [SerializeField] private AudioSource walkAudio, landAudio, jumpAudio;
 
 
         public MovementMode movementMode;
@@ -314,6 +314,8 @@ namespace HorrorFox.Fox
             foxAnimator.Play(jump); //hyppy animaatio...
 
             startJump = true;
+
+            jumpAudio.Play();
 
             jumpCount = 0;
             currentJumpDuration = 0;

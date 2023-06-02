@@ -206,6 +206,7 @@ namespace HorrorFox.Enemies
         private void GrabPlayer(Transform player)
         {
             agent.SetDestination(transform.position);
+            animator.SetLayerWeight(1, 1);
             animator.Play(grabFoxStringAnimator);
 
             StartCoroutine(waitGrab());
@@ -217,7 +218,8 @@ namespace HorrorFox.Enemies
         {
             yield return new WaitForSeconds(2);
 
-            player.gameObject.GetComponent<FoxHealth>().KillFox();
+            //player.gameObject.GetComponent<FoxHealth>().KillFox();
+            animator.SetLayerWeight(1, 0);
         }
 
     }
