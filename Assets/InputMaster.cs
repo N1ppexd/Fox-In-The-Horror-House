@@ -71,6 +71,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LegoYoda"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1aca4da-4ff4-4121-9854-ac78c77007a4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,17 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""511c9df6-8db3-4558-9193-1bea216b22f8"",
+                    ""path"": ""<Keyboard>/#(H)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""LegoYoda"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -859,6 +879,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_squashHide = m_Player.FindAction("squashHide", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_LegoYoda = m_Player.FindAction("LegoYoda", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -938,6 +959,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_squashHide;
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_LegoYoda;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -947,6 +969,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @squashHide => m_Wrapper.m_Player_squashHide;
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @LegoYoda => m_Wrapper.m_Player_LegoYoda;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -971,6 +994,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @LegoYoda.started += instance.OnLegoYoda;
+            @LegoYoda.performed += instance.OnLegoYoda;
+            @LegoYoda.canceled += instance.OnLegoYoda;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -990,6 +1016,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @LegoYoda.started -= instance.OnLegoYoda;
+            @LegoYoda.performed -= instance.OnLegoYoda;
+            @LegoYoda.canceled -= instance.OnLegoYoda;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1185,6 +1214,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnSquashHide(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnLegoYoda(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
