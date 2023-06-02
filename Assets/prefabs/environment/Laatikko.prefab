@@ -611,8 +611,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.345602, y: 1.8381273, z: 2.5258377}
-  m_Center: {x: 0.5404959, y: 0.08166045, z: 1.0565633}
+  m_Size: {x: 2.4854434, y: 2.0484755, z: 2.6468709}
+  m_Center: {x: 0.6104165, y: 0.18683, z: 0.99604666}
 --- !u!114 &898636310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,6 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f222349f7d940ae43833fa21963cf920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidbodies: []
+  collider: {fileID: 0}
 --- !u!1 &3506657237252746383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1647491241402785581, guid: 315a5fd72a1151a47b2994f7c69c087c,
