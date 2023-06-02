@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 4d8980f7b4c3b494daa3310fffe8ec16
-  - enabled: 0
-    path: Assets/Scenes/StoryScene.unity
-    guid: 66b5f40c7c5a89d41a087b688f1adb43
   - enabled: 1
     path: Assets/Scenes/intro animaatio1.unity
     guid: d0ac75c32c4333543a8d93d599bc7055
@@ -26,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TASOT/LOPULLINEN makuuhuone 1.unity
     guid: cb61bdf9141f49a4ea022270527538ba
+  - enabled: 1
+    path: Assets/Scenes/TASOT/PORRASSCENE.unity
+    guid: aa854d6410bfdc945b1c3b7994048005
+  - enabled: 1
+    path: Assets/Scenes/TASOT/LOPULLINEN olohuone.unity
+    guid: 54a47c413aa165146a875663798a0612
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0e4963f084ae661439610e2685eaa0e5,
       type: 2}
