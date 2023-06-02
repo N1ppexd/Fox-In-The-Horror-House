@@ -7281,6 +7281,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClockManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7487376911945952183, guid: dcf7230e37aa9ff498bec0ea5e70a53b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf7230e37aa9ff498bec0ea5e70a53b, type: 3}
 --- !u!4 &8232570860095574004

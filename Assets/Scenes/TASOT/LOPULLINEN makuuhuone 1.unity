@@ -11263,7 +11263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832149485495537215}
   m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
-  m_LocalPosition: {x: 13.28, y: -1.01, z: 0.64}
+  m_LocalPosition: {x: 13.28, y: -1.023, z: 0.64}
   m_LocalScale: {x: 684.35046, y: 374.97073, z: 1.2177833}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11378,7 +11378,7 @@ PrefabInstance:
         type: 3}
       propertyPath: foxMovement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1201381446}
     - target: {fileID: 3491564357452550617, guid: 2b1cef19bd2724a4bbd206f3590d63b3,
         type: 3}
       propertyPath: m_Name
@@ -11876,7 +11876,7 @@ MeshCollider:
   m_GameObject: {fileID: 832149485495537215}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
