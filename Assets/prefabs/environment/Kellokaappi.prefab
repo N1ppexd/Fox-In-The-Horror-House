@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 6288847969001959993}
   - component: {fileID: 899260001562606508}
   - component: {fileID: 2369247325600754589}
+  - component: {fileID: 8353535156985359441}
   m_Layer: 8
   m_Name: kaappikellon_rakenne
   m_TagString: Untagged
@@ -199,6 +200,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8353535156985359441
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2184595614657283898}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6952447653516228741, guid: 292f352417f9e5d4d987dcfd215c44e3, type: 3}
 --- !u!1 &3503330008199610900
 GameObject:
   m_ObjectHideFlags: 0
