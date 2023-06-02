@@ -28,6 +28,8 @@ namespace HorrorFox.Fox.Keys
         [SerializeField] private MeshRenderer keyMesh;
 
 
+        [SerializeField] AudioSource keyTakeAudio, useKeyAudio;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("fox"))
@@ -35,6 +37,8 @@ namespace HorrorFox.Fox.Keys
                 hasBeenTaken = true;
                 takeKeyParticle.Play();
                 keyTrigger.SetActive(false);
+
+                keyTakeAudio.Play();
 
                 foxInteract.currentKeys.Add(this);
                 foxInteract.StopPressingInteractButton(); //kettu lopettaa kaiken interaktion huonekalujen kanssa...
@@ -54,6 +58,7 @@ namespace HorrorFox.Fox.Keys
 
         public void UseKey(Door door)//kun avainta k‰ytet‰‰n...
         {
+            useKeyAudio.Play();
             keyMesh.enabled = false;
             door.OpenDoor();
             useKeyParticle.Play();

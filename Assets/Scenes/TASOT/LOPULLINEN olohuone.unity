@@ -3502,8 +3502,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8700617353114198275, guid: b2283cb1b4129164eb9c95daeb371758,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8700617353114198275, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8700617353114198275, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b2283cb1b4129164eb9c95daeb371758,
         type: 3}
@@ -3575,6 +3585,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
+      propertyPath: m_TagString
+      value: floor
+      objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: b2283cb1b4129164eb9c95daeb371758,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3582,13 +3607,38 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d375ff544a98ae043a956586aaa0f56a, type: 2}
     - target: {fileID: 65702495048144492, guid: b2283cb1b4129164eb9c95daeb371758,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 65702495048144492, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65702495048144492, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2283cb1b4129164eb9c95daeb371758,
         type: 3}
       propertyPath: m_Name
       value: matto
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
+      propertyPath: m_TagString
+      value: floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2283cb1b4129164eb9c95daeb371758,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2283cb1b4129164eb9c95daeb371758, type: 3}
