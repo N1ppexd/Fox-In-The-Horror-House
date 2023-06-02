@@ -1045,6 +1045,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkipText
       objectReference: {fileID: 0}
+    - target: {fileID: 4289151964624357122, guid: fdf3d81633d678348848c068ea649ee0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4289151964624357373, guid: fdf3d81633d678348848c068ea649ee0,
         type: 3}
       propertyPath: m_Pivot.x

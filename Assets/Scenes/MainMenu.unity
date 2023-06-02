@@ -10445,7 +10445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 1239567300}
   aspectRatioDropdown: {fileID: 1183387718}
-  screenModeDropDown: {fileID: 0}
+  screenModeDropDown: {fileID: 1134297705}
 --- !u!1 &1716490713
 GameObject:
   m_ObjectHideFlags: 0

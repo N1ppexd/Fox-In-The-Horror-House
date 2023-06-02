@@ -248,6 +248,7 @@ namespace HorrorFox.Fox
                 return;
 
             foxAnimator.SetInteger("jumpCount", jumpCount);
+            foxAnimator.SetBool("isSquashing", isSquashing);
 
             Debug.Log("isSquashing = " + isSquashing);
 
@@ -332,8 +333,8 @@ namespace HorrorFox.Fox
             jumpCount = 1;
             foxAnimator.SetInteger("jumpCount", jumpCount);
 
-            if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk))
-                    foxAnimator.Play(walk);
+            /*if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(walk))
+                    foxAnimator.Play(walk);*/
 
             if(!walkAudio.isPlaying)        //jos k‰velyu‰‰nt‰ ei kuulu, se laitetaan p‰‰lle....
                 walkAudio.Play();
