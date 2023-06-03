@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TASOT/LOPULLINEN olohuone.unity
     guid: 54a47c413aa165146a875663798a0612
+  - enabled: 0
+    path: Assets/Scenes/TASOT/Exit house.unity
+    guid: 578baad90293c2649a077bf3b51bb770
+  - enabled: 1
+    path: Assets/Scenes/TASOT/ExitTerrain.unity
+    guid: 2275876fbd9046942b123b17ae98211e
   - enabled: 1
     path: Assets/Scenes/exit Animaatio.unity
     guid: f4511cd6f09676140a7b8cb937ebd6d0

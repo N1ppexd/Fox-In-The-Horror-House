@@ -136,9 +136,10 @@ GameObject:
   - component: {fileID: 24744522}
   - component: {fileID: 24744521}
   - component: {fileID: 24744520}
+  - component: {fileID: 24744524}
   m_Layer: 8
   m_Name: "ilmastointi kanava t\xE4st\xE4 seuraavaan huoneeseen"
-  m_TagString: bed
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -154,8 +155,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.2975075, z: 1.2477416}
+  m_Center: {x: 2.7392083e-10, y: -0.14875425, z: -0.12387125}
 --- !u!23 &24744521
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24744519}
   m_LocalRotation: {x: -0, y: 0.68019843, z: -0, w: 0.73302805}
-  m_LocalPosition: {x: 24.23, y: 0.8120618, z: -22.66}
+  m_LocalPosition: {x: 24.23, y: 1.11, z: -22.66}
   m_LocalScale: {x: 2.9330842, y: 1.7993397, z: 0.7023921}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -222,6 +223,19 @@ Transform:
   m_Father: {fileID: 454613204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 85.718, z: 0}
+--- !u!114 &24744524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24744519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9efbc558449104dbb70b23d49c1aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foxMovement: {fileID: 53696290}
 --- !u!1 &52632104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,7 +2383,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76000
+  m_Name: pb_Mesh146510
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5980,8 +5994,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 43.82016, y: 12.686859, z: 24.712158}
-  m_Center: {x: 9.568178, y: 3.1705093, z: 3.5568314}
+  m_Size: {x: 41.63665, y: 12.686859, z: 24.712158}
+  m_Center: {x: 8.476419, y: 3.1705093, z: 3.5568314}
 --- !u!4 &1199587313
 Transform:
   m_ObjectHideFlags: 0
@@ -9453,7 +9467,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 78ed264840fd28f4f9059fe2f3923f04, type: 3}
 --- !u!1001 &1426573377
@@ -11901,7 +11915,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-407382
+  m_Name: pb_Mesh146648
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

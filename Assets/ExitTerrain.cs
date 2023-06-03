@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 namespace HorrorFox
 {
-    public class ExitHouse : MonoBehaviour
+    public class ExitTerrain : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()
@@ -19,6 +18,7 @@ namespace HorrorFox
         {
 
         }
+
 
         private void OnTriggerEnter(Collider other)
         {
