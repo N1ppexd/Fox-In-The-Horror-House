@@ -91,6 +91,8 @@ namespace HorrorFox.Fox
 
         public MovementMode movementMode;
 
+        [SerializeField] private bool isOutside;
+
         public enum MovementMode
         {
             walkMode,           //kun kettu kävelee
@@ -110,7 +112,8 @@ namespace HorrorFox.Fox
             jumpCount = 1;
             isGrounded = isItReallyGrounded();
 
-            hunterFov.OnFoxSeen += FoxSeen;
+            if(!isOutside)
+                hunterFov.OnFoxSeen += FoxSeen;
         }
 
         #region enabledisable
