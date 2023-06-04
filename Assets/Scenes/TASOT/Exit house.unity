@@ -5914,6 +5914,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NiilonCandle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0a802f4c2d3fe7a4288f9fca3a25fd2a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a802f4c2d3fe7a4288f9fca3a25fd2a, type: 3}
 --- !u!4 &1453385799 stripped
@@ -6009,6 +6014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Haddu (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e9c7d40e5ee2f9241abf193262324cd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9c7d40e5ee2f9241abf193262324cd8, type: 3}
@@ -8930,6 +8940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: key
+      objectReference: {fileID: 0}
+    - target: {fileID: 323939136644349740, guid: f3480373cd266b140abb3d63696f1b8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 323939136644349741, guid: f3480373cd266b140abb3d63696f1b8f,
         type: 3}
