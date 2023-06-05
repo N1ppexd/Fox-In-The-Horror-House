@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2721652744453686003}
   - component: {fileID: 8007499361359469008}
   - component: {fileID: 6031183909164066768}
-  m_Layer: 5
+  m_Layer: 17
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 5105993094308726785}
   - component: {fileID: 4418616350829325364}
   - component: {fileID: 2494022581587641984}
-  m_Layer: 5
+  m_Layer: 17
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 3442816342068066122}
   - component: {fileID: 9062373553683096791}
   - component: {fileID: 7258162921210598095}
-  m_Layer: 5
+  m_Layer: 17
   m_Name: PropmtPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
