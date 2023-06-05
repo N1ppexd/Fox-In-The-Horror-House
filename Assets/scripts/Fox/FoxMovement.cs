@@ -78,8 +78,8 @@ namespace HorrorFox.Fox
 
 
         [Space(20)]
-        [Header("slider, josta n‰kee, kuinka kauan pelaaja ei voi liikkua....")]
-        [SerializeField] Slider isSeenSlider;
+        [Header("teksti, joka menee p‰‰lle, kun kettu n‰hd‰‰n...")]
+        [SerializeField] GameObject isSeenText;
 
         [Header("kuinka kauan odotetaan, kun kettu on n‰hty..., ja kuinka kauan on odotettu...")]
         [SerializeField] float waitAmount = 3, currentTime;
@@ -117,8 +117,12 @@ namespace HorrorFox.Fox
             jumpCount = 1;
             isGrounded = isItReallyGrounded();
 
-            if(!isOutside)
+            if (!isOutside)
+            {
                 hunterFov.OnFoxSeen += FoxSeen;
+                hunterFov.OnFOxDontSee += FoxNotSeen;
+            }
+                
         }
 
         #region enabledisable
@@ -447,28 +451,13 @@ namespace HorrorFox.Fox
         //freezataan kettu jne kun kettu n‰hd‰‰n....
         private void FoxSeen()
         {
-
-            Debug.Log("isSeen juttu pit‰s menn‰ p‰‰lle....");
-            currentTime = waitAmount;
-
-            //isSeenSlider.gameObject.SetActive(true);
             isSeen = true;
-            
-
-
-            StartCoroutine(FoxSeenCoroutine());
-
+            isSeenText.SetActive(true);
         }
-
-        IEnumerator FoxSeenCoroutine()
+        private void FoxNotSeen()
         {
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
-
-            yield return new WaitForSeconds(3);
-
             isSeen = false;
-            //isSeenSlider.gameObject.SetActive(false);
-
+            isSeenText.SetActive(false);
         }
 
         
@@ -510,7 +499,7 @@ namespace HorrorFox.Fox
                 {
                     landAudio.Play();
                     landParticle.Play();
-                    Shake(1, 0.1f);
+                    Shake(1, 0.3f);
                 }
                 
                 isGrounded = true;

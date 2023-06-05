@@ -27,10 +27,14 @@ namespace HorrorFox
             doorMode = DoorMode.waitToOpen;
         }
 
+        private GameObject hunter;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("hunter"))
             {
+                hunter = other.gameObject;
+
                 Debug.Log("trigger hunter door");
 
                 if (doorMode == DoorMode.waitToOpen)
@@ -40,7 +44,7 @@ namespace HorrorFox
 
                 else if (doorMode == DoorMode.waitToClose)
                 {
-                    CloseDoor();
+                    StartCoroutine(waitForDoorClose());
                 }
             }
         }
@@ -50,6 +54,9 @@ namespace HorrorFox
             yield return new WaitForSeconds(1);
 
             CloseDoor();
+
+            yield return new WaitForSeconds(0.5f);
+            hunter.transform.parent.gameObject.SetActive(false);
         }
 
         /// <summary>

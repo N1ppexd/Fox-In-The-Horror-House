@@ -36,6 +36,8 @@ namespace HorrorFox.Enemies
 
         public event FoxMovementDelegate OnFoxSeen;
 
+        public event FoxMovementDelegate OnFOxDontSee;
+
 
         // Start is called before the first frame update
         void Start()
@@ -77,6 +79,8 @@ namespace HorrorFox.Enemies
                     draggableObject.GetComponent<NavMeshObstacle>().enabled = true;
 
                 isSeen = false;
+
+                DontSeeFox();
 
                 Debug.Log("vihollinen ei voi nähdä sinua...");
                 return;
@@ -145,6 +149,7 @@ namespace HorrorFox.Enemies
             else
             {
                 isSeen = false;
+                DontSeeFox();
             }
         }
 
@@ -153,6 +158,11 @@ namespace HorrorFox.Enemies
         {
             StartCoroutine(seefoxCoroutine());
             
+        }
+
+        void DontSeeFox()
+        {
+            OnFOxDontSee?.Invoke();
         }
 
 

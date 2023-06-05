@@ -253,7 +253,7 @@ namespace HorrorFox.Fox.Keys
 
             originalMass = dragObj.GetComponent<Rigidbody>().mass;
 
-            dragObj.GetComponent<Rigidbody>().mass = 0;
+            dragObj.GetComponent<Rigidbody>().mass = 0.1f;
 
             joint.xMotion = ConfigurableJointMotion.Locked;
             joint.yMotion = ConfigurableJointMotion.Free;
