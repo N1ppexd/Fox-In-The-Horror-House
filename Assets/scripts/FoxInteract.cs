@@ -33,6 +33,8 @@ namespace HorrorFox.Fox.Keys
 
         [SerializeField] private Rigidbody rb;
 
+        private float originalMass;
+
 
         private void Awake()
         {
@@ -248,7 +250,10 @@ namespace HorrorFox.Fox.Keys
             joint.connectedBody = rb;
 
             joint.configuredInWorldSpace = true;
-            
+
+            originalMass = dragObj.GetComponent<Rigidbody>().mass;
+
+            dragObj.GetComponent<Rigidbody>().mass = 0;
 
             joint.xMotion = ConfigurableJointMotion.Locked;
             joint.yMotion = ConfigurableJointMotion.Free;
@@ -279,11 +284,10 @@ namespace HorrorFox.Fox.Keys
             }
             catch
             {
-
-            }
-            
-            if (joint == null)
                 return;
+            }
+
+            dragObj.GetComponent<Rigidbody>().mass = originalMass;
 
             joint.connectedBody = null;
 
