@@ -212,7 +212,8 @@ namespace HorrorFox.Fox
                     && !isSquashing 
                     && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) 
                     && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(land)
-                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(fly))
+                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(fly)
+                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName("crouchUp"))
                 {
                     foxAnimator.Play(idle);
                     
@@ -384,7 +385,10 @@ namespace HorrorFox.Fox
             if (!isItReallyGrounded())
             {
                 isGrounded = false;
+                jumpCount = 0;
                 foxAnimator.Play(fly);
+                return;
+
             }
             
 
@@ -409,8 +413,7 @@ namespace HorrorFox.Fox
             }
             else if (!enabled)
             {
-                isSquashing = false;
-                foxAnimator.Play(squashEndString);
+                
 
                 if (isHiding)
                 {
@@ -424,6 +427,12 @@ namespace HorrorFox.Fox
 
                     vignette.intensity.value = 0.6f;
 
+                }
+                else
+                {
+                    isSquashing = false;
+                foxAnimator.SetBool("isSquashing", false);
+                //foxAnimator.Play(squashEndString);
                 }
             }
         }
