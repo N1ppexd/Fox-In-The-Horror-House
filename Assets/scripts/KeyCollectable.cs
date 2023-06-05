@@ -30,6 +30,10 @@ namespace HorrorFox.Fox.Keys
 
         [SerializeField] AudioSource keyTakeAudio, useKeyAudio;
 
+        [SerializeField] bool isPhysicsKey;
+
+        [SerializeField] Rigidbody rb;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("fox"))
@@ -43,6 +47,8 @@ namespace HorrorFox.Fox.Keys
                 foxInteract.currentKeys.Add(this);
                 foxInteract.StopPressingInteractButton(); //kettu lopettaa kaiken interaktion huonekalujen kanssa...
 
+                if (isPhysicsKey)
+                    rb.isKinematic = true;
             }
         }
 

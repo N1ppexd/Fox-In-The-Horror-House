@@ -98,6 +98,12 @@ namespace HorrorFox.Fox
         //t‰t‰ k‰ytet‰‰n vain outside sceness‰, jonka poistan muutenkin...
         [SerializeField] private bool isOutside;
 
+
+        [SerializeField] private LayerMask whatisFloor;
+
+
+        [SerializeField] private Transform hitTransform; //t‰‰lt‰ ammutaan ray...
+
         public enum MovementMode
         {
             walkMode,           //kun kettu k‰velee
@@ -115,7 +121,7 @@ namespace HorrorFox.Fox
             isGrounded = true;
 
             jumpCount = 1;
-            isGrounded = isItReallyGrounded();
+            //isGrounded = isItReallyGrounded();
 
             if (!isOutside)
             {
@@ -164,7 +170,6 @@ namespace HorrorFox.Fox
         {
             if(isStopped)
                 return;
-
 
             Debug.Log("jumpcount = " + jumpCount);
             if (movementAxis != Vector3.zero)        //kun liikutaan, tehd‰‰n liikkumisanimaatiot....
@@ -382,6 +387,7 @@ namespace HorrorFox.Fox
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
+            /*
             if (!isItReallyGrounded())
             {
                 isGrounded = false;
@@ -389,7 +395,7 @@ namespace HorrorFox.Fox
                 foxAnimator.Play(fly);
                 return;
 
-            }
+            }*/
             
 
             if (enabled)
@@ -469,25 +475,30 @@ namespace HorrorFox.Fox
         /// this checks if the player actually fell from an object, or if the player jumped.... Returns either true when he fell, or false when he jumped....
         /// </summary>
         /// <returns></returns>
-        private bool isItReallyGrounded()
+        /*private bool isItReallyGrounded()
         {
             RaycastHit hit;
 
-            bool rayCastTest = Physics.Raycast(transform.position, -transform.up, out hit);
+            bool rayCastTest = Physics.Raycast(hitTransform.position, -transform.up, out hit, whatisFloor);
 
             if (rayCastTest)
                 if (!hit.transform.CompareTag("wall"))
                 {
-                    float dist = Vector3.Distance(hit.point, transform.position);
+                    float dist = Vector3.Distance(hit.point, hitTransform.position);
 
-                    if (dist <= 0.3f)
+                    if (dist <= 0.9f)
+                    {
+                        Debug.Log("hhit tag " + hit.transform.tag);
+                        jumpCount = 1;
                         return true;
+                    }
+                        
                 }
                     
 
             return false;
         }
-
+        */
 
 
         private void OnCollisionEnter(Collision collision)
@@ -509,6 +520,8 @@ namespace HorrorFox.Fox
                 {
                     foxAnimator.Play(land);
                 }
+
+                //isItReallyGrounded();
             }
         }
 
@@ -537,19 +550,18 @@ namespace HorrorFox.Fox
                 if (isItReallyGrounded() && jumpCount > 0) //kun jumpcount on yli 0. Jos se on 0 tai alle, on hyp‰tty eik‰ tiputtu
                     return;
                 */
-                if (!isItReallyGrounded() && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump))
-                {
-                    isGrounded = false;
-                    foxAnimator.Play(fly);
-                    FoxSquash(false);
-                }
+                isGrounded = false;
+                foxAnimator.Play(fly);
+                jumpCount = 0;
+                FoxSquash(false);
+                /*
                 if (!isItReallyGrounded())
                 {
                     isGrounded = false;
                     jumpCount = 0;
-                }
+                }*/
 
-                
+
             }
         }
 

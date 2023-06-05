@@ -250,7 +250,7 @@ MonoBehaviour:
   IkRotationTransform: {fileID: 2487172850662877188}
   postProcessingVolume: {fileID: 4259577744366935230}
   foxStairMovement: {fileID: 4118498090937763753}
-  isSeenSlider: {fileID: 0}
+  isSeenText: {fileID: 0}
   waitAmount: 2
   currentTime: 2
   walkAudio: {fileID: 690217440752595545}
@@ -259,6 +259,10 @@ MonoBehaviour:
   landParticle: {fileID: 4197316973129847675}
   movementMode: 0
   isOutside: 0
+  whatisFloor:
+    serializedVersion: 2
+    m_Bits: 42241
+  hitTransform: {fileID: 8330258434029438676}
   startJump: 0
   cineMachineCam: {fileID: 4259577744423129033}
 --- !u!114 &4259577743496660681
