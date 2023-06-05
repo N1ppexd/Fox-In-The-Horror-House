@@ -32,6 +32,9 @@ namespace HorrorFox
             fox.GetComponent<AudioSource>().Play();
 
             hasBeenGrabbed = true;
+
+            StartCoroutine(RestartScene());
+
         }
 
 
@@ -41,8 +44,6 @@ namespace HorrorFox
             {
                 fox.transform.position = grabTransform.position;
                 fox.transform.rotation = grabTransform.rotation;
-
-                StartCoroutine(RestartScene());   
             }
         }
 

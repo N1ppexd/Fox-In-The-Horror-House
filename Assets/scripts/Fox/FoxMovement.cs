@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
 using HorrorFox.Enemies;
 using TMPro;
+using Cinemachine;
 
 namespace HorrorFox.Fox
 {
@@ -88,9 +89,13 @@ namespace HorrorFox.Fox
         [Header("ketun ‰‰niefektit")]
         [SerializeField] private AudioSource walkAudio, landAudio, jumpAudio;
 
+        [Space(20)]
+        [SerializeField] private ParticleSystem landParticle;
+
 
         public MovementMode movementMode;
 
+        //t‰t‰ k‰ytet‰‰n vain outside sceness‰, jonka poistan muutenkin...
         [SerializeField] private bool isOutside;
 
         public enum MovementMode
@@ -160,65 +165,46 @@ namespace HorrorFox.Fox
             Debug.Log("jumpcount = " + jumpCount);
             if (movementAxis != Vector3.zero)        //kun liikutaan, tehd‰‰n liikkumisanimaatiot....
             {
-                //foxStairMovement.CheckForChairs();//katsotaan portaiden varalta... (ehk‰ voisi laittaa if(isStairZone) hommaan, mutta pitt‰‰ testailla)
 
-                float dotProduct = Vector3.Dot(movementAxis.normalized, transform.forward);
+                float dotProduct = Vector3.Dot(movementAxis, transform.forward);
 
                 Quaternion lookRot = Quaternion.LookRotation(movementAxis);
 
-                Quaternion lookRotLocal = Quaternion.LookRotation(IkRotationTransform.InverseTransformDirection(movementAxis));
+                //kulma....
+                //float angle = Vector3.SignedAngle(transform.InverseTransformDirection(movementAxis), Vector3.forward, Vector3.up);
 
-                float angle = Mathf.Acos(dotProduct) * Mathf.Rad2Deg;
+                //otetaan iKtransformin nykyinen y 
+                float roationAngle = IkRotationTransform.localRotation.y * Mathf.Rad2Deg;
 
-                if (angle + lookRotLocal.y >= 180)
+                //otetaan realAngle jota tarvitaan ettei ketun p‰‰ mene sen kehosta l‰pi..
+                float realAngle = roationAngle + Vector3.Angle(transform.InverseTransformDirection(movementAxis), 
+                    transform.InverseTransformDirection(IkRotationTransform.forward)) * roationAngle / Mathf.Abs(roationAngle);
+
+                //Debug.Log("realAngle " + realAngle);
+
+                if (realAngle >= 180 || realAngle <= -180)
                 {
-                    IkRotationTransform.localRotation = Quaternion.Euler(0, angle, 0);
-                }
-                else if (angle + lookRotLocal.y <= -180)
-                {
-                    IkRotationTransform.localRotation = Quaternion.Euler(0, angle, 0);
+                    Debug.Log("angle = " + realAngle);
                 }
                 else
                 {
                     IkRotationTransform.rotation = Quaternion.Lerp(IkRotationTransform.rotation, lookRot, fasterTurnSpeed * Time.deltaTime);
                 }
-                
 
-                
-
-
-                if (dotProduct < 0)
-                {
-                    //Vector3 tempMovementAxis = Vector3.Lerp(IkRotationTransform.forward, movementAxis, turnSpeed * Time.deltaTime);
+                //kroppa k‰‰ntyy nopiammin jne
+                if(dotProduct < 0)
                     transform.rotation = Quaternion.Lerp(transform.rotation, IkRotationTransform.rotation, fasterTurnSpeed * Time.deltaTime);
-
-                }
                 else
-                {
                     transform.rotation = Quaternion.Lerp(transform.rotation, IkRotationTransform.rotation, turnSpeed * Time.deltaTime);
-                }
+
                 foxAnimator.SetBool("isMoving", true);
 
-                if (jumpCount > 0 && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) 
-                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(land) 
-                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(fly))
-                    MovementAnim();
+                if (jumpCount > 0)
+                    MovementAudio();
 
             }
             else if (movementAxis == Vector3.zero && jumpCount > 0)//muuten on vain idelAnimaatio
             {
-                //IkRotationTransform.localRotation = Quaternion.Euler(0, 0, 0);
-                if (!foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(idle) 
-                    && !isSquashing 
-                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) 
-                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(land)
-                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(fly)
-                    && !foxAnimator.GetCurrentAnimatorStateInfo(0).IsName("crouchUp"))
-                {
-                    foxAnimator.Play(idle);
-                    
-                }
-
                 foxAnimator.SetBool("isMoving", false);
 
                 movementMode = MovementMode.idle;
@@ -239,6 +225,14 @@ namespace HorrorFox.Fox
 
         void Update() //joka frame juttuja tehd‰‰n...
         {
+            if (shakeTimer > 0) //lkello t‰rin‰...
+            {
+                shakeTimer -= Time.deltaTime;
+                cineMachineCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain =
+                    Mathf.Lerp(startingIntensity, 0, 1 - shakeTimer / shakeTimerTotal);
+
+            }
+
             if (isStopped)
             {
                 if (walkAudio.isPlaying)    //k‰vely‰‰ni ei saa kuulua, kun ei liikuta...
@@ -321,13 +315,15 @@ namespace HorrorFox.Fox
 
             jumpAudio.Play();
 
+            Shake(1, 0.1f);
+
             jumpCount = 0;
             currentJumpDuration = 0;
         }
 
         #endregion
 
-        void MovementAnim() // t‰‰ll‰ valitaan, onko run vai walk animaatio vai kumpikaan...
+        void MovementAudio() // t‰‰ll‰ valitaan, onko run vai walk animaatio vai kumpikaan...
         {
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
@@ -455,7 +451,7 @@ namespace HorrorFox.Fox
             Debug.Log("isSeen juttu pit‰s menn‰ p‰‰lle....");
             currentTime = waitAmount;
 
-            isSeenSlider.gameObject.SetActive(true);
+            //isSeenSlider.gameObject.SetActive(true);
             isSeen = true;
             
 
@@ -471,7 +467,7 @@ namespace HorrorFox.Fox
             yield return new WaitForSeconds(3);
 
             isSeen = false;
-            isSeenSlider.gameObject.SetActive(false);
+            //isSeenSlider.gameObject.SetActive(false);
 
         }
 
@@ -513,6 +509,8 @@ namespace HorrorFox.Fox
                 if (!landAudio.isPlaying)
                 {
                     landAudio.Play();
+                    landParticle.Play();
+                    Shake(1, 0.1f);
                 }
                 
                 isGrounded = true;
@@ -612,6 +610,28 @@ namespace HorrorFox.Fox
         }
 
         #endregion
+
+
+
+
+        [SerializeField] private CinemachineVirtualCamera cineMachineCam;
+
+        private float startingIntensity, shakeTimer, shakeTimerTotal;
+
+        //CAMERA SHAKE
+
+        /// <summary>
+        /// <paramref name="intensity"/> is the intensity of the camera shake while <paramref name="time"/> is the duration of the shake in seconds.
+        /// </summary>
+        /// <param name="intensity"></param>
+        /// <param name="time"></param>
+        public void Shake(float intensity, float time)//cinemachine kamera t‰rin‰
+        {
+            cineMachineCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
+            startingIntensity = intensity;
+            shakeTimer = time;
+            shakeTimerTotal = time;
+        }
     }
 }
 
