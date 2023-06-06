@@ -254,6 +254,9 @@ namespace HorrorFox.Fox
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
 
+            if (isGrounded)
+                jumpCount = 1;
+
             foxAnimator.SetInteger("jumpCount", jumpCount);
             foxAnimator.SetBool("isSquashing", isSquashing);
 
@@ -386,17 +389,6 @@ namespace HorrorFox.Fox
         {
             if (movementMode == MovementMode.transitioning)//ei tehd‰ mit‰‰n, kun ollaan menossa uuteen sceneen...
                 return;
-
-            /*
-            if (!isItReallyGrounded())
-            {
-                isGrounded = false;
-                jumpCount = 0;
-                foxAnimator.Play(fly);
-                return;
-
-            }*/
-            
 
             if (enabled)
             {
