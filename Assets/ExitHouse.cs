@@ -24,7 +24,7 @@ namespace HorrorFox
         {
             if (other.CompareTag("fox"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene("exit Animaatio");
             }
         }
     }

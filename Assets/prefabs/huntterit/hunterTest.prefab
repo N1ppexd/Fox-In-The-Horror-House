@@ -4932,7 +4932,7 @@ MonoBehaviour:
   seekPlayer: 1
   footStepAudio: {fileID: 4801126055607083992}
   isLeaving: 0
-  grabDistance: 0.2
+  grabDistance: 0.3
   hasBeenGrabbed: 0
 --- !u!114 &4915622270902799932
 MonoBehaviour:
