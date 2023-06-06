@@ -43,6 +43,7 @@ namespace HorrorFox.UI
         // MENNÄÄN MAINMENUUN
         public void MainMenu()
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene(0); //tälleen noppeeta vaan nytte.
         }
 

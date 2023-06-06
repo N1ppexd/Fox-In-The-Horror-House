@@ -22,7 +22,6 @@ namespace HorrorFox.Fox.Animation
             foxMovement.isJumping = true;           //laitetaan isJUmping trueksi, koska hyp‰t‰‰n..
             foxMovement.currentJumpDuration = 0;
             foxMovement.jumpCount = 0;
-            foxMovement.startJump = false;
         }
     }
 }

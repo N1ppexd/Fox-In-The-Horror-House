@@ -31,7 +31,7 @@ namespace HorrorFox.Fox
         [HideInInspector] public bool isHiding;
         [HideInInspector] public bool isSeen; //kun kettu n‰hd‰‰n...
         [HideInInspector] public bool isStopped;
-        [HideInInspector] public bool isJumping;//Isjumping on true, kun painetaan hyppy nappia pohjassa.
+        public bool isJumping;//Isjumping on true, kun painetaan hyppy nappia pohjassa.
 
         private bool waitToSquashBackUp; //isUnderbed on kun ollaan s‰ngyn alla, waitTOSquashBackUp on kun ei paineta squash nappia kun ollaan s‰ngyn alla
 
@@ -50,8 +50,6 @@ namespace HorrorFox.Fox
         [SerializeField] private float maxRunCoolDown; //aika sekunneissa, kuinka kauan menee ett‰ voi juosta taas....
 
 
-        private bool isRunning;//isRunning on true, kun painetaan shifti‰ pohjassa. 
-        private float currentRunDuration, currentRunCoolDown;
         [HideInInspector] public float currentJumpDuration;
         public int jumpCount;//k‰ytet‰‰n hyppyyn...
 
@@ -229,7 +227,7 @@ namespace HorrorFox.Fox
                     walkAudio.Stop();
             }
             
-            rb.velocity = RunSpeed(isRunning);
+            rb.velocity = RunSpeed();
         }
 
         void Update() //joka frame juttuja tehd‰‰n...
@@ -298,8 +296,6 @@ namespace HorrorFox.Fox
             Vector3 velocityVector = new Vector3(rb.velocity.x, jumpVector.y, rb.velocity.z);
             rb.velocity = velocityVector;
         }
-
-        public bool startJump;
         private void FoxJump(bool enable)
         {
             
@@ -312,18 +308,14 @@ namespace HorrorFox.Fox
                 isJumping = false;
                 return;
             }
-            if (!isGrounded)
-                return;
 
             if (foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(jump) || foxAnimator.GetCurrentAnimatorStateInfo(0).IsName(fly))
                 return;
 
-            if (startJump || isJumping || jumpCount == 0)
+            if (isJumping || jumpCount == 0)
                 return;
 
             foxAnimator.Play(jump); //hyppy animaatio...
-
-            startJump = true;
 
             jumpAudio.Play();
 
@@ -365,7 +357,7 @@ namespace HorrorFox.Fox
 
         }
 
-        private Vector3 RunSpeed(bool running)
+        private Vector3 RunSpeed()
         {
             Vector3 roatatedVector = (Quaternion.Euler(body.rotation.x, body.rotation.y, body.rotation.z) * movementAxis);
 

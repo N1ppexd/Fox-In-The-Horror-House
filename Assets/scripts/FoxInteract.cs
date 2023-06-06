@@ -281,25 +281,28 @@ namespace HorrorFox.Fox.Keys
 
 
                 dragObjScript.isBeingDragged = false;
+
+                dragObj.GetComponent<Rigidbody>().mass = originalMass;
+
+                joint.connectedBody = null;
+
+                joint.xMotion = ConfigurableJointMotion.Free;
+                joint.yMotion = ConfigurableJointMotion.Free;
+                joint.zMotion = ConfigurableJointMotion.Free;
+
+                joint.angularYMotion = ConfigurableJointMotion.Free;
+
+                joint.angularXMotion = ConfigurableJointMotion.Free;
+
+                joint.angularZMotion = ConfigurableJointMotion.Free;
+
             }
             catch
             {
                 return;
             }
 
-            dragObj.GetComponent<Rigidbody>().mass = originalMass;
-
-            joint.connectedBody = null;
-
-            joint.xMotion = ConfigurableJointMotion.Free;
-            joint.yMotion = ConfigurableJointMotion.Free;
-            joint.zMotion = ConfigurableJointMotion.Free;
-
-            joint.angularYMotion = ConfigurableJointMotion.Free;
-
-            joint.angularXMotion = ConfigurableJointMotion.Free;
-
-            joint.angularZMotion = ConfigurableJointMotion.Free;
+            
 
 
             //Destroy(joint);
